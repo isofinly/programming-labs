@@ -34,7 +34,7 @@ public static void third_task() {
         for (int j = 0; j < 16; j++) {
             if (single_dim_array_d[i] == 15) {
                 two_dim_array[i][j] = Math.pow((Math.pow((Math.tan(single_dim_array_x[j]) / 4),3)),
-                        (0.5 * ((Math.pow((0.75 + Math.tan(single_dim_array_x[j])), 2)) - 4)));
+                        (0.5f * ((Math.pow((0.75f + Math.tan(single_dim_array_x[j])), 2)) - 4)));
             } else if (single_dim_array_d[i] == 7 || single_dim_array_d[i] == 9
                     || single_dim_array_d[i] == 11 || single_dim_array_d[i] == 13) {
                 two_dim_array[i][j] = Math.sin(Math.sin(Math.tan(single_dim_array_x[j])));
