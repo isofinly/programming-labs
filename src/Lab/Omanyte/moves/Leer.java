@@ -15,7 +15,7 @@ public class Leer extends StatusMove {
     }
 
     @Override
-    public String describe() {
+    protected String describe() {
         return "uses Leer (foe loses 1 defense)";
     }
 }

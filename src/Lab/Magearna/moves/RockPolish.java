@@ -12,7 +12,7 @@ public class RockPolish extends StatusMove {
     }
 
     @Override
-    public String describe() {
+    protected String describe() {
         return "uses Rock Polish (+2 speed)";
     }
 }

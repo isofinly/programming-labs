@@ -14,7 +14,7 @@ public class ShadowClaw extends PhysicalMove{
         }
     }
     @Override
-    public String describe() {
+    protected String describe() {
         return "uses Shadow Claw";
     }
 }
