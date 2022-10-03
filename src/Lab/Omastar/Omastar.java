@@ -1,6 +1,6 @@
 package Lab.Omastar;
 
-import Lab.Omanyte.moves.*;
+import Lab.Omastar.moves.*;
 import Lab.Omastar.moves.StoneEdge;
 import ru.ifmo.se.pokemon.*;
 
