@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Lab.Seedot.moves</OriginalElement>
+  <nodes>
+    <node x="525.5684787634754" y="-244.98101085188313">Lab.Nuzleaf.moves.DoubleTeam</node>
+    <node x="-1049.8631621632865" y="559.8920495397479">Lab.Omanyte.moves.Leer</node>
+    <node x="525.5684787634754" y="-371.60708193472794">Lab.Nuzleaf.moves.Growth</node>
+    <node x="525.5684787634754" y="353.1531402015075">Lab.Magearna.moves.PsychoCut</node>
+    <node x="158.5599657206992" y="493.82167805857694">Lab.Shiftry.Shiftry</node>
+    <node x="-437.5408614875698" y="404.54458624490945">ru.ifmo.se.pokemon.Pokemon</node>
+    <node x="665.7244432035448" y="604.0020708150627">Lab.Shiftry.moves.Growth</node>
+    <node x="58.95913851243017" y="-371.60708193472794">Lab.Omastar.moves.Constrict</node>
+    <node x="525.5684787634754" y="-12.5">Lab.Magearna.moves.RockPolish</node>
+    <node x="-1049.8631621632865" y="418.6264868686185">Lab.Omanyte.moves.Constrict</node>
+    <node x="158.5599657206992" y="96.56164338075308">Lab.Magearna.Magearna</node>
+    <node x="-211.04086148756983" y="-371.60708193472794">Lab.Omastar.moves.Blizzard</node>
+    <node x="664.7244432035448" y="714.1824635715484">Lab.Shiftry.moves.EnergyBall</node>
+    <node x="-481.0408614875698" y="-371.60708193472794">Lab.Omastar.moves.Leer</node>
+    <node x="-340.5408614875698" y="151.76420002677798">Lab.Main</node>
+    <node x="-813.0408614875698" y="-371.60708193472794">Lab.Omastar.moves.StoneEdge</node>
+    <node x="665.7244432035448" y="493.82167805857694">Lab.Shiftry.moves.DoubleTeam</node>
+    <node x="524.5684787634754" y="-498.23315301757276">Lab.Nuzleaf.moves.EnergyBall</node>
+    <node x="525.5684787634754" y="103.30354096736397">Lab.Magearna.moves.ShadowClaw</node>
+    <node x="665.7244432035448" y="828.9349850617564">Lab.Shiftry.moves.NastyPlot</node>
+    <node x="-1013.4914970022139" y="-62.4780124786611">Lab.Seedot.moves.DoubleTeam</node>
+    <node x="-308.0408614875698" y="-220.60708193472794">Lab.Omastar.Omastar</node>
+    <node x="-668.0408614875698" y="132.6674758560669">Lab.Seedot.Seedot</node>
+    <node x="-1049.8631621632865" y="277.36092419748906">Lab.Omanyte.moves.Blizzard</node>
+    <node x="158.5599657206992" y="-116.5314107447698">Lab.Nuzleaf.Nuzleaf</node>
+    <node x="-679.0408614875698" y="300.86092419748906">Lab.Omanyte.Omanyte</node>
+    <node x="-1014.4914970022139" y="57.953689376669445">Lab.Seedot.moves.EnergyBall</node>
+    <node x="525.5684787634754" y="246.3547439665271">Lab.Magearna.moves.PowerGem</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Lab.Main" target="Lab.Magearna.Magearna" relationship="CREATE">
+      <point x="121.52351597359723" y="13.012308012847711" />
+      <point x="240.33846182025206" y="226.7765080396257" />
+      <point x="-10.221503900447146" y="27.352371360668883" />
+    </edge>
+    <edge source="Lab.Nuzleaf.Nuzleaf" target="Lab.Nuzleaf.moves.Growth" relationship="CREATE">
+      <point x="77.32059067632821" y="-9.54385769827627" />
+      <point x="444.09551939351275" y="-99.07526844304607" />
+      <point x="444.09551939351275" y="-321.10708193472794" />
+      <point x="649.5684787634754" y="-321.10708193472794" />
+      <point x="0.0" y="50.5" />
+    </edge>
+    <edge source="Lab.Magearna.Magearna" target="Lab.Magearna.moves.ShadowClaw" relationship="CREATE">
+      <point x="91.68712965670619" y="-9.992808970711849" />
+      <point x="532.8221906429734" y="113.56883441004123" />
+      <point x="532.8221906429734" y="159.29251153138068" />
+      <point x="830.0684787634754" y="159.29251153138068" />
+      <point x="148.5" y="50.5" />
+    </edge>
+    <edge source="Lab.Omanyte.Omanyte" target="ru.ifmo.se.pokemon.Pokemon" relationship="GENERALIZATION">
+      <point x="88.99986148756983" y="7.580251093486368E-5" />
+      <point x="-469.0" y="327.861" />
+      <point x="-469.0" y="743.544381442678" />
+      <point x="-216.50013851243017" y="-2.0480223145113996E-4" />
+    </edge>
+    <edge source="Lab.Main" target="Lab.Nuzleaf.Nuzleaf" relationship="CREATE">
+      <point x="111.47796485031694" y="-4.56740645289284" />
+      <point x="-113.13831053986465" y="209.19679357388515" />
+      <point x="-113.13831053986465" y="17.01511631799164" />
+      <point x="240.98590070041917" y="17.01511631799164" />
+      <point x="-2.5740650202800452" y="-2.7339141014276436" />
+    </edge>
+    <edge source="Lab.Omastar.Omastar" target="Lab.Omastar.moves.Leer" relationship="CREATE">
+      <point x="-17.5" y="-27.0" />
+      <point x="117.5" y="50.5" />
+    </edge>
+    <edge source="Lab.Magearna.Magearna" target="Lab.Magearna.moves.PowerGem" relationship="CREATE">
+      <point x="-92.0" y="0.0" />
+      <point x="444.09551939351275" y="123.56164338075308" />
+      <point x="444.09551939351275" y="278.97817342928863" />
+      <point x="637.5684787634754" y="278.97817342928863" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="Lab.Seedot.Seedot" target="ru.ifmo.se.pokemon.Pokemon" relationship="GENERALIZATION">
+      <point x="83.49986148756983" y="-4.758560668847167E-4" />
+      <point x="-469.0" y="159.667" />
+      <point x="-469.0" y="743.544381442678" />
+      <point x="-216.50013851243017" y="-2.0480223145113996E-4" />
+    </edge>
+    <edge source="Lab.Omanyte.Omanyte" target="Lab.Omanyte.moves.Blizzard" relationship="CREATE">
+      <point x="-89.0" y="0.0" />
+      <point x="-800.6069880020391" y="327.86092419748906" />
+      <point x="-800.6069880020391" y="328.2673545382328" />
+      <point x="80.85921989571057" y="0.4064303407437251" />
+    </edge>
+    <edge source="Lab.Omanyte.Omanyte" target="Lab.Omanyte.moves.Constrict" relationship="CREATE">
+      <point x="5.794117647059011" y="-27.0" />
+      <point x="-584.2467438405108" y="447.6801848073633" />
+      <point x="-846.3665275265223" y="447.6801848073633" />
+      <point x="78.49663463676416" y="42.79045622560102" />
+    </edge>
+    <edge source="Lab.Main" target="Lab.Omastar.Omastar" relationship="CREATE">
+      <point x="119.5" y="0.0" />
+      <point x="-221.04086148756983" y="213.76420002677798" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="Lab.Shiftry.Shiftry" target="Lab.Shiftry.moves.NastyPlot" relationship="CREATE">
+      <point x="67.77176511596639" y="8.741035338565894" />
+      <point x="416.76380863795276" y="529.5627133971428" />
+      <point x="416.76380863795276" y="879.4349850617564" />
+      <point x="789.7244432035448" y="879.4349850617564" />
+      <point x="-0.0" y="50.5" />
+    </edge>
+    <edge source="Lab.Main" target="Lab.Seedot.Seedot" relationship="CREATE">
+      <point x="119.5" y="15.0" />
+      <point x="-584.5408614875698" y="228.76420002677798" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="Lab.Main" target="Lab.Shiftry.Shiftry" relationship="CREATE">
+      <point x="-33.0" y="-62.0" />
+      <point x="-254.04086148756983" y="269.60073051046004" />
+      <point x="240.0599657206992" y="269.60073051046004" />
+      <point x="-0.0" y="27.0" />
+    </edge>
+    <edge source="Lab.Omastar.Omastar" target="Lab.Omastar.moves.Blizzard" relationship="CREATE">
+      <point x="17.5" y="-27.0" />
+      <point x="-117.5" y="50.5" />
+    </edge>
+    <edge source="Lab.Shiftry.Shiftry" target="Lab.Shiftry.moves.Growth" relationship="CREATE">
+      <point x="62.9465729550231" y="-6.826602898746046" />
+      <point x="472.0055145726808" y="513.9950751598309" />
+      <point x="472.0055145726808" y="654.5020708150627" />
+      <point x="669.5131062271873" y="654.5020708150627" />
+      <point x="-120.21133697635742" y="-4.146487243516162" />
+    </edge>
+    <edge source="Lab.Omanyte.Omanyte" target="Lab.Omanyte.moves.Leer" relationship="CREATE">
+      <point x="25.61685279217545" y="18.38560174794435" />
+      <point x="-564.4240086953944" y="586.8477890945596" />
+      <point x="-924.8631621632865" y="586.8477890945596" />
+      <point x="0.0" y="50.5" />
+    </edge>
+    <edge source="Lab.Omastar.Omastar" target="Lab.Omastar.moves.Constrict" relationship="CREATE">
+      <point x="87.0" y="0.0" />
+      <point x="183.95913851243017" y="-193.60708193472794" />
+      <point x="0.0" y="50.5" />
+    </edge>
+    <edge source="Lab.Shiftry.Shiftry" target="Lab.Shiftry.moves.DoubleTeam" relationship="CREATE">
+      <point x="81.58577914079734" y="-14.674689713808675" />
+      <point x="493.642204462122" y="506.14698834476826" />
+      <point x="493.642204462122" y="544.3216780585769" />
+      <point x="789.7244432035448" y="544.3216780585769" />
+      <point x="-0.0" y="50.5" />
+    </edge>
+    <edge source="Lab.Main" target="Lab.Omanyte.Omanyte" relationship="CREATE">
+      <point x="119.5" y="30.0" />
+      <point x="-583.4556192219185" y="243.76420002677798" />
+      <point x="6.585242265651345" y="-0.29176347849357853" />
+    </edge>
+    <edge source="Lab.Seedot.Seedot" target="Lab.Seedot.moves.DoubleTeam" relationship="CREATE">
+      <point x="18.0" y="-27.0" />
+      <point x="-566.5408614875698" y="-12.129243873077058" />
+      <point x="108.82283764857516" y="-0.15123139441595868" />
+    </edge>
+    <edge source="Lab.Omastar.Omastar" target="ru.ifmo.se.pokemon.Pokemon" relationship="GENERALIZATION">
+      <point x="-87.00013851243017" y="-14.999918065272055" />
+      <point x="-469.0" y="-208.607" />
+      <point x="-469.0" y="743.544381442678" />
+      <point x="-216.50013851243017" y="-2.0480223145113996E-4" />
+    </edge>
+    <edge source="Lab.Shiftry.Shiftry" target="ru.ifmo.se.pokemon.Pokemon" relationship="GENERALIZATION">
+      <point x="-81.49996572069921" y="3.2194142306707363E-4" />
+      <point x="78.0" y="520.822" />
+      <point x="78.0" y="312.861" />
+      <point x="-469.0" y="312.861" />
+      <point x="-469.0" y="743.544381442678" />
+      <point x="-216.50013851243017" y="-2.0480223145113996E-4" />
+    </edge>
+    <edge source="Lab.Shiftry.Shiftry" target="Lab.Shiftry.moves.EnergyBall" relationship="CREATE">
+      <point x="80.61726247608294" y="0.9062588787417099" />
+      <point x="444.09551939351275" y="521.7279369373186" />
+      <point x="444.09551939351275" y="764.6824635715484" />
+      <point x="789.7244432035448" y="764.6824635715484" />
+      <point x="-0.0" y="50.5" />
+    </edge>
+    <edge source="Lab.Magearna.Magearna" target="Lab.Magearna.moves.RockPolish" relationship="CREATE">
+      <point x="75.00994517469792" y="-12.715733583263443" />
+      <point x="325.56991089539713" y="101.27469032970707" />
+      <point x="444.09551939351275" y="101.27469032970707" />
+      <point x="444.09551939351275" y="38.0" />
+      <point x="533.0684787634754" y="38.0" />
+      <point x="-116.5" y="50.5" />
+    </edge>
+    <edge source="Lab.Seedot.Seedot" target="Lab.Seedot.moves.EnergyBall" relationship="CREATE">
+      <point x="-17.0" y="-27.0" />
+      <point x="-601.5408614875698" y="107.66747585606689" />
+      <point x="-771.9914970022139" y="107.66747585606689" />
+      <point x="117.5" y="50.5" />
+    </edge>
+    <edge source="Lab.Omastar.Omastar" target="Lab.Omastar.moves.StoneEdge" relationship="CREATE">
+      <point x="-87.0" y="0.0" />
+      <point x="-657.0408614875698" y="-193.60708193472794" />
+      <point x="0.0" y="50.5" />
+    </edge>
+    <edge source="Lab.Nuzleaf.Nuzleaf" target="Lab.Nuzleaf.moves.EnergyBall" relationship="CREATE">
+      <point x="74.1813559503031" y="-20.53117923936412" />
+      <point x="416.76380863795276" y="-110.06258998413392" />
+      <point x="416.76380863795276" y="-447.73315301757276" />
+      <point x="649.5684787634754" y="-447.73315301757276" />
+      <point x="0.0" y="50.5" />
+    </edge>
+    <edge source="Lab.Nuzleaf.Nuzleaf" target="Lab.Nuzleaf.moves.DoubleTeam" relationship="CREATE">
+      <point x="82.77387909352706" y="3.152151009869442" />
+      <point x="472.0055145726808" y="-86.37925973490036" />
+      <point x="472.0055145726808" y="-193.60708193472794" />
+      <point x="649.5684787634754" y="-193.60708193472794" />
+      <point x="0.0" y="50.5" />
+    </edge>
+    <edge source="Lab.Magearna.Magearna" target="Lab.Magearna.moves.PsychoCut" relationship="CREATE">
+      <point x="88.74409710105772" y="23.581667936401857" />
+      <point x="339.30406282175693" y="135.16433478158996" />
+      <point x="416.76380863795276" y="135.16433478158996" />
+      <point x="416.76380863795276" y="404.1528058912133" />
+      <point x="-144.2289815356936" y="0.4996656897058074" />
+    </edge>
+    <edge source="Lab.Nuzleaf.Nuzleaf" target="ru.ifmo.se.pokemon.Pokemon" relationship="GENERALIZATION">
+      <point x="-84.99996572069921" y="4.1074476980096364E-4" />
+      <point x="78.0" y="-89.531" />
+      <point x="78.0" y="312.861" />
+      <point x="-469.0" y="312.861" />
+      <point x="-469.0" y="743.544381442678" />
+      <point x="-216.50013851243017" y="-2.0480223145113996E-4" />
+    </edge>
+    <edge source="Lab.Magearna.Magearna" target="ru.ifmo.se.pokemon.Pokemon" relationship="GENERALIZATION">
+      <point x="-91.99996572069921" y="-14.99964338075307" />
+      <point x="78.0" y="108.56200000000001" />
+      <point x="78.0" y="312.861" />
+      <point x="-469.0" y="312.861" />
+      <point x="-469.0" y="743.544381442678" />
+      <point x="-216.50013851243017" y="-2.0480223145113996E-4" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0193567156578456" showDependencies="true" x="-594.8353451037626" y="108.51270699916358" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
