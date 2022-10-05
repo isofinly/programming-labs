@@ -1,0 +1,193 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Blizzard {
+  + Blizzard(double, double): 
+  # describe(): String
+  # applyOppEffects(Pokemon): void
+}
+class Blizzard {
+  + Blizzard(double, double): 
+  # applyOppEffects(Pokemon): void
+  # describe(): String
+}
+class Constrict {
+  + Constrict(double, double): 
+  # describe(): String
+  # applyOppEffects(Pokemon): void
+}
+class Constrict {
+  + Constrict(double, double): 
+  # applyOppEffects(Pokemon): void
+  # describe(): String
+}
+class DoubleTeam {
+  + DoubleTeam(double, double): 
+  # applySelfEffects(Pokemon): void
+  # describe(): String
+}
+class DoubleTeam {
+  + DoubleTeam(double, double): 
+  # applySelfEffects(Pokemon): void
+  # describe(): String
+}
+class DoubleTeam {
+  + DoubleTeam(double, double): 
+  # describe(): String
+  # applySelfEffects(Pokemon): void
+}
+class EnergyBall {
+  + EnergyBall(double, double): 
+  # applyOppEffects(Pokemon): void
+  # describe(): String
+}
+class EnergyBall {
+  + EnergyBall(double, double): 
+  # applyOppEffects(Pokemon): void
+  # describe(): String
+}
+class EnergyBall {
+  + EnergyBall(double, double): 
+  # applyOppEffects(Pokemon): void
+  # describe(): String
+}
+class Growth {
+  + Growth(double, double): 
+  # applySelfEffects(Pokemon): void
+  # describe(): String
+}
+class Growth {
+  + Growth(double, double): 
+  # describe(): String
+  # applySelfEffects(Pokemon): void
+}
+class Leer {
+  + Leer(double, double): 
+  # applyOppEffects(Pokemon): void
+  # describe(): String
+}
+class Leer {
+  + Leer(double, double): 
+  # applyOppEffects(Pokemon): void
+  # describe(): String
+}
+class Magearna {
+  + Magearna(String, int): 
+}
+class Main {
+  + Main(): 
+  + aboba(): void
+  + chanceCheck(double): boolean
+  + main(String[]): void
+}
+class NastyPlot {
+  + NastyPlot(double, double): 
+  # describe(): String
+  # applySelfEffects(Pokemon): void
+}
+class Nuzleaf {
+  + Nuzleaf(String, int): 
+}
+class Omanyte {
+  + Omanyte(String, int): 
+}
+class Omastar {
+  + Omastar(String, int): 
+}
+class Pokemon {
+  + Pokemon(): 
+  + Pokemon(String, int): 
+  - types: List<Type>
+  - level: int
+  - preparedMove: Move
+  - condition: Effect
+  + hasType(Type?): boolean
+  + restore(): void
+  + turn(): void
+  + setMod(Stat, int): void
+  # addType(Type): void
+  + addEffect(Effect): void
+  + toString(): String
+  + setStats(double, double, double, double, double, double): void
+  + confuse(): void
+  # addMove(Move): void
+  + prepareMove(): void
+  + getStat(Stat): double
+  + attack(Pokemon): boolean
+   attackChance: double
+   condition: Status
+   alive: boolean
+   types: Type[]
+   move: Move[]
+   level: int
+   HP: double
+   preparedMove: Move
+   type: Type[]
+}
+class PowerGem {
+  + PowerGem(double, double): 
+  # describe(): String
+}
+class PsychoCut {
+  + PsychoCut(double, double): 
+  # calcCriticalHit(Pokemon, Pokemon): double
+  # describe(): String
+}
+class RockPolish {
+  + RockPolish(double, double): 
+  # applySelfEffects(Pokemon): void
+  # describe(): String
+}
+class Seedot {
+  + Seedot(String, int): 
+}
+class ShadowClaw {
+  + ShadowClaw(double, double): 
+  # calcCriticalHit(Pokemon, Pokemon): double
+  # describe(): String
+}
+class Shiftry {
+  + Shiftry(String, int): 
+}
+class StoneEdge {
+  + StoneEdge(double, double): 
+  # calcCriticalHit(Pokemon, Pokemon): double
+  # describe(): String
+}
+
+Magearna    -[#000082,plain]-^  Pokemon    
+Magearna    -[#595959,dashed]->  PowerGem   : "«create»"
+Magearna    -[#595959,dashed]->  PsychoCut  : "«create»"
+Magearna    -[#595959,dashed]->  RockPolish : "«create»"
+Magearna    -[#595959,dashed]->  ShadowClaw : "«create»"
+Main        -[#595959,dashed]->  Magearna   : "«create»"
+Main        -[#595959,dashed]->  Nuzleaf    : "«create»"
+Main        -[#595959,dashed]->  Omanyte    : "«create»"
+Main        -[#595959,dashed]->  Omastar    : "«create»"
+Main        -[#595959,dashed]->  Seedot     : "«create»"
+Main        -[#595959,dashed]->  Shiftry    : "«create»"
+Nuzleaf     -[#595959,dashed]->  DoubleTeam : "«create»"
+Nuzleaf     -[#595959,dashed]->  EnergyBall : "«create»"
+Nuzleaf     -[#595959,dashed]->  Growth     : "«create»"
+Nuzleaf     -[#000082,plain]-^  Pokemon    
+Omanyte     -[#595959,dashed]->  Blizzard   : "«create»"
+Omanyte     -[#595959,dashed]->  Constrict  : "«create»"
+Omanyte     -[#595959,dashed]->  Leer       : "«create»"
+Omanyte     -[#000082,plain]-^  Pokemon    
+Omastar     -[#595959,dashed]->  Blizzard   : "«create»"
+Omastar     -[#595959,dashed]->  Constrict  : "«create»"
+Omastar     -[#595959,dashed]->  Leer       : "«create»"
+Omastar     -[#000082,plain]-^  Pokemon    
+Omastar     -[#595959,dashed]->  StoneEdge  : "«create»"
+Seedot      -[#595959,dashed]->  DoubleTeam : "«create»"
+Seedot      -[#595959,dashed]->  EnergyBall : "«create»"
+Seedot      -[#000082,plain]-^  Pokemon    
+Shiftry     -[#595959,dashed]->  DoubleTeam : "«create»"
+Shiftry     -[#595959,dashed]->  EnergyBall : "«create»"
+Shiftry     -[#595959,dashed]->  Growth     : "«create»"
+Shiftry     -[#595959,dashed]->  NastyPlot  : "«create»"
+Shiftry     -[#000082,plain]-^  Pokemon    
+@enduml
