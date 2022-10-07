@@ -44,7 +44,7 @@ public static void third_task() {
             }
 //            if (two_dim_array[i][j] != (1.0 / 0.0) & two_dim_array[i][j] != (-1.0 / 0.0) & (
 //                    two_dim_array[i][j] > 0 || two_dim_array[i][j] <= 0)) {
-                System.out.printf("%.2f ", two_dim_array[i][j]);
+                System.out.printf("%4.2e ", two_dim_array[i][j]);
 //            }
         }
     }
