@@ -1,4 +1,5 @@
-package Lab3.Interfaces;
+package Lab3.Interfaces;//import Lab3.Persons.Mood;
+//import Lab3.Persons.PersonState;
 
 import Lab3.Persons.Mood;
 import Lab3.Persons.PersonState;

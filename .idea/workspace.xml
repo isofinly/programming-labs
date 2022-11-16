@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e55f0a86-4f36-440f-b5fd-9cdbd5274c1f" name="Changes" comment="" />
+    <list default="true" id="e55f0a86-4f36-440f-b5fd-9cdbd5274c1f" name="Changes" comment="cringe lab 3 is done i guess idk mb jk">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Lab3/Interfaces/Interface_1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lab3/Interfaces/Interface_1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Lab3/Lab3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lab3/Lab3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Lab3/Persons/Mood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lab3/Persons/Mood.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Lab3/Persons/PersonState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lab3/Persons/PersonState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Lab3/Persons/Policeman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lab3/Persons/Policeman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Lab3/Persons/Steklyashkin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lab3/Persons/Steklyashkin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Lab3/Persons/Znayika.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lab3/Persons/Znayika.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2HXIEMSPJeasfsBFfdFanZqT8eT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -18,9 +37,29 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/isofinly/IdeaProjects/prog3/src"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/lab3/person" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Lab3.Objects" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Lab3.Lab3" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Lab3.Lab3" />
+      <module name="prog3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -29,8 +68,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668424889283</updated>
+      <workItem from="1668424890860" duration="21069000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -42,5 +85,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="cringe lab 3 is done i guess idk mb jk" />
+    <option name="LAST_COMMIT_MESSAGE" value="cringe lab 3 is done i guess idk mb jk" />
   </component>
 </project>

@@ -6,5 +6,6 @@ public enum Mood {
     NEUTRAL,
     FURIOUS,
     CURIOUS,
-    ANGY
+    ANGY,
+    CHASTE
 }
