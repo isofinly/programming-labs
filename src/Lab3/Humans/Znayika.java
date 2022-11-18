@@ -1,6 +1,10 @@
-package Lab3.Persons;
+package Lab3.Humans;
 
 import Lab3.Objects.Book;
+import Lab3.Persons.Mood;
+import Lab3.Persons.*;
+
+
 public final class Znayika extends Person {
     private Book Book;
     public Znayika(Mood mood, PersonState state) {

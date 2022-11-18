@@ -1,6 +1,8 @@
-package Lab3.Persons;
+package Lab3.Humans;
 
 import Lab3.Objects.Telescope;
+import Lab3.Persons.*;
+
 
 public class Steklyashkin extends Person {
     public Steklyashkin(Mood mood, PersonState state) {

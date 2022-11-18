@@ -1,4 +1,6 @@
-package Lab3.Persons;
+package Lab3.Humans;
+
+import Lab3.Persons.*;
 
 import java.util.Arrays;
 

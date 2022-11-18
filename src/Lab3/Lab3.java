@@ -1,5 +1,6 @@
 package Lab3;
 
+import Lab3.Humans.*;
 import Lab3.Objects.*;
 import Lab3.Persons.*;
 
