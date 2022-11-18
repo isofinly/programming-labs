@@ -18,6 +18,7 @@ public enum PersonState {
     PersonState(String status) {
         Status = status;
     }
+    @Override
     public final String toString() {
         return this.Status;
     }

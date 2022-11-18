@@ -46,7 +46,6 @@ public abstract class Person implements Interface_1 {
     }
 
 
-
     public final void wakeUp() {
         if (State == PersonState.SLEEP) {
             State = PersonState.STAND;
