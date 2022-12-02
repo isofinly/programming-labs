@@ -1,7 +1,18 @@
+// package interfaces;
+
+// import place.TypeOfPlaces;
+
+// public interface Walking {
+//     void walk(TypeOfPlaces typeOfPlaces);
+// }
+
+
 package interfaces;
 
 import place.TypeOfPlaces;
 
 public interface Walking {
-    void walk(Object name, TypeOfPlaces typeOfPlaces);
+    default void walk(Object name, TypeOfPlaces typeOfPlaces){
+
+    };
 }

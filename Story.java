@@ -12,6 +12,7 @@ import java.util.Scanner;
  * TO DO 
  * Make intentions or reuse emotions from MainCharacters
  * Add neznaika
+ * Add rocket 
  * Make steklyashkin 
  * Make steklyashkin look at the midgets
  * Make police
@@ -22,42 +23,53 @@ import java.util.Scanner;
 
 public class Story {
     public static void main(String[] args) throws Exception {
+        
+        String zapominalka = "";
         Megaphone megaphone = new Megaphone("Megaphone", 30);
         
         AnotherMidget midgetMeetingTeam = new AnotherMidget(2, Planets.MOON,TypeOfPlaces.INDISTANCE);
         AnotherMidget midget = new AnotherMidget(3,Planets.MOON,TypeOfPlaces.PLAINS);
         
         midgetMeetingTeam.walk(TypeOfPlaces.SQUARE);
+        
+        zapominalka = midget.see(megaphone);
+        midget.talk(zapominalka);
+        
         midgetMeetingTeam.callMidgets(TypeOfPlaces.PLAINS, AnotherMidget.midgetCreatedAmount);
 
         midget.walk(TypeOfPlaces.BUNCHES);
+        
+        // System.out.println("Enter names of objects MainCharacters:");
+        // Scanner scanner = new Scanner(System.in);
+        // String policeman_1_name = scanner.nextLine();
+        // String policeman_2_name = scanner.nextLine();
 
-        System.out.println("Enter names of objects MainCharacters:");
-        Scanner scanner = new Scanner(System.in);
-        String neznaykaName = scanner.nextLine();
-        String fixName = scanner.nextLine();
+        MainPoliceCharacter policeman_1 = new MainPoliceCharacter("Zurab", Planets.EARTH, TypeOfPlaces.ROCKET_PLACE);
+        MainPoliceCharacter policeman_2 = new MainPoliceCharacter("Levanovich", Planets.EARTH, TypeOfPlaces.ROCKET_PLACE);
 
-        MainCharacters neznayka = new MainCharacters(neznaykaName, Planets.EARTH, TypeOfPlaces.PLAINS);
-        MainCharacters fix = new MainCharacters(fixName, Planets.EARTH, TypeOfPlaces.PLAINS);
+        Rocket rocket = new Rocket("Rocket", 10.0);
+        rocket.ascend(rocket, 0, Planets.EARTH);
 
         Home home = new Home("Aboba home", Planets.EARTH);
 
-        midgetMeetingTeam.hit(neznaykaName, home);
+        midgetMeetingTeam.punch(home);
 
-        midget.see(midget,neznayka);
-        midget.talk();
+        // if midget wants to talk before he or she sees something then there's nothing to talk about
+        zapominalka = midget.see(policeman_1);
+        midget.talk(zapominalka);
 
-        Stick stick = new Stick("stick ");
-        fix.setActiveItem(stick);
-        fix.hit(fix,neznayka);
+        Stick stick = new Stick("Dubinka ");
 
-        neznayka.walk(TypeOfPlaces.HILL);
-        fix.walk(TypeOfPlaces.HILL);
+        policeman_2.setActiveItem(stick);
+        policeman_2.hit(midget);
 
+        // MainCharacters.walk(policeman_2.getName(),TypeOfPlaces.HILL);
 
-        DetailedMidget klops = new DetailedMidget("Clops",100, " with pink ","bald ", "shmoll", false, "naked", Planets.MOON,TypeOfPlaces.VERANDA);
+        policeman_2.walk(TypeOfPlaces.HILL);
+        policeman_1.getName();
 
-        klops.sit(TypeOfPlaces.VERANDA);
+        // DetailedMidget klops = new DetailedMidget("Clops",100, " with pink ","bald ", "shmoll", false, "naked", Planets.MOON,TypeOfPlaces.VERANDA);
+        // klops.sit(TypeOfPlaces.VERANDA);
         //System.out.println(klops);
     }
 }

@@ -1,6 +1,6 @@
 package characters;
 
-import exceptions.MidgetAmountException;
+import exceptions.*;
 import interfaces.*;
 import planets.*;
 import place.*;
@@ -25,13 +25,23 @@ public abstract class Midget implements Looking, Walking {
         return typeOfPlace;
     }
 
-    public void hit(Object hitter,Object hitted) {
+    // public void hit(Object hitted) {
+        
+    // }
+
+    public void walk(TypeOfPlaces typeOfPlaces ) {
+    };
+
+    public void callMidgets(TypeOfPlaces typeOfPlaces, int midgetAmount) throws MidgetAmountException {
+
     }
 
-    public void walk(TypeOfPlaces typeOfPlaces){}
+    public String see(Object object){
+        return null;
+        // return "Nothing interesting";
+    };
 
-    public void callMidgets(TypeOfPlaces typeOfPlaces, int midgetAmount) throws MidgetAmountException {}
+    public void talk(Object object){
 
-    public void see(Object object){}
-
+    }
 }

@@ -7,73 +7,66 @@ import place.*;
 import planets.*;
 
 
-public class AnotherMidget extends Midget implements Looking, Talkable {
+public class AnotherMidget extends Midget implements Talkable, Looking, Walking, Punchable{
+
     public static int midgetCreatedAmount;
-    boolean saw;
-    boolean shout;
+    private boolean saw;
+    private boolean shout;
     private Stick activeItem;
     private int power;
     private int midgetAmount;
-    public AnotherMidget(int power, Planets planets, TypeOfPlaces places) {
-        super(planets);
-        this.power = power;
-        System.out.println("midget with power " + power + " appeared " +  " and on planet " + planets + " and in place " + places);
-        midgetCreatedAmount++;
-    }
+    
     public static int counter(){
         return midgetCreatedAmount;
     }
 
-    @Override
-    public void hit(Object hitter,Object hitted) {
-        if ( activeItem != null) {
-            System.out.println(hitter + " hit " + activeItem.getName() + hitted );
-        } else{
-        System.out.printf( "%s hit %s \n",hitter,hitted);
-        }
+    public AnotherMidget(int power, Planets planets, TypeOfPlaces places) {
+        super(planets);
+        this.power = power;
+        System.out.println("midget with power " + power + " appeared on planet " + planets + " and in place " + places);
+        midgetCreatedAmount++;
     }
 
     @Override
-    public void see(Object name,Object object) {
-        if (object.getClass() == MainCharacters.class ) {
+    public void punch(Object punched) {
+        if ( activeItem == null) {
+            System.out.println( toString() + " hit with bare hands "  + punched );
+        }
+    }
+
+    
+    @Override
+    public String see(Object object) {
+        if (object.getClass() != null ) {
             // one of the midgets saw Neznayka and Fix
-            System.out.println(" one of the midgets saw " + name);
+            System.out.println("One of the midgets saw " + object.getClass().getSimpleName());
             this.saw = true;
-        } else if (object.getClass() == Midget.class){
-            // one of the midgets saw another midget
-            System.out.println(" one of the midgets saw another midget");
-            this.saw = true;
-        } else if (object.getClass() == Megaphone.class){
-            // one of the midgets saw megaphone
-            System.out.println(" one of the midgets saw megaphone");
-            this.saw = true;
-        } else if (object.getClass() == Stick.class){
-            // one of the midgets saw stick
-            System.out.println(" one of the midgets saw stick");
-            this.saw = true;
+            return object.getClass().getSimpleName();
         } 
         else {
             //Коротышка не увидел ничего интересного
-            System.out.println(" one of the midgets saw anybody else ");
+            System.out.println("One of the midgets did not saw anybody else ");
             this.saw = false; 
+            return null;
         }
     }
-
+    
     @Override
-    public void talk() {
-        if (saw == true) {
-            System.out.println("Mdiget shout");
+    public void talk(Object object) {
+        if (saw) {
+            System.out.println("Mdiget shout that he(she) saw " + object + " with name " + object);
             shout = true;
         } else {
-            System.out.println("Nothing interesting");
+            System.out.println("Nothing interesting to talk about");
             shout = false;
         }
     }
 
-    @Override
-    public void walk(Object name, TypeOfPlaces typeOfPlaces) {
-        System.out.println("Midgets are crawling inbetween " + typeOfPlaces.getName());
-    }
+    // @Override
+    // public void walk(TypeOfPlaces typeOfPlaces) {
+    //     this.typeOfPlace = typeOfPlaces;
+    //     System.out.println("Midgets are crawling inbetween " + typeOfPlaces.getPlacesName());
+    // }
 
     @Override
     public void callMidgets(TypeOfPlaces places, int midgetAmount) throws MidgetAmountException{

@@ -1,7 +1,7 @@
 package Item;
 
 public abstract class Item {
-    private String name;
+    protected String name;
 
     Item(String name) {
         this.name = name;
