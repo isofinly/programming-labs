@@ -1,0 +1,112 @@
+import Item.Basket;
+import Item.Pump;
+import Item.Stick;
+import TypesOfPlants.TypeOfFlowers;
+import TypesOfPlants.TypeOfVegetables;
+import characters.*;
+import place.Home;
+import place.TypeOfPlaces;
+import planets.Planets;
+import plants.FlowerBed;
+import plants.Plants;
+import plants.VegetableGarden;
+import exceptions.*;
+
+
+import java.util.Scanner;
+
+public class Story {
+    public static void main(String[] args) {
+
+        Pump pump = new Pump(" pump ", 0);
+        AnotherShorty shortlyWorkersTeam = new AnotherShorty(2, Planets.MOON,TypeOfPlaces.INDISTANCE);
+        shortlyWorkersTeam.toWater(pump);
+
+        // class Berries{
+        //     public Plants getStawberry(){
+        //         return new Plants(TypeOfVegetables.STRAWBERRY, Planets.MOON);
+        //     }
+        // }
+        // Berries berries= new Berries();
+        // VegetableGarden vegetableGarden = new VegetableGarden();
+        // vegetableGarden.addVegetables(new Plants(TypeOfVegetables.CUCUMBER, Planets.MOON));
+        // vegetableGarden.addVegetables(new Plants(TypeOfVegetables.TOMATO, Planets.MOON));
+        // vegetableGarden.clean();
+        // vegetableGarden.isEmpty();
+
+        // VegetableGarden strawberryGarden = new VegetableGarden();
+        // strawberryGarden.addVegetables(berries.getStawberry());
+
+        AnotherShorty shorty = new AnotherShorty(3,Planets.MOON,TypeOfPlaces.PLAINS);
+
+        // Basket basket = new Basket("Cart");
+        shorty.walk(TypeOfPlaces.BUNCHES);
+        // shorty.work(basket, strawberryGarden);
+
+        System.out.println("Enter names of objects MainCharacters:");
+        Scanner scanner = new Scanner(System.in);
+        String neznaykaName = scanner.nextLine();
+        String fixName = scanner.nextLine();
+        try {
+            if(!Character.isUpperCase(neznaykaName.charAt(0))){
+                throw new FirstCharInNameException();
+            }
+        } catch (FirstCharInNameException e) {
+            neznaykaName = (Character.toUpperCase(neznaykaName.charAt(0)) + neznaykaName.substring(1, neznaykaName.length()));
+            System.out.println("Neznayka's name was entered with a lowercase letter.");
+        }
+        try {
+            if(!Character.isUpperCase(fixName.charAt(0))){
+                throw new FirstCharInNameException();
+            }
+        } catch (FirstCharInNameException e) {
+            fixName = (Character.toUpperCase(fixName.charAt(0)) + fixName.substring(1, fixName.length()));
+            System.out.println("Fix' name was entered with a lowercase letter");
+        }
+        MainCharacters neznayka = new MainCharacters(neznaykaName, Planets.MOON, TypeOfPlaces.PLAINS);
+        MainCharacters fix = new MainCharacters(fixName, Planets.MOON, TypeOfPlaces.PLAINS);
+
+        shorty.see(shorty,neznayka);
+        shorty.talk();
+        // shorty.work(basket, strawberryGarden);
+
+        Stick stick = new Stick("stick ");
+        fix.setActiveItem(stick);
+        fix.hit(fix,neznayka);
+
+        neznayka.walk(TypeOfPlaces.HILL);
+        fix.walk(TypeOfPlaces.HILL);
+
+        // //создание цветов
+        // Plants daisies = new Plants(TypeOfFlowers.DAISIES, Planets.MOON);
+        // Plants pansies = new Plants(TypeOfFlowers.PANSIES, Planets.MOON);
+        // Plants reseda = new Plants(TypeOfFlowers.RESEDA, Planets.MOON);
+        // Plants nasturtiom = new Plants(TypeOfFlowers.NASTURTIUM, Planets.MOON);
+        // Plants aster = new Plants(TypeOfFlowers.ASTER, Planets.MOON);
+        // Plants lilac = new Plants(TypeOfFlowers.LILAC, Planets.MOON);
+
+        // // добавление в клумбу
+        // FlowerBed flowerBed = new FlowerBed();
+        // flowerBed.addFlower(daisies);
+        // flowerBed.addFlower(pansies);
+        // flowerBed.addFlower(reseda);
+        // flowerBed.addFlower(nasturtiom);
+        // flowerBed.addFlower(aster);
+        // flowerBed.addFlower(lilac);
+
+        // HomeAppearance.homeWasSee(neznayka,flowerBed);
+        // MainCharacters.Emotions emotions = neznayka.new Emotions();
+        // emotions.excited(neznayka,Planets.MOON, lilac);
+
+        DetailedShorty klops = new DetailedShorty("Clops",100, " with pink ","bald ", "shmoll", false, "naked", Planets.MOON,TypeOfPlaces.VERANDA);
+
+        klops.sit(TypeOfPlaces.VERANDA);
+        //System.out.println(klops);
+    }
+    // public static class HomeAppearance{
+    //     public static void homeWasSee(MainCharacters neznayka,FlowerBed flowerBed){
+    //         Home home = new Home(2, "House", flowerBed);
+    //         neznayka.see(home);
+    //     }
+    // }
+}
