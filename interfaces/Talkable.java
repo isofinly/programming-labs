@@ -1,6 +1,6 @@
 package interfaces;
 
 public interface Talkable {
-    void talk();
-
+    default void talk(Object object){
+    };
 }

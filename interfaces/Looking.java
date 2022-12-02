@@ -1,5 +1,6 @@
 package interfaces;
 
 public interface Looking {
-    void see(Object name,Object object);
+   default String see(Object object){
+      return null;}
 }

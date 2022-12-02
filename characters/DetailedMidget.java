@@ -1,15 +1,15 @@
 package characters;
 
-import interfaces.Sitting;
+import interfaces.*;
 import place.TypeOfPlaces;
 import planets.Planets;
 
-public class DetailedMidget extends MainCharacters implements Sitting {
+public class DetailedMidget extends MainCharacters implements Sitting, Looking, Walking {
     private int weight;
     private String colorOfHead;
     private String hair;
     private String eyes;
-    boolean eyebrows;
+    private boolean eyebrows;
     private String cloths;
     private String faceView;
     private String name;
@@ -43,7 +43,7 @@ public class DetailedMidget extends MainCharacters implements Sitting {
     @Override
     public void sit(TypeOfPlaces typeOfPlaces) {
         if (typeOfPlaces == TypeOfPlaces.VERANDA)
-            System.out.println( name + " sat on " + typeOfPlaces.getName() + " at table and did several things at once");
+            System.out.println( name + " sat on " + typeOfPlaces.getPlacesName());
 
     }
 }
