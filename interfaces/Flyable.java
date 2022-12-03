@@ -8,6 +8,6 @@ public interface Flyable {
     //     return "EARTH";
     // }
 
-    void ascend(Object object, int speed, Planets planets) throws Exception;
-    void descend(Object object, int speed, Planets planets) throws Exception;
+    void ascend(int speed, Planets planets) throws Exception;
+    void descend(int speed, Planets planets) throws Exception;
 }

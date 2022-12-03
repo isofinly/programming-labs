@@ -36,15 +36,13 @@ public class AnotherMidget extends Midget implements Talkable, Looking, Walking,
 
     
     @Override
-    public String see(Object object) {
-        if (object.getClass() != null ) {
-            // one of the midgets saw Neznayka and Fix
-            System.out.println("One of the midgets saw " + object.getClass().getSimpleName());
+    public String see(Object subject) {
+        if (subject.getClass() != null ) {
+            System.out.println("One of the midgets saw " + subject);
             this.saw = true;
-            return object.getClass().getSimpleName();
+            return subject.getClass().getSimpleName();
         } 
         else {
-            //Коротышка не увидел ничего интересного
             System.out.println("One of the midgets did not saw anybody else ");
             this.saw = false; 
             return null;
@@ -52,13 +50,15 @@ public class AnotherMidget extends Midget implements Talkable, Looking, Walking,
     }
     
     @Override
-    public void talk(Object object) {
+    public String talk(Object subject) {
         if (saw) {
-            System.out.println("Mdiget shout that he(she) saw " + object + " with name " + object);
+            System.out.println("Mdiget shout that he (she) saw " + subject);
             shout = true;
+            return subject.getClass().getSimpleName();
         } else {
             System.out.println("Nothing interesting to talk about");
             shout = false;
+            return null;
         }
     }
 

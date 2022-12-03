@@ -32,8 +32,8 @@ public class Stick extends Item{
 
     @Override
     public String toString() {
-        return "Stick{" +
+        return "Stick {" +
                 "size=" + size +
-                '}';
+                '}' + "with name " + name;
     }
 }

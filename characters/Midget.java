@@ -41,7 +41,7 @@ public abstract class Midget implements Looking, Walking {
         // return "Nothing interesting";
     };
 
-    public void talk(Object object){
-
+    public String talk(Object object){
+        return null;
     }
 }

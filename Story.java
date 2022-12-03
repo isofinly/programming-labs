@@ -48,7 +48,7 @@ public class Story {
         MainPoliceCharacter policeman_2 = new MainPoliceCharacter("Levanovich", Planets.EARTH, TypeOfPlaces.ROCKET_PLACE);
 
         Rocket rocket = new Rocket("Rocket", 10.0);
-        rocket.ascend(rocket, 0, Planets.EARTH);
+        rocket.ascend(100, Planets.EARTH);
 
         Home home = new Home("Aboba home", Planets.EARTH);
 

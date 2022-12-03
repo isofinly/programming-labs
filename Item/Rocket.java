@@ -26,9 +26,9 @@ public class Rocket extends Item implements Flyable{
     // }
 
     @Override
-    public void ascend(Object object, int speed, Planets planets) throws Exception {
+    public void ascend(int speed, Planets planets) throws Exception {
         if (speed > 0){
-            System.out.println("Rocket " + object + " ascended to " + planets + " with speed km/h");
+            System.out.println("Rocket " + " ascended to " + planets + " with speed km/h");
             this.planets = planets;
             isRocketTakenOff = true;
         }
@@ -44,9 +44,9 @@ public class Rocket extends Item implements Flyable{
     }
 
     @Override
-    public void descend(Object object, int speed, Planets planets) throws Exception {
+    public void descend(int speed, Planets planets) throws Exception {
         if (speed > 0) {
-            System.out.println("Rocket " + object + " descended to " + planets + " with speed km/h");
+            System.out.println("Rocket " + " descended to " + planets + " with speed km/h");
             this.planets = planets;
             isRocketTakenOff = true;
         } 

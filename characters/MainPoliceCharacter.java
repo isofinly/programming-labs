@@ -5,23 +5,24 @@ import planets.*;
 import place.*;
 
 public class MainPoliceCharacter extends Police implements Hitable, Looking, Walking {
-    private String name;
     private Stick activeItem;
     private boolean saw;
     
-    public MainPoliceCharacter(String name,Planets planets, TypeOfPlaces firstPlace) {
+    public MainPoliceCharacter(String name, Planets planets, TypeOfPlaces firstPlace) {
         super(planets, name);
         this.typeOfPlace = firstPlace;
-    }
-
-    public String getName( ) {
-        return name;
     }
 
     public void setActiveItem(Stick name) {
         activeItem = name;
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    
     @Override
     public void hit(Object hitted) {
         if ( activeItem != null) {

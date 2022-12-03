@@ -24,6 +24,12 @@ public class AnotherPolicemen extends Police implements Talkable, Looking, Walki
     public static int counter(){
         return midgetCreatedAmount;
     }
+    
+    @Override
+    public String toString() {
+        return name;
+    }
+
 
     @Override
     public void hit(Object hitted) {
@@ -51,13 +57,15 @@ public class AnotherPolicemen extends Police implements Talkable, Looking, Walki
     }
 
     @Override
-    public void talk(Object object) {
+    public String talk(Object object) {
         if (saw == true) {
-            System.out.println("Mdiget shout");
+            System.out.println("Police shout");
             shout = true;
+            return object.getClass().getSimpleName();
         } else {
             System.out.println("Nothing interesting");
             shout = false;
+            return null;
         }
     }
 
