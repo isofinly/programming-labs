@@ -9,6 +9,7 @@ public abstract class Police implements Looking, Walking, Hitable {
     protected TypeOfPlaces typeOfPlace;
     private Planets planets;
     protected String name;
+    protected State PoliceState;
 
     public Police(Planets planets, String name) {
         this.planets = planets;
@@ -39,9 +40,18 @@ public abstract class Police implements Looking, Walking, Hitable {
     public void callMidgets(TypeOfPlaces typeOfPlaces, int midgetAmount) throws MidgetAmountException {}
 
     public String see(Object object){
-        return null;};
+        return null;
+    };
     
     public String talk(Object object){
         return null;
+    }
+
+    public final State getState() {
+        return PoliceState;
+    }
+
+    public final void setState(State policeState) {
+        PoliceState = policeState;
     }
 }

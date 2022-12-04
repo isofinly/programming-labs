@@ -1,4 +1,5 @@
 package Item;
+
 import exceptions.*;
 import interfaces.*;
 import place.*;
@@ -16,7 +17,13 @@ public class Rocket extends Item implements Flyable{
 
     public Rocket(String name, double angle) {
         super(name);
+        System.out.println("The most advanced rocket in the world was created by genious community of marvelous engineers with the name " + name + " and placed with angle " + angle);
         this.angle = angle;
+    }
+
+    @Override
+    public String toString(){
+        return name;
     }
 
     // @Override
@@ -28,7 +35,7 @@ public class Rocket extends Item implements Flyable{
     @Override
     public void ascend(int speed, Planets planets) throws Exception {
         if (speed > 0){
-            System.out.println("Rocket " + " ascended to " + planets + " with speed km/h");
+            System.out.println( toString() + " ascended to " + planets + " with speed " + speed + " km/h");
             this.planets = planets;
             isRocketTakenOff = true;
         }

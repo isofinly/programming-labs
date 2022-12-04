@@ -1,18 +1,15 @@
 package Item;
 
-public class Stick extends Item{
+import Item.ComplexItem.*;
+import characters.*;
+import interfaces.*;
+
+public class Stick extends ComplexItem {
     private int size;
 
-    public Stick(String name) {
-        super(name);
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
+    public Stick(String name, ComplexItemState State, Weight ComplexItemWeight, Material Material, int size) {
+        super(name, State, ComplexItemWeight, Material);
+        System.out.println("God gave midgets the stick with the name " + name + " and in the state " + State + " and weight " + ComplexItemWeight + " and material " + Material + " and size " + size);
     }
 
     @Override
@@ -21,7 +18,6 @@ public class Stick extends Item{
         if (o == null || getClass() != o.getClass()) return false;
 
         Stick stick = (Stick) o;
-
         return size == stick.size;
     }
 
@@ -36,4 +32,5 @@ public class Stick extends Item{
                 "size=" + size +
                 '}' + "with name " + name;
     }
+
 }
