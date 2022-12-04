@@ -1,6 +1,7 @@
 package interfaces;
 
 public interface Talkable {
-    default void talk(Object object){
+    default String talk(Object object){ 
+        return null;
     };
 }

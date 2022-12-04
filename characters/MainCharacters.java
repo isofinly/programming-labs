@@ -4,16 +4,16 @@ import interfaces.*;
 import planets.*;
 import place.*;
 
-public class MainCharacters extends Midget implements Hitable, Looking, Walking {
+public class MainCharacters extends Midget implements Looking, Walking {
     
     private boolean saw;
     private String name;
-    private Stick activeItem;
+    private Object activeItem;
     
     public MainCharacters(String name,Planets planets, TypeOfPlaces firstPlace) {
         super(planets);
         this.name = name;
-       this.typeOfPlace = firstPlace;
+        this.typeOfPlace = firstPlace;
     }
 
     public String getName() {
@@ -23,53 +23,49 @@ public class MainCharacters extends Midget implements Hitable, Looking, Walking 
     public void setName() {
         this.name = name;
     }
-
-    public void setActiveItem(Stick name) {
-        activeItem = name;
-    }
-
-    @Override
-    public void hit(Object hitted) {
-        if ( activeItem != null) {
-            System.out.println(" hit " + activeItem.getName() + hitted );
-        } else{
-        System.out.println(" hit " + hitted);
-        }
-    }
-
+    
     @Override
     public String toString(){
         return name;
     }
-
-    // @Override
-    // public void walk(TypeOfPlaces secondPlaces) {
-    //     this.typeOfPlace = secondPlaces;
-    //     System.out.println(name + " is off to  " + secondPlaces.getPlacesName());
-    // }
+    
+    public void setActiveItem(Object name) {
+        activeItem = name;
+        System.out.println(toString() + " now uses " + activeItem.toString());
+    }
 
     @Override
     public String see(Object object) {
         if (object.getClass() != null ) {
-            // one of the midgets saw Neznayka and Fix
-            System.out.println(" one of the midgets saw " + object.getClass().getSimpleName());
+            System.out.println(toString() + " saw " + object.getClass().getSimpleName());
             this.saw = true;
             return object.getClass().getSimpleName();
         } 
+        else if (object.getClass() == AnotherMidget.class) { 
+            System.out.println(" have to use telescope to see " + object.getClass().getSimpleName());
+            this.saw = false; 
+            return null;
+        }
+        else if (object.getClass() == DetailedMidget.class) { 
+            System.out.println(" have to use telescope to see " + object.getClass().getSimpleName());
+            this.saw = false; 
+            return null;
+        }
         else {
-            //Коротышка не увидел ничего интересного
-            System.out.println(" one of the midgets did not saw anybody else ");
+            System.out.println(" one of the main characters did not saw anything interesting");
             this.saw = false; 
             return null;
         }
     }
     // public class Emotions{
 
-    @Override
-    public void walk(Object name, TypeOfPlaces secondPlaces) {
-        this.typeOfPlace = secondPlaces;
-        System.out.println(name + " is off to  " + secondPlaces.getPlacesName());
-    }
+
+        @Override
+        public void walk(TypeOfPlaces typeOfPlaces) {
+            System.out.println(toString() + " went to " + typeOfPlaces.getPlacesName());
+            this.typeOfPlace = typeOfPlaces;
+        }
+    
 
         // public void excited(Object name,Planets planetPlace, Plants plants){
         //     if (planetPlace != Planets.EARTH){

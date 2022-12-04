@@ -8,6 +8,7 @@ import place.*;
 public abstract class Midget implements Looking, Walking {
     protected TypeOfPlaces typeOfPlace;
     private Planets planets;
+    protected State MidgetState;
 
     public Midget(Planets planets) {
         this.planets = planets;
@@ -41,7 +42,16 @@ public abstract class Midget implements Looking, Walking {
         // return "Nothing interesting";
     };
 
-    public void talk(Object object){
+    public String talk(Object object){
+        return null;
+    }
 
+    public final State getState() {
+        
+        return MidgetState;
+    }
+
+    public final void setState(State midgetState) {
+        MidgetState = midgetState;
     }
 }
