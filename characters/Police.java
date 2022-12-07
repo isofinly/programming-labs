@@ -2,56 +2,37 @@ package characters;
 
 import exceptions.*;
 import interfaces.*;
+import interfaces.Interaction.*;
 import planets.*;
 import place.*;
 
-public abstract class Police implements Looking, Walking, Hitable {
+public abstract class Police extends Human {
     protected TypeOfPlaces typeOfPlace;
-    private Planets planets;
-    protected String name;
-    protected State PoliceState;
+    protected String Name;
+    protected Planets Planets;
 
-    public Police(Planets planets, String name) {
-        this.planets = planets;
-        this.name = name;
+    public Police(Planets planets, String name){
+        Planets = planets;
+        Name = name;
     }
 
-    public String getName() {
-        return name;
-    }
+    // public abstract void hit(AnotherMidget anotherMidget);
 
-    public Planets getPlanets() {
-        return planets;
-    }
+    // public abstract void see(AnotherMidget anotherMidget);
 
-    public void setPlanets(Planets planets) {
-        this.planets = planets;
-    }
+    // public abstract void useStick(AnotherMidget anotherMidget);
 
-    public TypeOfPlaces getTypeOfPlace() {
-        return typeOfPlace;
-    }
+    // public abstract void useGun(AnotherMidget anotherMidget);
 
-    public void hit(Object hitted) {
-    }
-
-    public void walk(TypeOfPlaces typeOfPlaces){}
-
-    public void callMidgets(TypeOfPlaces typeOfPlaces, int midgetAmount) throws MidgetAmountException {}
-
-    public String see(Object object){
-        return null;
-    };
+    // public abstract void hit(Object hitted);
     
-    public String talk(Object object){
-        return null;
-    }
+    // public abstract void see(Object object);
 
-    public final State getState() {
-        return PoliceState;
-    }
+    // public void see(I_MainPoliceCharacter mainPoliceCharacter);
 
-    public final void setState(State policeState) {
-        PoliceState = policeState;
-    }
+    // public void see(Object object);
+
+    // public void walk(TypeOfPlaces typeOfPlaces);
+
+    // public void see(I_AnotherPolicemen anotherPolicemen);
 }

@@ -1,8 +1,8 @@
 package planets;
 
 public enum Planets {
-    EARTH("earth"),
-    MOON("moon");
+    EARTH("Earth"),
+    MOON("Moon");
 
     private final String Type;
     Planets(String t) {

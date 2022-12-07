@@ -9,7 +9,10 @@ public enum TypeOfPlaces {
     BUNCHES("Bunches"),
     VERANDA("Verand"),
     SQUARE("Square"),
+    MOTHERTUSSIA("Russia"),
+    RUSSIANPRISON("Russian prison"),
     INDISTANCE("Somewhere in distance");
+    
     private final String placesName;
 
     TypeOfPlaces(String placesName) {
@@ -17,6 +20,9 @@ public enum TypeOfPlaces {
     }
 
     public String getPlacesName() {
+        return placesName;
+    }
+    public String setPlacesName() {
         return placesName;
     }
 }

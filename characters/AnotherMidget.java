@@ -3,138 +3,322 @@ package characters;
 import Item.*;
 import exceptions.*;
 import interfaces.*;
+import interfaces.Interaction.*;
 import place.*;
 import planets.*;
+import characters.Mood;
 
 
-public class AnotherMidget extends Midget implements Talkable, Looking, Walking, Punchable{
+public class AnotherMidget extends Midget implements I_AnotherMidget, I_Object, I_PoliceCharacter, I_MainCharacter {
 
     public static int midgetCreatedAmount;
     private boolean saw;
-    private boolean shout;
-    private Stick activeItem;
     private int power;
     private int midgetAmount;
-    protected boolean isDead;
     
     public static int counter(){
         return midgetCreatedAmount;
     }
-
+    
+    
     public AnotherMidget(int power, Planets planets, TypeOfPlaces places) {
         super(planets);
         this.power = power;
         System.out.println("midget with power " + power + " appeared on planet " + planets + " and in place " + places.getPlacesName());
         midgetCreatedAmount++;
+        setState(HumanState.Alive);
+        setPlanets(planets);
+        setTypeOfPlace(places);
+        setMood(Mood.Calm);
     }
-
-    public Boolean useStick(AnotherMidget anotherMidget) {
-        if (isDead) {
-            System.out.println("Oi bruv no one can help you now ");
-            return isDead = true;
-        } else if (anotherMidget.getState() == State.Alive) {
-            System.out.println("Midget with the name " + toString() + " used a stick on " + anotherMidget.getClass() + " with name " + anotherMidget.toString());
-            anotherMidget.punch(this);
-            anotherMidget.setState(anotherMidget.getState() == State.Alive ? State.Unconcesious : State.Dead);
-            return isDead = true;
-        } else {
-            System.out.println("Policeman with the name " + anotherMidget.toString() + " is dead and no longer can be interacted with");
-            return isDead = true;
-        }
-    }
-
-    public Boolean useStick(MainPoliceCharacter mainPoliceCharacter) {
-        if (isDead) {
-            System.out.println("Oi bruv no one can help you now ");
-            return isDead = true;
-        } else if (mainPoliceCharacter.getState() == State.Alive) {
-            System.out.println("Midget with the name " + toString() + " used a stick on " + mainPoliceCharacter.getClass() + " with name " + mainPoliceCharacter.toString());
-            mainPoliceCharacter.hit(this);
-            mainPoliceCharacter.setState(mainPoliceCharacter.getState() == State.Alive ? State.Unconcesious : State.Dead);
-            return isDead = true;
-        } else {
-            System.out.println("Policeman with the name " + mainPoliceCharacter.toString() + " is dead and no longer can be interacted with");
-            return isDead = true;
-        }
-    }
-
-    public Boolean useStick(AnotherPolicemen anotherPolicemen) {
-        if (isDead) {
-            System.out.println("Oi bruv no one can help you now ");
-            return isDead = true;
-        } else if (anotherPolicemen.getState() == State.Alive) {
-            System.out.println("Midget with the name " + toString() + " used a stick on " + anotherPolicemen.getClass() + " with name " + anotherPolicemen.toString());
-            anotherPolicemen.hit(this);
-            anotherPolicemen.setState(anotherPolicemen.getState() == State.Alive ? State.Unconcesious : State.Dead);
-            return isDead = true;
-        } else {
-            System.out.println("Policeman with the name " + anotherPolicemen.toString() + " is dead and no longer can be interacted with");
-            return isDead = true;
-        }
-    }
-
 
     @Override
-    public void punch(Object punched) {
-        if (isDead) {
-            System.out.println("Oi bruv no one can help you now ");
-        } else if ( activeItem == null) {
-            System.out.println( toString() + " but definetely one of them hit with bare hands "  + punched );
-        }
-    }
-
-    
-    @Override
-    public String see(Object subject) {
-        if (isDead) {
-            System.out.println("Oi bruv no one can help you now ");
-            return null;
-        } else if (subject.getClass() != null ) {
-            System.out.println(toString() + " but one of them saw " + subject);
-            this.saw = true;
-            return subject.getClass().getSimpleName();
-        } 
-        else {
-            System.out.println("One of the midgets did not saw anybody else ");
-            this.saw = false; 
-            return null;
-        }
-    }
-    
-    @Override
-    public String talk(Object subject) {
-        if (isDead) {
-            System.out.println("Oi bruv no one can help you now ");
-            return null;
-        } else if (saw) {
-            System.out.println(toString() + " but he(she) shout that he(she) saw " + subject);
-            shout = true;
-            return subject.getClass().getSimpleName();
-        } else {
-            System.out.println("Nothing interesting to talk about");
-            shout = false;
-            return null;
-        }
-    }
-
-    // @Override
-    // public void walk(TypeOfPlaces typeOfPlaces) {
-    //     this.typeOfPlace = typeOfPlaces;
-    //     System.out.println("Midgets are crawling inbetween " + typeOfPlaces.getPlacesName());
-    // }
-
-    @Override
-    public void callMidgets(TypeOfPlaces places, int midgetAmount) throws MidgetAmountException{
+    public void callMidgets(TypeOfPlaces placesName, int midgetAmount) throws MidgetAmountException{
         if (midgetAmount < 2) {
             throw new MidgetAmountException("Midgets are calling for more midgets and greater meeting! ");
         }
-        else{
-            System.out.println(midgetAmount + " midgets started the meeting " );
+        else if (placesName == TypeOfPlaces.MOTHERTUSSIA) {
+            AnotherMidget.this.setTypeOfPlace(TypeOfPlaces.RUSSIANPRISON);
+            System.out.println(midgetAmount + " tried to make a meeting but were caught by policemen and were sent to " + placesName.getPlacesName());
+        } else {
+            System.out.println(midgetAmount + " made meeting and now rioting in " + placesName.getPlacesName() );
+
         }
+        
     }
     
     @Override
     public String toString() {
         return "Midgets do not have names, oi bruv";
+    }
+
+    @Override
+    public void hit(AnotherMidget anotherMidget) {
+        if (AnotherMidget.this.getState() == HumanState.Alive) {
+            if (anotherMidget.getState() == HumanState.Alive) {
+                if (anotherMidget.getPlanets() != this.getPlanets()) {
+                    System.out.println(toString() + " tried to hit midget " + anotherMidget.toString() + " but he(she) is on another planet");
+                }
+                else {
+                    System.out.println(toString() + " hit " + anotherMidget.toString() +  " at " + anotherMidget.getTypeOfPlace());
+                    anotherMidget.setState(HumanState.Unconcesious);
+                    System.out.println("and now " + anotherMidget.getClass().getSimpleName() + "  is " + anotherMidget.getState());
+                }
+            }
+            else {
+                System.out.println(toString() + " tried to hit " + anotherMidget.toString() + " but three's no point in it ");
+            }
+         }
+        else {
+            System.out.println(toString() + " tried to hit midget but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
+        }
+    }
+
+    @Override
+    public void see(AnotherMidget anotherMidget) {
+        if (AnotherMidget.this.getState() == HumanState.Alive) {
+            if (anotherMidget.getPlanets() != this.getPlanets()) {
+                System.out.println(toString() + " tried to see midget " + anotherMidget.toString() + " but oi bruh he(she) is on another planet how can you someone that far away");
+            }
+            else {
+                if (AnotherMidget.this.getMood() == Mood.DeadInsinde) {
+                    System.out.println(toString() + " do not want to see anything ");
+                } 
+                else {
+                System.out.println(toString() + " saw midget at " + anotherMidget.getTypeOfPlace().getPlacesName());
+                saw = true;
+                }
+            }
+        }
+        else {
+            System.out.println(toString() + " tried to see midget but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
+        }
+        
+    }
+
+    @Override
+    public void useStick(AnotherMidget anotherMidget) {
+        if (AnotherMidget.this.getState() == HumanState.Alive) {
+        if (anotherMidget.getState() == HumanState.Alive) {
+            if (anotherMidget.getPlanets() != this.getPlanets()) {
+                System.out.println(toString() + " tried to use stick on midget " + anotherMidget.toString() + " but oi bruh he(she) is on another planet how can you someone that far away");
+            }
+            else {
+                System.out.println(toString() + " used stick on midget at " + anotherMidget.getTypeOfPlace());
+                anotherMidget.setState(HumanState.Unconcesious);
+                System.out.println("and now " + anotherMidget.getClass().getSimpleName() + "  is " + anotherMidget.getState());
+            }
+        }
+        else if (anotherMidget.getState() == HumanState.Unconcesious){
+            System.out.println(toString() + " violently finished midget with stick at " + anotherMidget.getTypeOfPlace() + " and now " + anotherMidget.getClass().getSimpleName() + "  is not capable of doing anything(" + getState() + ") Why tho????");
+            anotherMidget.setState(HumanState.Dead);
+            System.out.println("and now " + anotherMidget.getClass().getSimpleName() + "  is " + anotherMidget.getState());
+        }
+    }
+        else {
+            System.out.println(toString() + " tried to use stick on midget but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
+        }
+        
+    }
+
+    @Override
+    public void useGun(AnotherMidget anotherMidget) {
+        if (AnotherMidget.this.getState() == HumanState.Alive) {
+        System.out.println("Midgets do not have guns, oi bruv");
+    }
+        else {
+            System.out.println(toString() + " is not capable of doing anything(" + getState() + ") Why tho????");
+        }
+    }
+
+    @Override
+    public void walk(TypeOfPlaces placesName) {
+        
+        if (AnotherMidget.this.getState() == HumanState.Alive) {
+            if (AnotherMidget.this.getMood() == Mood.DeadInsinde) {
+                System.out.println(toString() + " do not want to go anywhere ");
+            } else if (AnotherMidget.this.getTypeOfPlace() == placesName.RUSSIANPRISON ) { 
+                System.out.println(" Tried to escape but were caught and now unconscious ");
+                AnotherMidget.this.setState(HumanState.Unconcesious);
+            }     
+            else {
+            System.out.println(toString() + " walked to " + placesName.getPlacesName());
+            AnotherMidget.this.setTypeOfPlace(placesName);
+            System.out.println("and now " + AnotherMidget.this.getClass().getSimpleName() + "  is " + AnotherMidget.this.getTypeOfPlace());
+        } }
+        else if (AnotherMidget.this.typeOfPlace == placesName.HOME){
+            System.out.println("I ain't goin' anywhere. I'm dead for ya peace off");
+            AnotherMidget.this.setState(HumanState.Sleep);
+            System.out.println("and now " + AnotherMidget.this.getClass().getSimpleName() + "  is " + AnotherMidget.this.getState());
+        }
+        else {
+            System.out.println(toString() + " tried to walk to " + placesName.getPlacesName() + " but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
+        }
+    }
+    
+    @Override
+    public void hit(Object hitted){
+        if (AnotherMidget.this.getState() == HumanState.Alive) {
+        if (hitted instanceof AnotherMidget){
+            System.out.println(toString() + " tried to hit object but missed and hit himself ");
+            AnotherMidget.this.setState(HumanState.Unconcesious);
+        }
+        else if (hitted instanceof MainCharacters){
+            System.out.println(toString() + " tried to hit object but missed and hit himself ");
+            AnotherMidget.this.setState(HumanState.Unconcesious);
+        } else if (hitted instanceof DetailedMidget)
+        {
+            System.out.println(toString() + " tried to hit object but missed and hit himself ");
+            AnotherMidget.this.setState(HumanState.Unconcesious);
+        } else {
+            System.out.println(toString() + " hit object " + hitted.toString());
+        }
+    }
+        else {
+            System.out.println(toString() + " tried to hit object but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
+        }
+    }
+
+    @Override
+    public void see(Object object) {
+        if (AnotherMidget.this.getState() == HumanState.Alive) {
+        if (object instanceof AnotherMidget) {
+            if (AnotherMidget.this.getState() == HumanState.Alive) {
+                if (((AnotherMidget) object).getState() == HumanState.Alive) {
+                    if (((AnotherMidget) object).getPlanets() != this.getPlanets()) {
+                        System.out.println(toString() + " tried to see midget " + ((AnotherMidget) object).toString() + " but oi bruh he(she) is on another planet how can you someone that far away");
+                    }
+                    else {
+                        System.out.println(toString() + " saw midget at " + ((AnotherMidget) object).getTypeOfPlace());
+                    }
+                }
+                else {
+                    System.out.println(toString() + " tried to see midget but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
+                }
+            }
+            else {
+                System.out.println(toString() + " tried to see midget but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
+            }
+        }
+        else if (object instanceof AnotherMidget) {
+           System.out.println("Policemen do not peek at their homies bruv" );
+        }
+        else {
+            System.out.println("Policeman tried to sneaky-beaky peek at object " + object.toString() + " but he(she) failed and unconcesious ");
+            AnotherMidget.this.setState(HumanState.Unconcesious);
+        }
+        
+    }
+        else {
+            System.out.println(toString() + " tried to see object but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
+        }
+    }
+
+
+    @Override
+    public void hit(PoliceCharacter anotherPolicemen) {
+        if (AnotherMidget.this.getState() == HumanState.Alive) {
+        if (anotherPolicemen.getState() == HumanState.Alive) {
+            if (anotherPolicemen.getPlanets() != this.getPlanets()) {
+                System.out.println(toString() + " tried to hit policeman " + anotherPolicemen.toString() + " but oi bruh he(she) is on another planet how can you someone that far away");
+            }
+            else {
+                System.out.println(toString() + " hit policeman " + anotherPolicemen.toString() + " at " + anotherPolicemen.getTypeOfPlace());
+                anotherPolicemen.setState(HumanState.Unconcesious);
+                System.out.println("and now " + AnotherMidget.this.getClass().getSimpleName() + "  is " + anotherPolicemen.getState());
+            }
+        }
+        else if (anotherPolicemen.getState() == HumanState.Unconcesious){
+            System.out.println(toString() + " violently finished policeman with bare hands at " + anotherPolicemen.getTypeOfPlace() + " and now " + AnotherMidget.this.getClass().getSimpleName() + "  is not capable of doing anything(" + getState() + ") Why tho????");
+            anotherPolicemen.setState(HumanState.Dead);
+            System.out.println("and now " + AnotherMidget.this.getClass().getSimpleName() + "  is " + anotherPolicemen.getState());
+        }
+    }
+        else {
+            System.out.println(toString() + " tried to hit object but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
+        }
+        
+    }
+
+
+    @Override
+    public void see(PoliceCharacter anotherPolicemen) {
+        if (AnotherMidget.this.getState() == HumanState.Alive) {
+        if (anotherPolicemen.getState() == HumanState.Alive) {
+            if (anotherPolicemen.getPlanets() != this.getPlanets()) {
+                System.out.println(toString() + " tried to see policeman " + anotherPolicemen.toString() + " but oi bruh he(she) is on another planet how can you someone that far away");
+            }
+            else {
+                System.out.println(toString() + " saw policeman at " + anotherPolicemen.getTypeOfPlace());
+                saw = true;
+            }
+        }
+    }
+
+        else {
+            System.out.println(toString() + " tried to see policeman but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
+        }
+    }
+
+
+    @Override
+    public void useStick(PoliceCharacter anotherPolicemen) {
+        if (AnotherMidget.this.getState() == HumanState.Alive) {
+        if (anotherPolicemen.getState() == HumanState.Alive) {
+            if (anotherPolicemen.getPlanets() != this.getPlanets()) {
+                System.out.println(toString() + " tried to use stick on policeman " + anotherPolicemen.toString() + " but oi bruh he(she) is on another planet how can you someone that far away");
+            }
+            else {
+                System.out.println(toString() + " used stick on policeman " + anotherPolicemen.toString() + " at " + anotherPolicemen.getTypeOfPlace());
+            }
+        }
+    }
+        else {
+            System.out.println(toString() + " tried to use stick but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
+        }
+        
+    }
+
+
+    @Override
+    public void useGun(PoliceCharacter anotherPolicemen) {
+        if (AnotherMidget.this.getState() == HumanState.Alive) {
+            System.out.println("Midgets do not have guns, oi bruv");
+        }
+            else {
+                System.out.println(toString() + " is not capable of doing anything(" + getState() + ") Why tho????");
+            }
+    }
+
+
+    @Override
+    public void punch(PoliceCharacter anotherPolicemen) {
+        if (AnotherMidget.this.getState() == HumanState.Alive) {
+            if (anotherPolicemen.getState() == HumanState.Alive) {
+                if (anotherPolicemen.getPlanets() != this.getPlanets()) {
+                    System.out.println(toString() + " tried to punch policeman " + anotherPolicemen.toString() + " but oi bruh he(she) is on another planet how can you someone that far away");
+                }
+                else {
+                    System.out.println(toString() + " punched " + anotherPolicemen.toString() + " at " + anotherPolicemen.getTypeOfPlace());
+                    anotherPolicemen.setState(HumanState.Unconcesious);
+                }
+        
+    } else {
+        System.out.println(toString() + " tried to punch" + anotherPolicemen.toString() + " but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
+    }
+}   
+}
+
+
+    @Override
+    public void punch(Object object) {
+        if (AnotherMidget.this.getState() == HumanState.Alive) {
+            System.out.println(toString() + " tried to punch object " + object.toString() + " but he(she) failed and unconcesious ");
+            AnotherMidget.this.setState(HumanState.Unconcesious);
+        }
+        else {
+            System.out.println(toString() + " tried to punch object but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
+        }
+        
     }
 }
