@@ -1,5 +1,6 @@
 package Item;
 
+import characters.AnotherMidget;
 import exceptions.*;
 import interfaces.*;
 import place.*;
@@ -38,9 +39,11 @@ public class Rocket extends Item implements Flyable{
             System.out.println( toString() + " ascended to " + planets + " with speed " + speed + " km/h");
             this.planets = planets;
             isRocketTakenOff = true;
+            
+
         }
         else if(speed == 0 ){
-            System.out.println("Rocket can't ascend with speed 0");
+            System.out.println("Rocket stands still -_- ");
         }
         else if (planets == null) {
             throw new NullPlanetException("Planet cannot be null");

@@ -1,5 +1,6 @@
 package characters;
 
+
 import exceptions.*;
 import interfaces.*;
 import interfaces.Interaction.*;
@@ -8,10 +9,11 @@ import place.*;
 
 public abstract class Human {
     
-    protected TypeOfPlaces typeOfPlace;
+    protected TypeOfPlaces PlacesName;
     protected String Name;
     protected State HumanState;
     protected Planets Planets;
+    protected Mood Mood;
 
     public String getName() {
         return Name;
@@ -26,11 +28,11 @@ public abstract class Human {
     }
     
     public final TypeOfPlaces getTypeOfPlace() {
-        return typeOfPlace;
+        return PlacesName;
     }
 
-    public TypeOfPlaces setTypeOfPlace(TypeOfPlaces typeOfPlace) {
-        return typeOfPlace;
+    public void setTypeOfPlace(TypeOfPlaces placesName) {
+        PlacesName = placesName;
     }
     
     public final State getState() {
@@ -39,5 +41,13 @@ public abstract class Human {
     
     public final void setState(State humanState) {
         HumanState = humanState;
+    }
+
+    public final Mood getMood() {
+        return Mood;
+    }
+
+    public final void setMood(Mood mood) {
+        Mood = mood;
     }
 }

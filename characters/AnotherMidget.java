@@ -6,6 +6,7 @@ import interfaces.*;
 import interfaces.Interaction.*;
 import place.*;
 import planets.*;
+import characters.Mood;
 
 
 public class AnotherMidget extends Midget implements I_AnotherMidget, I_Object, I_PoliceCharacter, I_MainCharacter {
@@ -26,16 +27,24 @@ public class AnotherMidget extends Midget implements I_AnotherMidget, I_Object, 
         System.out.println("midget with power " + power + " appeared on planet " + planets + " and in place " + places.getPlacesName());
         midgetCreatedAmount++;
         setState(HumanState.Alive);
+        setPlanets(planets);
+        setTypeOfPlace(places);
+        setMood(Mood.Calm);
     }
 
     @Override
-    public void callMidgets(TypeOfPlaces places, int midgetAmount) throws MidgetAmountException{
+    public void callMidgets(TypeOfPlaces placesName, int midgetAmount) throws MidgetAmountException{
         if (midgetAmount < 2) {
             throw new MidgetAmountException("Midgets are calling for more midgets and greater meeting! ");
         }
-        else{
-            System.out.println(midgetAmount + " midgets started the meeting " );
+        else if (placesName == TypeOfPlaces.MOTHERTUSSIA) {
+            AnotherMidget.this.setTypeOfPlace(TypeOfPlaces.RUSSIANPRISON);
+            System.out.println(midgetAmount + " tried to make a meeting but were caught by policemen and were sent to " + placesName.getPlacesName());
+        } else {
+            System.out.println(midgetAmount + " made meeting and now rioting in " + placesName.getPlacesName() );
+
         }
+        
     }
     
     @Override
@@ -51,7 +60,7 @@ public class AnotherMidget extends Midget implements I_AnotherMidget, I_Object, 
                     System.out.println(toString() + " tried to hit midget " + anotherMidget.toString() + " but he(she) is on another planet");
                 }
                 else {
-                    System.out.println(toString() + " hit midget at " + anotherMidget.getTypeOfPlace());
+                    System.out.println(toString() + " hit " + anotherMidget.toString() +  " at " + anotherMidget.getTypeOfPlace());
                     anotherMidget.setState(HumanState.Unconcesious);
                     System.out.println("and now " + anotherMidget.getClass().getSimpleName() + "  is " + anotherMidget.getState());
                 }
@@ -72,8 +81,13 @@ public class AnotherMidget extends Midget implements I_AnotherMidget, I_Object, 
                 System.out.println(toString() + " tried to see midget " + anotherMidget.toString() + " but oi bruh he(she) is on another planet how can you someone that far away");
             }
             else {
-                System.out.println(toString() + " saw midget at " + anotherMidget.getTypeOfPlace());
+                if (AnotherMidget.this.getMood() == Mood.DeadInsinde) {
+                    System.out.println(toString() + " do not want to see anything ");
+                } 
+                else {
+                System.out.println(toString() + " saw midget at " + anotherMidget.getTypeOfPlace().getPlacesName());
                 saw = true;
+                }
             }
         }
         else {
@@ -118,20 +132,27 @@ public class AnotherMidget extends Midget implements I_AnotherMidget, I_Object, 
     }
 
     @Override
-    public void walk(TypeOfPlaces typeOfPlaces) {
+    public void walk(TypeOfPlaces placesName) {
         
         if (AnotherMidget.this.getState() == HumanState.Alive) {
-            System.out.println(toString() + " walked to " + typeOfPlaces.getPlacesName());
-            AnotherMidget.this.setTypeOfPlace(typeOfPlaces);
+            if (AnotherMidget.this.getMood() == Mood.DeadInsinde) {
+                System.out.println(toString() + " do not want to go anywhere ");
+            } else if (AnotherMidget.this.getTypeOfPlace() == placesName.RUSSIANPRISON ) { 
+                System.out.println(" Tried to escape but were caught and now unconscious ");
+                AnotherMidget.this.setState(HumanState.Unconcesious);
+            }     
+            else {
+            System.out.println(toString() + " walked to " + placesName.getPlacesName());
+            AnotherMidget.this.setTypeOfPlace(placesName);
             System.out.println("and now " + AnotherMidget.this.getClass().getSimpleName() + "  is " + AnotherMidget.this.getTypeOfPlace());
-        }
-        else if (AnotherMidget.this.typeOfPlace == typeOfPlaces.HOME){
+        } }
+        else if (AnotherMidget.this.typeOfPlace == placesName.HOME){
             System.out.println("I ain't goin' anywhere. I'm dead for ya peace off");
             AnotherMidget.this.setState(HumanState.Sleep);
             System.out.println("and now " + AnotherMidget.this.getClass().getSimpleName() + "  is " + AnotherMidget.this.getState());
         }
         else {
-            System.out.println(toString() + " tried to walk to " + typeOfPlaces.getPlacesName() + " but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
+            System.out.println(toString() + " tried to walk to " + placesName.getPlacesName() + " but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
         }
     }
     

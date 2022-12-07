@@ -13,6 +13,7 @@ public class PoliceCharacter extends Police implements I_AnotherMidget, I_Object
     boolean shout;
     private Stick activeItem;
     private double gunSize;
+    private int gunShots;
     
     
     @Override
@@ -25,6 +26,9 @@ public class PoliceCharacter extends Police implements I_AnotherMidget, I_Object
         this.gunSize = gunSize;
         System.out.println("Policeman with gunsmhize " + gunSize + " appeared on planet " + planets + " and in place " + places.getPlacesName());
         setState(HumanState.Alive);
+        setPlanets(planets);
+        setTypeOfPlace(places);
+        setMood(Mood.Angry);
     }
 
     @Override
@@ -95,20 +99,23 @@ public class PoliceCharacter extends Police implements I_AnotherMidget, I_Object
 
     @Override
     public void useGun(AnotherMidget anotherMidget) {
+        if (gunShots < 3 ) {
         if (PoliceCharacter.this.getState() == HumanState.Alive) {
-        if (anotherMidget.getState() == HumanState.Alive) {
+        if (anotherMidget.getState() == HumanState.Alive) { 
             if (anotherMidget.getPlanets() != this.getPlanets()) {
                 System.out.println("Policeman " + toString() + " tried to use gun on midget " + anotherMidget.toString() + " but oi bruh he(she) is on another planet how can you someone that far away");
             }
             else {
                 System.out.println("Policeman " + toString() + " shot " + anotherMidget.toString() + " ");
                 anotherMidget.setState(HumanState.Unconcesious);
+                gunShots ++;
                 System.out.println("and now " + anotherMidget.getClass().getSimpleName() + "  is " + anotherMidget.getState());
             }
         }
         else if (anotherMidget.getState() == HumanState.Unconcesious){
             System.out.println("Policeman " + toString() + " violently finished midget with gun " + anotherMidget.getClass().getSimpleName() + "  in state(" + anotherMidget.getState() + ") Why tho????");
             anotherMidget.setState(HumanState.Dead);
+            gunShots ++;
             System.out.println("and now " + anotherMidget.getClass().getSimpleName() + "  is " + anotherMidget.getState());
         }
     }
@@ -116,20 +123,25 @@ public class PoliceCharacter extends Police implements I_AnotherMidget, I_Object
             System.out.println("Policeman " + toString() + " tried to use gun on midget but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
         }
     }
+    else {
+        System.out.println("Gun is overheated and can't be used so policeman " + toString() + " used stick on midget ");
+        useStick(anotherMidget);
+    }
+}
 
     @Override
-    public void walk(TypeOfPlaces typeOfPlaces) {
+    public void walk(TypeOfPlaces placesName) {
         
         if (PoliceCharacter.this.getState() == HumanState.Alive) {
-            System.out.println("Policeman " + toString() + " walked to " + typeOfPlaces.getPlacesName());
-            PoliceCharacter.this.setTypeOfPlace(typeOfPlaces);
+            System.out.println("Policeman " + toString() + " walked to " + placesName.getPlacesName());
+            PoliceCharacter.this.setTypeOfPlace(placesName);
         }
-        else if (PoliceCharacter.this.typeOfPlace == typeOfPlaces.HOME){
+        else if (PoliceCharacter.this.PlacesName == placesName.HOME){
             System.out.println("I ain't goin' anywhere. I'm dead for ya peace off");
             PoliceCharacter.this.setState(HumanState.Sleep);
         }
         else {
-            System.out.println("Policeman " + toString() + " tried to walk to " + typeOfPlaces.getPlacesName() + " but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
+            System.out.println("Policeman " + toString() + " tried to walk to " + placesName.getPlacesName() + " but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
         }
     }
 
