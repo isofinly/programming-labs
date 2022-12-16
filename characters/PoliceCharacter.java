@@ -3,12 +3,11 @@ package characters;
 import Item.*;
 import exceptions.*;
 import interfaces.*;
-import interfaces.Interaction.*;
 import place.*;
 import planets.*;
 
 
-public class PoliceCharacter extends Police implements I_AnotherMidget, I_Object, I_MainCharacter {
+public class PoliceCharacter extends Police implements hitable, punchable, seeable, walkable, shootable, stickable {
     boolean saw;
     boolean shout;
     private Stick activeItem;
@@ -214,5 +213,70 @@ public class PoliceCharacter extends Police implements I_AnotherMidget, I_Object
     public void punch(Object object) {
         hit(object);
     }
-    
+
+    @Override
+    public void punch(PoliceCharacter policeCharacter) {
+        System.out.println(toString() + " was too lazy to punch and decided to shoot ");
+        useGun(policeCharacter);
+    }
+    @Override
+    public void hit(PoliceCharacter policeCharacter) {
+        System.out.println(toString() + " was too lazy to hit and decided to shoot ");
+        useGun(policeCharacter);
+    }
+
+    @Override
+    public void useStick(PoliceCharacter policeCharacter) {
+        System.out.println(toString() + " was too lazy to use stick and decided to shoot ");
+        useGun(policeCharacter);
+    }
+
+    @Override
+    public void useGun(PoliceCharacter policeCharacter) {
+        if (gunShots < 3 ) {
+        if (PoliceCharacter.this.getState() == HumanState.Alive) {
+        if (policeCharacter.getState() == HumanState.Alive) { 
+            if (policeCharacter.getPlanets() != this.getPlanets()) {
+                System.out.println("Policeman " + toString() + " tried to use gun on midget " + policeCharacter.toString() + " but oi bruh he(she) is on another planet how can you someone that far away");
+            }
+            else {
+                System.out.println("Policeman " + toString() + " shot " + policeCharacter.toString() + " ");
+                policeCharacter.setState(HumanState.Unconcesious);
+                gunShots ++;
+                System.out.println("and now " + policeCharacter.getClass().getSimpleName() + "  is " + policeCharacter.getState());
+            }
+        }
+        else if (policeCharacter.getState() == HumanState.Unconcesious){
+            System.out.println("Policeman " + toString() + " violently finished midget with gun " + policeCharacter.getClass().getSimpleName() + "  in state(" + policeCharacter.getState() + ") Why tho????");
+            policeCharacter.setState(HumanState.Dead);
+            gunShots ++;
+            System.out.println("and now " + policeCharacter.getClass().getSimpleName() + "  is " + policeCharacter.getState());
+        }
+    }
+        else {
+            System.out.println("Policeman " + toString() + " tried to use gun on midget but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
+        }
+    }
+    else {
+        System.out.println("Gun is overheated and can't be used so policeman " + toString() + " used stick on midget ");
+        useStick(policeCharacter);
+    }
+}
+@Override
+public void see(PoliceCharacter policeCharacter) {
+    if (PoliceCharacter.this.getState() == HumanState.Alive) {
+    if (policeCharacter.getState() == HumanState.Alive) {
+        if (policeCharacter.getPlanets() != this.getPlanets()) {
+            System.out.println("Policeman " + toString() + " tried to see midget " + policeCharacter.toString() + " but oi bruh he(she) is on another planet how can you someone that far away");
+        }
+        else {
+            System.out.println("Policeman " + toString() + " saw midget ");
+            saw = true;
+        }
+    }
+}
+    else {
+        System.out.println("Policeman " + toString() + " tried to see midget but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
+    }
+}
 }

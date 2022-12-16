@@ -3,13 +3,12 @@ package characters;
 import Item.*;
 import exceptions.*;
 import interfaces.*;
-import interfaces.Interaction.*;
 import place.*;
 import planets.*;
-import characters.Mood;
+import characters.*;
 
 
-public class AnotherMidget extends Midget implements I_AnotherMidget, I_Object, I_PoliceCharacter, I_MainCharacter {
+public class AnotherMidget extends Midget implements punchable, stickable, seeable, hitable, walkable, shootable {
 
     public static int midgetCreatedAmount;
     private boolean saw;

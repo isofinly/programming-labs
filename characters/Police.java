@@ -2,7 +2,6 @@ package characters;
 
 import exceptions.*;
 import interfaces.*;
-import interfaces.Interaction.*;
 import planets.*;
 import place.*;
 
