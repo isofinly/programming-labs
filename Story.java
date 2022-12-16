@@ -1,3 +1,5 @@
+import java.util.*;
+
 import Item.*;
 import Item.ComplexItem.*;
 import characters.*;
@@ -6,7 +8,6 @@ import planets.*;
 import exceptions.*;
 import interfaces.*;
 
-import java.util.Scanner;
 
 
 /*
@@ -15,7 +16,6 @@ import java.util.Scanner;
  * Make stecklyashkin use telescope and see police firing at midgets 
  * Make steklyashkin look at the midgets
  * Add neznaika 
- * Allow looking at places
  * 
  * Check whether the midgets and police are in the same place
  * 
@@ -24,41 +24,40 @@ import java.util.Scanner;
 public class Story {
     public static void main(String[] args) throws Exception {
         
-        String zapominalka = "";
-        Megaphone megaphone = new Megaphone("Megaphone", 30);
+        // Megaphone megaphone = new Megaphone("Megaphone", 30);
         
+        // if midgetcreatedamount < 2 then there's no meeting and exception is thrown
         AnotherMidget midgetMeetingTeam = new AnotherMidget(2, Planets.EARTH,TypeOfPlaces.MOTHERTUSSIA);
         AnotherMidget midget = new AnotherMidget(3,Planets.EARTH,TypeOfPlaces.MOTHERTUSSIA);
-        
-        // midgetMeetingTeam.walk(TypeOfPlaces.SQUARE);
-        
-        // zapominalka = midget.see(megaphone);
-        // midget.talk(zapominalka);
-        
-
-        // if midgetcreatedamount < 2 then there's no meeting and exception is thrown
-        
-        // midget.walk(TypeOfPlaces.BUNCHES);
-        
-        // System.out.println("Enter names of objects MainCharacters:");
-        // Scanner scanner = new Scanner(System.in);
-        // String policeman_1_name = scanner.nextLine();
-        // String policeman_2_name = scanner.nextLine();
+        AnotherMidget mimimimidget = new AnotherMidget(20,Planets.EARTH,TypeOfPlaces.MOTHERTUSSIA);
         
         PoliceCharacter policeman_1 = new PoliceCharacter(30, Planets.EARTH, TypeOfPlaces.HOME, "Zurab");
         PoliceCharacter policeman_2 = new PoliceCharacter(20, Planets.EARTH, TypeOfPlaces.ROCKET_PLACE, "Levanovich");
-        PoliceCharacter policeman_3 = new PoliceCharacter(3, Planets.EARTH, TypeOfPlaces.ROCKET_PLACE, "Policeman_3");
+        PoliceCharacter policeman_3 = new PoliceCharacter(-3, Planets.EARTH, TypeOfPlaces.ROCKET_PLACE, "Policeman_3");
+        
         
         midgetMeetingTeam.callMidgets(TypeOfPlaces.MOTHERTUSSIA, AnotherMidget.midgetCreatedAmount);
 
         midget.see(midgetMeetingTeam);
         
         MainCharacters Steklyashkin = new MainCharacters("Steklyashkin", Planets.EARTH, TypeOfPlaces.HOME);
+        // MainCharacters Steklyashkin1 = new MainCharacters("Steklyashkin", Planets.EARTH, TypeOfPlaces.HOME);
         Telescope telescope = new Telescope("Steklyashkin beloved telescope", ComplexItemState.Stand, Weight.Heavy, Material.Wood);
+        
+
+        MainCharacters[] mainChars = {Steklyashkin};
+        ArrayList<String> mainCharNames = new ArrayList<String>();
+        for (MainCharacters m : mainChars) {
+            mainCharNames.add(m.getName());
+        }
+
+        Set<String> mainCharNamesSet = new HashSet<String>(mainCharNames);
+        if(mainCharNamesSet.size() != mainCharNames.size()){
+            throw new Exception("There are two characters with the same name");
+        }
         
         // Steklyashkin.setActiveItem(telescope); 
         telescope.zoomWithTelescope(Steklyashkin, midget);
-        telescope.setInteractedState(ComplexItemState.Occupied, Steklyashkin);
 
         midgetMeetingTeam.hit(midget);
 
@@ -67,10 +66,49 @@ public class Story {
         policeman_1.hit(midget);
         policeman_2.useStick(midget);
 
-        Rocket rocket = new Rocket("Rockettt", 10.0);
-        // speed cannot be 0 otherwise it will throw an exception
-        rocket.ascend(100, Planets.MOON);
+        Rocket rocket = new Rocket("Rockettt", 10.0) {
+            public void theRocket() {
+                System.out.println("""
+                        The rocket is flying
 
+
+                                                   *     .--.
+                                                        / /  `
+                                       +               | |
+                                              '         \\ \\__,
+                                          *          +   '--'  *
+                                              +   /\\
+                                 +              .'  '.   *
+                                        *      /======\\      +
+                                              ;:.  _   ;
+                                              |:. (_)  |
+                                              |:.  _   |
+                                    +         |:. (_)  |          *
+                                              ;:.      ;
+                                            .' \\:.    / `.
+                                           / .-'':._.'`-. \\
+                                           |/    /||\\    \\|
+                                     jgs _..--""\"````""\"--.._
+                                   _.-'``                    ``'-._
+                                 -'                                '-
+
+                        """
+                );
+                    };
+        
+        };
+        // NullPlanetException or NegativeValueException
+        
+        rocket.ascend(100, Planets.MOON);
+        rocket.theRocket();
+        
+        PoliceCharacter[] policeChars = {policeman_1, policeman_2, policeman_3};
+
+        if (rocket.isRocketTakenOff()){
+        for (PoliceCharacter p : policeChars){
+            p.setMood(Mood.Happy);
+        }}
+        
         Home home = new Home("Aboba home", Planets.EARTH);
 
         midgetMeetingTeam.punch(home);

@@ -3,13 +3,12 @@ package characters;
 import Item.*;
 import exceptions.*;
 import interfaces.*;
-import interfaces.Interaction.*;
 import place.*;
 import planets.*;
-import characters.Mood;
+import characters.*;
 
 
-public class AnotherMidget extends Midget implements I_AnotherMidget, I_Object, I_PoliceCharacter, I_MainCharacter {
+public class AnotherMidget extends Midget implements punchable, stickable, seeable, hitable, walkable, shootable {
 
     public static int midgetCreatedAmount;
     private boolean saw;
@@ -21,8 +20,11 @@ public class AnotherMidget extends Midget implements I_AnotherMidget, I_Object, 
     }
     
     
-    public AnotherMidget(int power, Planets planets, TypeOfPlaces places) {
+    public AnotherMidget(int power, Planets planets, TypeOfPlaces places) throws NegativeValueException{
         super(planets);
+        if (power < 0) {
+            throw new NegativeValueException(toString() + " is too weak to be a midget. better make him a baby, lol");
+        }
         this.power = power;
         System.out.println("midget with power " + power + " appeared on planet " + planets + " and in place " + places.getPlacesName());
         midgetCreatedAmount++;
@@ -39,7 +41,7 @@ public class AnotherMidget extends Midget implements I_AnotherMidget, I_Object, 
         }
         else if (placesName == TypeOfPlaces.MOTHERTUSSIA) {
             AnotherMidget.this.setTypeOfPlace(TypeOfPlaces.RUSSIANPRISON);
-            System.out.println(midgetAmount + " tried to make a meeting but were caught by policemen and were sent to " + placesName.getPlacesName());
+            System.out.println(midgetAmount + "  " + toString() +  " tried to make a meeting but were caught by policemen and were sent to " + placesName.getPlacesName());
         } else {
             System.out.println(midgetAmount + " made meeting and now rioting in " + placesName.getPlacesName() );
 
@@ -164,10 +166,6 @@ public class AnotherMidget extends Midget implements I_AnotherMidget, I_Object, 
             AnotherMidget.this.setState(HumanState.Unconcesious);
         }
         else if (hitted instanceof MainCharacters){
-            System.out.println(toString() + " tried to hit object but missed and hit himself ");
-            AnotherMidget.this.setState(HumanState.Unconcesious);
-        } else if (hitted instanceof DetailedMidget)
-        {
             System.out.println(toString() + " tried to hit object but missed and hit himself ");
             AnotherMidget.this.setState(HumanState.Unconcesious);
         } else {

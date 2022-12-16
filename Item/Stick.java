@@ -16,7 +16,6 @@ public class Stick extends ComplexItem {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Stick stick = (Stick) o;
         return size == stick.size;
     }

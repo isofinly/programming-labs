@@ -32,6 +32,7 @@ public class Telescope extends ComplexItem implements Interactable{
     public void zoomWithTelescope(Object person, Object subject) {
         if (State == ComplexItemState.Stand && person instanceof MainCharacters) {
             System.out.println(person + " zoomed with telescope at " + subject.toString());
+            Telescope.this.setInteractedState(ComplexItemState.Occupied, person);
         }
         else if (State != ComplexItemState.Stand) {
             System.out.println("Telescope is not standing how are you going to zoom with it?");
