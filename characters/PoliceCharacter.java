@@ -150,35 +150,6 @@ public class PoliceCharacter extends Police implements I_AnotherMidget, I_Object
         }
     }
 
-    // @Override
-    // public void hit(Object hitted) {
-    //     if (hitted instanceof AnotherMidget) {
-    //         if (AnotherPolicemen.this.getState() == HumanState.Alive) {
-    //             if (((AnotherMidget) hitted).getState() == HumanState.Alive) {
-    //                 if (((AnotherMidget) hitted).getPlanets() != this.getPlanets()) {
-    //                     System.out.println("Policeman " + toString() + " tried to hit midget " + ((AnotherMidget) hitted).toString() + " but oi bruh he(she) is on another planet how can you someone that far away");
-    //                 }
-    //                 else {
-    //                     System.out.println("Policeman " + toString() + " hit midget at " + ((AnotherMidget) hitted).getTypeOfPlace());
-    //                     ((AnotherMidget) hitted).setState(HumanState.Unconcesious);
-    //                 }
-    //             }
-    //             else {
-    //                 System.out.println("Policeman " + toString() + " tried to hit midget but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
-    //             }
-    //         }
-    //         else {
-    //             System.out.println("Policeman " + toString() + " tried to hit midget but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
-    //         }
-    //     }
-    //     else if (hitted instanceof AnotherPolicemen) {
-    //        System.out.println("Policemen do not hit their homies bruv" );
-    //     }
-    //     else if (hitted instanceof MainPoliceCharacter){
-    //         System.out.println("Policemen do not hit their homies bruv" );
-    //       }
-    //    }
-
     @Override
     public void hit(Object hitted){
         if (PoliceCharacter.this.getState() == HumanState.Alive  && PoliceCharacter.this.gunSize > 0) {
@@ -194,9 +165,6 @@ public class PoliceCharacter extends Police implements I_AnotherMidget, I_Object
             System.out.println("Policeman " + toString() + " tried to hit object but missed and hit himself ");
             PoliceCharacter.this.setState(HumanState.Unconcesious);
             
-        } else if (hitted instanceof DetailedMidget){
-            System.out.println("Policeman " + toString() + " tried to hit object but missed and hit himself ");
-            PoliceCharacter.this.setState(HumanState.Unconcesious);
         } else {
             System.out.println("Policeman " + toString() + " hit object " + hitted.toString());
         }

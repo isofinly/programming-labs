@@ -27,11 +27,10 @@ public class Rocket extends Item implements Flyable{
         return name;
     }
 
-    // @Override
-    // public void flyTo(Object name, Planets planets) {
-    //     System.out.println(" Rocket called " + name +  " flew to " + planets);
-    //     // System.out.println(" Rocket is flying to " + typeOfPlaces.getName());
-    // }
+    public void theRocket(){
+        System.out.println("The rocket is flying");
+    }
+
 
     @Override
     public void ascend(int speed, Planets planets) throws Exception {

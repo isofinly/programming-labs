@@ -1,3 +1,5 @@
+import java.util.*;
+
 import Item.*;
 import Item.ComplexItem.*;
 import characters.*;
@@ -39,7 +41,20 @@ public class Story {
         midget.see(midgetMeetingTeam);
         
         MainCharacters Steklyashkin = new MainCharacters("Steklyashkin", Planets.EARTH, TypeOfPlaces.HOME);
+        // MainCharacters Steklyashkin1 = new MainCharacters("Steklyashkin", Planets.EARTH, TypeOfPlaces.HOME);
         Telescope telescope = new Telescope("Steklyashkin beloved telescope", ComplexItemState.Stand, Weight.Heavy, Material.Wood);
+        
+
+        MainCharacters[] mainChars = {Steklyashkin};
+        ArrayList<String> mainCharNames = new ArrayList<String>();
+        for (MainCharacters m : mainChars) {
+            mainCharNames.add(m.getName());
+        }
+
+        Set<String> mainCharNamesSet = new HashSet<String>(mainCharNames);
+        if(mainCharNamesSet.size() != mainCharNames.size()){
+            throw new Exception("There are two characters with the same name");
+        }
         
         // Steklyashkin.setActiveItem(telescope); 
         telescope.zoomWithTelescope(Steklyashkin, midget);
@@ -51,10 +66,42 @@ public class Story {
         policeman_1.hit(midget);
         policeman_2.useStick(midget);
 
-        Rocket rocket = new Rocket("Rockettt", 10.0);
-        // NullPlanetException or NegativeValueException
-        rocket.ascend(100, Planets.MOON);
+        Rocket rocket = new Rocket("Rockettt", 10.0) {
+            public void theRocket() {
+                System.out.println("""
+                        The rocket is flying
 
+
+                                                   *     .--.
+                                                        / /  `
+                                       +               | |
+                                              '         \\ \\__,
+                                          *          +   '--'  *
+                                              +   /\\
+                                 +              .'  '.   *
+                                        *      /======\\      +
+                                              ;:.  _   ;
+                                              |:. (_)  |
+                                              |:.  _   |
+                                    +         |:. (_)  |          *
+                                              ;:.      ;
+                                            .' \\:.    / `.
+                                           / .-'':._.'`-. \\
+                                           |/    /||\\    \\|
+                                     jgs _..--""\"````""\"--.._
+                                   _.-'``                    ``'-._
+                                 -'                                '-
+
+                        """
+                );
+                    };
+        
+        };
+        // NullPlanetException or NegativeValueException
+        
+        rocket.ascend(100, Planets.MOON);
+        rocket.theRocket();
+        
         PoliceCharacter[] policeChars = {policeman_1, policeman_2, policeman_3};
 
         if (rocket.isRocketTakenOff()){
