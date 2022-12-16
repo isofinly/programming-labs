@@ -25,6 +25,12 @@ public class PoliceCharacter extends Police implements I_AnotherMidget, I_Object
         super(planets, name);
         this.gunSize = gunSize;
         System.out.println("Policeman with gunsmhize " + gunSize + " appeared on planet " + planets + " and in place " + places.getPlacesName());
+        if (gunSize > 0) {
+            System.out.println(toString() + " Policeman can shoot ");
+         }
+         else {
+             System.out.println("It is not a valid policeman it's rather a healer lol");
+         }
         setState(HumanState.Alive);
         setPlanets(planets);
         setTypeOfPlace(places);
@@ -69,12 +75,11 @@ public class PoliceCharacter extends Police implements I_AnotherMidget, I_Object
         else {
             System.out.println("Policeman " + toString() + " tried to see midget but he(she) is not capable of doing anything(" + getState() + ") Why tho????");
         }
-        
     }
 
     @Override
     public void useStick(AnotherMidget anotherMidget) {
-        if (PoliceCharacter.this.getState() == HumanState.Alive) {
+        if (PoliceCharacter.this.getState() == HumanState.Alive && PoliceCharacter.this.gunSize > 0) {
         if (anotherMidget.getState() == HumanState.Alive) {
             if (anotherMidget.getPlanets() != this.getPlanets()) {
                 System.out.println("Policeman " + toString() + " tried to use stick on midget " + anotherMidget.toString() + " but oi bruh he(she) is on another planet how can you someone that far away");
@@ -176,7 +181,7 @@ public class PoliceCharacter extends Police implements I_AnotherMidget, I_Object
 
     @Override
     public void hit(Object hitted){
-        if (PoliceCharacter.this.getState() == HumanState.Alive) {
+        if (PoliceCharacter.this.getState() == HumanState.Alive  && PoliceCharacter.this.gunSize > 0) {
         if (hitted instanceof AnotherMidget){
             System.out.println("Policeman " + toString() + " tried to hit object but missed and hit himself ");
             PoliceCharacter.this.setState(HumanState.Unconcesious);

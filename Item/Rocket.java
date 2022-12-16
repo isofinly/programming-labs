@@ -12,7 +12,7 @@ public class Rocket extends Item implements Flyable{
     private double angle; 
     private Planets planets;
     
-    public static boolean isRocketTakenOff() {
+    public boolean isRocketTakenOff() {
         return isRocketTakenOff;
     }
 
@@ -39,8 +39,6 @@ public class Rocket extends Item implements Flyable{
             System.out.println( toString() + " ascended to " + planets + " with speed " + speed + " km/h");
             this.planets = planets;
             isRocketTakenOff = true;
-            
-
         }
         else if(speed == 0 ){
             System.out.println("Rocket stands still -_- ");
@@ -49,7 +47,7 @@ public class Rocket extends Item implements Flyable{
             throw new NullPlanetException("Planet cannot be null");
         } 
         else {
-            throw new NegativeSpeedException("Speed can't be negative");
+            throw new NegativeValueException("Speed can't be negative");
         }
     }
 
@@ -67,7 +65,7 @@ public class Rocket extends Item implements Flyable{
             throw new NullPlanetException("Planet cannot be null");
         } 
         else {
-            throw new NegativeSpeedException("Speed can't be negative");
+            throw new NegativeValueException("Speed can't be negative");
         }
     }
 }

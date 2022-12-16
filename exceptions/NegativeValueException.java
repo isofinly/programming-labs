@@ -1,7 +1,7 @@
 package exceptions;
 
-public class NegativeSpeedException extends IllegalArgumentException {
-    public NegativeSpeedException(String message) {
+public class NegativeValueException extends IllegalArgumentException {
+    public NegativeValueException(String message) {
         super(message);
     }
 

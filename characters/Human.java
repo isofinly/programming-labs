@@ -15,6 +15,7 @@ public abstract class Human {
     protected Planets Planets;
     protected Mood Mood;
 
+
     public String getName() {
         return Name;
     }
@@ -50,4 +51,8 @@ public abstract class Human {
     public final void setMood(Mood mood) {
         Mood = mood;
     }
+
+    // public void setActiveItem(Stick name)  {
+    //     activeItem = name;
+    // }
 }
