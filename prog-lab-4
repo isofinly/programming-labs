@@ -1,0 +1,194 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class AnotherMidget {
+  + AnotherMidget(int, Planets, TypeOfPlaces): 
+  + see(PoliceCharacter): void
+  + useGun(PoliceCharacter): void
+  + toString(): String
+  + see(Object): void
+  + hit(Object): void
+  + punch(PoliceCharacter): void
+  + hit(AnotherMidget): void
+  + useGun(AnotherMidget): void
+  + counter(): int
+  + useStick(AnotherMidget): void
+  + callMidgets(TypeOfPlaces, int): void
+  + hit(PoliceCharacter): void
+  + punch(Object): void
+  + see(AnotherMidget): void
+  + walk(TypeOfPlaces): void
+  + useStick(PoliceCharacter): void
+}
+class Binocularus {
+  + Binocularus(String, int, int): 
+  + lookAtDistance(): void
+  + magnification(): void
+}
+interface Flyable << interface >> {
+  + ascend(int, Planets): void
+  + descend(int, Planets): void
+}
+class Gun {
+  + Gun(String): 
+}
+class Human {
+  + Human(): 
+  # Planets: Planets
+  # Name: String
+  # Mood: Mood
+   Planets: Planets
+   typeOfPlace: TypeOfPlaces
+   Mood: Mood
+   Name: String
+   state: State
+}
+interface Interactable << interface >> {
+  + setInteractedState(ComplexItemState, Object): void
+   interactedState: ComplexItemState
+}
+class Item {
+  ~ Item(String): 
+  # name: String
+   name: String
+}
+class MainCharacters {
+  + MainCharacters(String, Planets, TypeOfPlaces): 
+  - name: String
+  + toString(): String
+  + setName(): void
+   name: String
+}
+class Megaphone {
+  + Megaphone(String, int): 
+  + toString(): String
+}
+class Midget {
+  + Midget(Planets): 
+  + callMidgets(TypeOfPlaces, int): void
+}
+class MidgetAmountException {
+  + MidgetAmountException(String): 
+}
+enum Mood << enumeration >> {
+  - Mood(String): 
+  + values(): Mood[]
+  + valueOf(String): Mood
+  + toString(): String
+}
+class NegativeValueException {
+  + NegativeValueException(String): 
+   error: String
+}
+class NullPlanetException {
+  + NullPlanetException(String): 
+   error: String
+}
+class Police {
+  + Police(Planets, String): 
+}
+class PoliceCharacter {
+  + PoliceCharacter(double, Planets, TypeOfPlaces, String): 
+  + see(Object): void
+  + see(PoliceCharacter): void
+  + toString(): String
+  + useStick(PoliceCharacter): void
+  + see(AnotherMidget): void
+  + useStick(AnotherMidget): void
+  + punch(PoliceCharacter): void
+  + hit(AnotherMidget): void
+  + hit(Object): void
+  + walk(TypeOfPlaces): void
+  + punch(Object): void
+  + hit(PoliceCharacter): void
+  + useGun(AnotherMidget): void
+  + useGun(PoliceCharacter): void
+}
+class Rocket {
+  + Rocket(String, double): 
+  + descend(int, Planets): void
+  + toString(): String
+  + theRocket(): void
+  + ascend(int, Planets): void
+   rocketTakenOff: boolean
+}
+enum State << enumeration >> {
+  - State(String): 
+  + toString(): String
+  + values(): State[]
+  + valueOf(String): State
+}
+class Stick {
+  + Stick(String, ComplexItemState, Weight, Material, int): 
+  + equals(Object): boolean
+  + toString(): String
+  + hashCode(): int
+}
+class Telescope {
+  + Telescope(String, ComplexItemState, Weight, Material): 
+  + zoomWithTelescope(Object, Object): void
+  + setInteractedState(ComplexItemState, Object): void
+  + toString(): String
+   state: ComplexItemState
+}
+interface hitable << interface >> {
+  + hit(AnotherMidget): void
+  + hit(PoliceCharacter): void
+  + hit(Object): void
+}
+class node1 as "package  Item.ComplexItem" << package >>
+interface punchable << interface >> {
+  + punch(PoliceCharacter): void
+  + punch(Object): void
+}
+interface seeable << interface >> {
+  + see(Object): void
+  + see(PoliceCharacter): void
+  + see(AnotherMidget): void
+}
+interface shootable << interface >> {
+  + useGun(AnotherMidget): void
+  + useGun(PoliceCharacter): void
+}
+interface stickable << interface >> {
+  + useStick(PoliceCharacter): void
+  + useStick(AnotherMidget): void
+}
+interface walkable << interface >> {
+  + walk(TypeOfPlaces): void
+}
+
+AnotherMidget           -[#000082,plain]-^  Midget                 
+AnotherMidget           -[#595959,dashed]->  MidgetAmountException  : "«create»"
+AnotherMidget           -[#595959,dashed]->  NegativeValueException : "«create»"
+AnotherMidget           -[#008200,dashed]-^  hitable                
+AnotherMidget           -[#008200,dashed]-^  punchable              
+AnotherMidget           -[#008200,dashed]-^  seeable                
+AnotherMidget           -[#008200,dashed]-^  shootable              
+AnotherMidget           -[#008200,dashed]-^  stickable              
+AnotherMidget           -[#008200,dashed]-^  walkable               
+Binocularus             -[#000082,plain]-^  Item                   
+Gun                     -[#000082,plain]-^  Item                   
+Human                  "1" *-[#595959,plain]-> "Mood\n1" Mood                   
+Human                  "1" *-[#595959,plain]-> "HumanState\n1" State                  
+MainCharacters          -[#000082,plain]-^  Midget                 
+Megaphone               -[#000082,plain]-^  Item                   
+Midget                  -[#000082,plain]-^  Human                  
+Police                  -[#000082,plain]-^  Human                  
+PoliceCharacter         -[#000082,plain]-^  Police                 
+PoliceCharacter        "1" *-[#595959,plain]-> "activeItem\n1" Stick                  
+PoliceCharacter         -[#008200,dashed]-^  hitable                
+PoliceCharacter         -[#008200,dashed]-^  punchable              
+PoliceCharacter         -[#008200,dashed]-^  seeable                
+PoliceCharacter         -[#008200,dashed]-^  shootable              
+PoliceCharacter         -[#008200,dashed]-^  stickable              
+PoliceCharacter         -[#008200,dashed]-^  walkable               
+Rocket                  -[#008200,dashed]-^  Flyable                
+Rocket                  -[#000082,plain]-^  Item                   
+Rocket                  -[#595959,dashed]->  NegativeValueException : "«create»"
+Rocket                  -[#595959,dashed]->  NullPlanetException    : "«create»"
+Telescope               -[#008200,dashed]-^  Interactable           
+@enduml

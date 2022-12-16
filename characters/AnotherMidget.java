@@ -18,7 +18,11 @@ public class AnotherMidget extends Midget implements punchable, stickable, seeab
     public static int counter(){
         return midgetCreatedAmount;
     }
-    
+    class God{
+        void Pray(){
+            System.out.println(" silence ");
+        }
+    }
     
     public AnotherMidget(int power, Planets planets, TypeOfPlaces places) throws NegativeValueException{
         super(planets);
