@@ -1,5 +1,8 @@
 package src.CollectionClasses;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Random;
 import javax.validation.constraints.NotNull;
 
 /*
@@ -13,7 +16,14 @@ public class Discipline {
             throw new IllegalArgumentException("Name can't be empty");
         }
         this.name = name;
-        this.practiceHours = practiceHours;
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        long minimumTimestamp = new Date(70, 0, 1).getTime();
+        long maximumTimestamp = new Date().getTime();
+        long randomTimestamp = minimumTimestamp + (long)(Math.random() * (maximumTimestamp - minimumTimestamp));
+//        String randomDateTime = formatter.format(new Date(randomTimestamp));
+//        System.out.println(randomDateTime);
+        this.practiceHours = randomTimestamp;
+
     }
 
     @NotNull
@@ -30,9 +40,7 @@ public class Discipline {
 
     @Override
     public String toString() {
-        return "Discipline{" +
-                "name='" + name + '\'' +
-                ", practiceHours=" + practiceHours +
-                '}';
+             return    "name='" + name + '\'' +
+                ", practiceHours=" + practiceHours;
     }
 }

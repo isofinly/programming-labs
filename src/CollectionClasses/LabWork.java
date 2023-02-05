@@ -43,6 +43,8 @@ public class LabWork implements Comparable<LabWork> {
         this.minimalPoint = minimalPoint;
         this.creationDate = java.time.LocalDate.now();
         this.id = IdGen.getNewId();
+        this.personalQualitiesMaximum = personalQualitiesMaximum;
+        this.personalQualitiesMinimum = personalQualitiesMinimum;
     }
 
     /**

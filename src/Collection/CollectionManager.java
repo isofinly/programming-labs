@@ -6,8 +6,12 @@ import java.util.*;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
+import com.google.gson.internal.bind.util.ISO8601Utils;
 import com.google.gson.reflect.TypeToken;
 
+import src.CollectionClasses.Coordinates;
+import src.CollectionClasses.Difficulty;
+import src.CollectionClasses.Discipline;
 import src.utils.IdGen;
 import src.CollectionClasses.LabWork;
 
@@ -32,9 +36,9 @@ import src.CollectionClasses.LabWork;
 
 
 public class CollectionManager {
-    
+
 //    private LinkedHashSet<LabWork> works;
-    private LinkedHashSet<LabWork> works = new LinkedHashSet<>();
+    private LinkedHashSet<LabWork> labWork = new LinkedHashSet<>();
     private File jsonCollection;
     private Date initDate;
     private File outPut;
@@ -44,7 +48,7 @@ public class CollectionManager {
 
     {
         Gson gson = new Gson();
-        works = new LinkedHashSet<>();
+        labWork = new LinkedHashSet<>();
         manual = new HashMap<>();
 
         manual.put("\u001B[32m help: \u001B[0m", "output help for available commands");
@@ -71,7 +75,7 @@ public class CollectionManager {
         this.outPut = new File(outPath);
         this.initDate = new Date();
         this.load();
-        for (LabWork p : works) {
+        for (LabWork p : labWork) {
             if (p.getMinimalPoint() < 0.0) {
                 throw new Exception();
             }
@@ -80,7 +84,7 @@ public class CollectionManager {
 
     public void load() throws IOException {
 
-        int fileSize = works.size();
+        int fileSize = labWork.size();
 
         if (!jsonCollection.exists()) {
             System.out.println("\u001B[31m File not found.");
@@ -98,36 +102,53 @@ public class CollectionManager {
         }
         try (BufferedReader inputStreamReader = new BufferedReader(new InputStreamReader(new FileInputStream(jsonCollection)))) {
             System.out.println("\u001B[34m Collection is loading " + jsonCollection.getAbsolutePath());
+            String nextLine;
+            StringBuilder result = new StringBuilder();
+            while ((nextLine = inputStreamReader.readLine()) != null) {
+                result.append(nextLine);
+            }
 
-            while (inputStreamReader.ready()) {
-                String line = inputStreamReader.readLine();
-                if (line != null) {
-                    Gson gson = new Gson();
-                    Type collectionTypeObject = new TypeToken <LinkedHashSet <Object>>() {}.getType();
-                    LinkedHashSet <Object> itemsObj = gson.fromJson(line, collectionTypeObject);
-                    System.out.println(itemsObj);
-
-//                    Type collectionType = new TypeToken <LinkedHashSet <LabWork>>() {}.getType();
-//                    LinkedHashSet <LabWork> items = gson.fromJson(line, collectionType);
-
-//                    for (Object o : items) {
-//                        System.out.println(o);
-////                        LabWork work = gson.fromJson(gson.toJson(o), LabWork.class);
-////                        works.add();
+            Type collectionTypeObject = new TypeToken <LinkedHashSet <Object>>() {
+            }.getType();
+            LinkedHashSet <Object> itemsObj = gson.fromJson(result.toString(), collectionTypeObject);
+            ArrayList <String> args2 = new ArrayList <>();
+            while (itemsObj.iterator().hasNext()) {
+                String[] args = itemsObj.iterator().next().toString().split("\\w*=");
+                for (String arg : args) {
+                    String cleanedArg = arg.replace("{", "").replace("}", "").replace(",", "").trim();
+                    if (!cleanedArg.isEmpty()) {
+                        args2.add(cleanedArg);
                     }
                 }
-            }
 
+                itemsObj.remove(itemsObj.iterator().next());
 
-        try {
-//            System.out.println(works);
-        } catch (JsonSyntaxException ex) {
-            System.out.println("\u001B[31m JSON syntax erorr.");
-            System.exit(1);
+                try {
+                    labWork.add(new LabWork(
+                            args2.get(0),
+                            new Coordinates(
+                                    Double.parseDouble(args2.get(1)),
+                                    Float.parseFloat(args2.get(2))
+                            ),
+                            (int) Double.parseDouble(args2.get(3)),
+                            (int) Double.parseDouble(args2.get(4)),
+                            (long) Double.parseDouble(args2.get(5)),
+                            Difficulty.valueOf(args2.get(6)),
+                            new Discipline(args2.get(7), 1L)
+                    ));
+                    args2.clear();
+                } catch (JsonSyntaxException ex) {
+                    System.out.println("\u001B[31m JSON syntax erorr.");
+                    System.exit(1);
+                }
             }
-//            System.out.println("\u001B[34m Collections is successfully loaded with " + fileSize + " elements.");
+            System.out.println(labWork);
+            System.out.println("Collection of type " + labWork.getClass().getName() + " successfully loaded in size of " + (labWork.size() - fileSize) + " elements.");
+
+        }
 
     }
+
 
     public  HashMap<String, String> getManual() {
         return manual;
@@ -135,12 +156,12 @@ public class CollectionManager {
 
     @Override
     public String toString() {
-        if (works.isEmpty()){
+        if (labWork.isEmpty()){
             return "Коллекция пуста!";
         };
 
         String info = "";
-        for (LabWork work : works) {
+        for (LabWork work : labWork) {
             info += work;
             info += "\n\n";
         }
