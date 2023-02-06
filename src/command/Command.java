@@ -1,4 +1,4 @@
-package src.Commands;
+package src.command;
 
 /**
  * Интерфейс команд

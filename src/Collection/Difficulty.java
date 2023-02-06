@@ -1,4 +1,4 @@
-package src.CollectionClasses;
+package src.collection;
 
 public enum Difficulty {
     HARD,

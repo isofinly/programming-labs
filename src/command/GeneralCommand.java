@@ -1,9 +1,9 @@
-package src.Commands;
+package src.command;
 
 import java.io.File;
 import java.util.LinkedHashSet;
 
-import src.CollectionClasses.LabWork;
+import src.collection.*;
 /**
  * Адстрактный класс для команд
  * @version 1.0
@@ -13,7 +13,7 @@ public abstract class GeneralCommand implements Command{
     /**
      * Массив элементов
      */
-    protected LinkedHashSet<LabWork> labWork;
+    private LinkedHashSet<LabWork> labWork;
     /**
      * Файл для записи
      */

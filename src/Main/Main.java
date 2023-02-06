@@ -1,8 +1,10 @@
-package src.Main;
+package src.main;
 
 import java.io.*;
-import src.IO.*;
-import src.Collection.CollectionManager;
+
+import src.collection.*;
+import src.utils.*;
+
 
 public class Main {
     public static void main(String[] args) throws Exception {

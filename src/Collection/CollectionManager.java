@@ -1,4 +1,4 @@
-package src.Collection;
+package src.collection;
 
 import java.io.*;
 import java.lang.reflect.Type;
@@ -9,11 +9,8 @@ import com.google.gson.JsonSyntaxException;
 import com.google.gson.internal.bind.util.ISO8601Utils;
 import com.google.gson.reflect.TypeToken;
 
-import src.CollectionClasses.Coordinates;
-import src.CollectionClasses.Difficulty;
-import src.CollectionClasses.Discipline;
-import src.utils.IdGen;
-import src.CollectionClasses.LabWork;
+import src.utils.*;
+
 
 /*
     help : вывести справку по доступным командам

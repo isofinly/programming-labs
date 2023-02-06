@@ -1,4 +1,4 @@
-package src.Collection;
+package src.collection;
 
 public interface StandardCollection {
      /**
