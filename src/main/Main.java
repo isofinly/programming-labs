@@ -22,6 +22,18 @@ public class Main {
 
         File json_file_input = new File("src/JSON/input.json");
         CollectionManager collectionManager = new CollectionManager(inPath, outPath);
+
+        System.out.println();
+        collectionManager.help();
+        System.out.println();
+        collectionManager.info();
+        System.out.println();
+        collectionManager.show();
+        System.out.println();
+        collectionManager.clear();
+        System.out.println();
+        collectionManager.exit();
+
     }
     
 }

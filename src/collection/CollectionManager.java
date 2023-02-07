@@ -151,10 +151,124 @@ public class CollectionManager {
         return manual;
     }
 
+    public void help(){
+        for (Map.Entry<String, String> entry : manual.entrySet()) {
+            System.out.println(entry.getKey() + " - " + entry.getValue());
+        }
+    }
+
+    public void info() {
+        System.out.println("\u001B[34m Collection type: " + labWork.getClass().getName());
+        System.out.println("Collection size: " + labWork.size());
+        System.out.println("Initialization date: " + initDate);
+    }
+
+    public void show() {
+        if (labWork.isEmpty()){
+            System.out.println("\u001B[31m Collection is empty!");
+            return;
+        };
+        for (LabWork work : labWork) {
+            System.out.println(work);
+        }
+    }
+
+    public void add(LabWork labWork) {
+        // TODO
+        this.labWork.add(labWork);
+        System.out.println("\u001B[34m Element added.");
+    }
+
+    public void updateId(int id, LabWork labWork) {
+        for (LabWork work : this.labWork) {
+            if (work.getId() == id) {
+                this.labWork.remove(work);
+                this.labWork.add(labWork);
+                System.out.println("\u001B[34m Element with id " + id + " updated.");
+                return;
+            }
+        }
+        System.out.println("\u001B[31m Element with id " + id + " not found.");
+    }
+
+
+    public void remove_by_id(int id) {
+        for (LabWork work : labWork) {
+            if (work.getId() == id) {
+                labWork.remove(work);
+                System.out.println("\u001B[34m Element with id " + id + " removed.");
+                return;
+            }
+        }
+        System.out.println("\u001B[31m Element with id " + id + " not found.");
+    }
+
+
+    public void clear() {
+        labWork.remove(labWork);
+        System.out.println("\u001B[34m Collection cleared.");
+    }
+
+    public void save() throws IOException {
+        // TODO
+        try (BufferedWriter outputStreamWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(jsonCollection)))) {
+            outputStreamWriter.write(gson.toJson(labWork));
+            System.out.println("\u001B[34m Collection saved to " + jsonCollection.getAbsolutePath());
+        }
+    }
+
+    public void execute_scrpit() {
+        // TODO
+    }
+
+    public void exit() {
+        System.out.println("\u001B[34m Bye!");
+        System.exit(0);
+    }
+
+    public void add_if_max(LabWork labWork) {
+        if (labWork.compareTo(Collections.max(this.labWork)) > 0) {
+            this.labWork.add(labWork);
+            System.out.println("\u001B[34m Element added.");
+        } else {
+            System.out.println("\u001B[31m Element not added.");
+        }
+    }
+
+    public void add_if_min(LabWork labWork) {
+        if (labWork.compareTo(Collections.min(this.labWork)) < 0) {
+            this.labWork.add(labWork);
+            System.out.println("\u001B[34m Element added.");
+        } else {
+            System.out.println("\u001B[31m Element not added.");
+        }
+    }
+
+    public void remove_lower(LabWork labWork) {
+        for (LabWork work : this.labWork) {
+            if (work.compareTo(labWork) < 0) {
+                this.labWork.remove(work);
+            }
+        }
+        System.out.println("\u001B[34m Elements removed.");
+    }
+
+    public void max_by_creation_date() {
+        // TODO
+    }
+
+    public void group_conting_by_id() {
+        // TODO
+    }
+
+    public void filter_greater_than_personal_qualities_maximun() {
+        // TODO
+    }
+
     @Override
     public String toString() {
         if (labWork.isEmpty()){
-            return "Коллекция пуста!";
+            return "Collection is empty!";
         };
 
         String info = "";
