@@ -1,5 +1,7 @@
 package src.collection;
 
+import org.jetbrains.annotations.Nullable;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
@@ -11,18 +13,16 @@ import javax.validation.constraints.NotNull;
  */
 public class Discipline {
 
-    public Discipline(String name, Long practiceHours) {
-        if (name.isEmpty()){
-            throw new IllegalArgumentException("Name can't be empty");
-        }
+    public Discipline(String name, @Nullable Long practiceHours) {
         this.name = name;
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         long minimumTimestamp = new Date(70, 0, 1).getTime();
         long maximumTimestamp = new Date().getTime();
         long randomTimestamp = minimumTimestamp + (long)(Math.random() * (maximumTimestamp - minimumTimestamp));
+        this.practiceHours = practiceHours;
+//        this.practiceHours = randomTimestamp;
 //        String randomDateTime = formatter.format(new Date(randomTimestamp));
 //        System.out.println(randomDateTime);
-        this.practiceHours = randomTimestamp;
 
     }
 

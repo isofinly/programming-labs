@@ -34,19 +34,19 @@ import src.utils.*;
 
 public class CollectionManager {
 
-//    private LinkedHashSet<LabWork> works;
-    private LinkedHashSet<LabWork> labWork = new LinkedHashSet<>();
+    //    private LinkedHashSet<LabWork> works;
+    private LinkedHashSet <LabWork> labWork = new LinkedHashSet <>();
     private File jsonCollection;
     private Date initDate;
     private File outPut;
     Gson gson = new Gson();
-    protected static HashMap<String, String> manual;
-    private List<String> scriptStack = new ArrayList<>();
+    protected static HashMap <String, String> manual;
+    private List <String> scriptStack = new ArrayList <>();
 
     {
         Gson gson = new Gson();
-        labWork = new LinkedHashSet<>();
-        manual = new HashMap<>();
+        labWork = new LinkedHashSet <>();
+        manual = new HashMap <>();
 
         manual.put("\u001B[32m help: \u001B[0m", "output help for available commands");
         manual.put("\u001B[32m info: \u001B[0m", "output information about the collection (type, initialization date, number of items, etc.) to the standard output stream.");
@@ -54,7 +54,7 @@ public class CollectionManager {
         manual.put("\u001B[32m add {element}: \u001B[0m", "add a new item to the collection");
         manual.put("\u001B[32m update id {element}: \u001B[0m", "update the value of a collection item whose id is equal to the specified one");
         manual.put("\u001B[32m remove_by_id id: \u001B[0m", "delete an item from the collection by its id");
-        manual.put("\u001B[32m clear: \u001B[0m" , "clear the collection");
+        manual.put("\u001B[32m clear: \u001B[0m", "clear the collection");
         manual.put("\u001B[32m save: \u001B[0m", "save the collection to a file");
         manual.put("\u001B[32m execute_script file_name: \u001B[0m", "read and execute the script from the specified file.");
         manual.put("\u001B[32m exit: \u001B[0m", "terminate the program (without saving to a file)");
@@ -67,7 +67,7 @@ public class CollectionManager {
     }
 
 
-    public CollectionManager(String inPath , String outPath) throws Exception, IOException {
+    public CollectionManager(String inPath, String outPath) throws Exception, IOException {
         this.jsonCollection = new File(inPath);
         this.outPut = new File(outPath);
         this.initDate = new Date();
@@ -131,7 +131,7 @@ public class CollectionManager {
                             (int) Double.parseDouble(args2.get(4)),
                             (long) Double.parseDouble(args2.get(5)),
                             Difficulty.valueOf(args2.get(6)),
-                            new Discipline(args2.get(7), 1L)
+                            new Discipline(args2.get(7), (long) Double.parseDouble(args2.get(8)))
                     ));
                     args2.clear();
                 } catch (JsonSyntaxException ex) {
@@ -141,18 +141,19 @@ public class CollectionManager {
             }
             System.out.println(labWork);
             System.out.println("Collection of type " + labWork.getClass().getName() + " successfully loaded in size of " + (labWork.size() - fileSize) + " elements.");
-
         }
+    }
+
+    public void add(List <String> args) {
 
     }
 
-
-    public  HashMap<String, String> getManual() {
+    public HashMap <String, String> getManual() {
         return manual;
     }
 
-    public void help(){
-        for (Map.Entry<String, String> entry : manual.entrySet()) {
+    public void help() {
+        for (Map.Entry <String, String> entry : manual.entrySet()) {
             System.out.println(entry.getKey() + " - " + entry.getValue());
         }
     }
@@ -164,122 +165,214 @@ public class CollectionManager {
     }
 
     public void show() {
-        if (labWork.isEmpty()){
+        if (labWork.isEmpty()) {
             System.out.println("\u001B[31m Collection is empty!");
             return;
-        };
+        }
+        ;
         for (LabWork work : labWork) {
             System.out.println(work);
         }
     }
 
-    public void add(LabWork labWork) {
+    public void add(Scanner read) {
         // TODO
-        this.labWork.add(labWork);
-        System.out.println("\u001B[34m Element added.");
-    }
+        int id = IdGen.getNewId();
 
-    public void updateId(int id, LabWork labWork) {
-        for (LabWork work : this.labWork) {
-            if (work.getId() == id) {
-                this.labWork.remove(work);
+        String name = "";
+        while (name.isEmpty()) {
+            System.out.println("\u001B[34m Enter name: ");
+            name = read.nextLine();
+        }
+
+        System.out.println("\u001B[34m Enter coordinates: ");
+        double x = 0;
+        while (x == 0) {
+            System.out.println("\u001B[34m Enter x: ");
+            try {
+                x = Double.parseDouble(read.nextLine());
+            } catch (NumberFormatException ex) {
+                System.out.println("\u001B[31m Invalid number format.");
+            }
+        }
+        float y = 0;
+        while (y == 0) {
+            System.out.println("\u001B[34m Enter y: ");
+            try {
+                y = Float.parseFloat(read.nextLine());
+            } catch (NumberFormatException ex) {
+                System.out.println("\u001B[31m Invalid number format.");
+            }
+        }
+
+        Coordinates coordinates = new Coordinates(x, y);
+
+        int minimalPoint = 0;
+        while (minimalPoint == 0) {
+            System.out.println("\u001B[34m Enter minimal point: ");
+            try {
+                minimalPoint = Integer.parseInt(read.nextLine());
+            } catch (NumberFormatException ex) {
+                System.out.println("\u001B[31m Invalid number format.");
+            }
+        }
+        int personalQualitiesMinimum = 0;
+        while (personalQualitiesMinimum == 0) {
+            System.out.println("\u001B[34m Enter personal qualities minimum: ");
+            try {
+                personalQualitiesMinimum = Integer.parseInt(read.nextLine());
+            } catch (NumberFormatException ex) {
+                System.out.println("\u001B[31m Invalid number format.");
+            }
+        }
+        long personalQualitiesMaximum = 0;
+        while (personalQualitiesMaximum == 0) {
+            System.out.println("\u001B[34m Enter personal qualities maximum: ");
+            try {
+                personalQualitiesMaximum = Long.parseLong(read.nextLine());
+            } catch (NumberFormatException ex) {
+                System.out.println("\u001B[31m Invalid number format.");
+            }
+        }
+
+        Difficulty difficulty = null;
+        while (difficulty == null) {
+            System.out.println("\u001B[34m Enter difficulty: ");
+            try {
+
+                System.out.println("\u001B[34m Enter one of these types of difficulty:  \u001B[0m");
+                System.out.println(Difficulty.nameList());
+                String input = read.nextLine().trim().toUpperCase();
+                difficulty = Difficulty.valueOf(input);
+            } catch (IllegalArgumentException ex) {
+                System.out.println("\u001B[31m Invalid difficulty type.");
+            }
+
+            Discipline discipline = null;
+            while (discipline == null) {
+                System.out.println("\u001B[34m Enter discipline name: ");
+                try {
+                    String disciplineName = read.nextLine();
+                    long selfStudyHours = 0;
+                    while (selfStudyHours == 0) {
+                        System.out.println("\u001B[34m Enter self study hours: ");
+                        try {
+                            selfStudyHours = Long.parseLong(read.nextLine());
+                        } catch (NumberFormatException ex) {
+                            System.out.println("\u001B[31m Invalid number format.");
+                        }
+                    }
+                    discipline = new Discipline(disciplineName, selfStudyHours);
+                } catch (IllegalArgumentException ex) {
+                    System.out.println("\u001B[31m Invalid discipline name.");
+                }
+            }
+
+            System.out.println("\u001B[34m Element added.");
+        }
+    }
+        public void updateId ( int id, LabWork labWork){
+            for (LabWork work : this.labWork) {
+                if (work.getId() == id) {
+                    this.labWork.remove(work);
+                    this.labWork.add(labWork);
+                    System.out.println("\u001B[34m Element with id " + id + " updated.");
+                    return;
+                }
+            }
+            System.out.println("\u001B[31m Element with id " + id + " not found.");
+        }
+
+
+        public void remove_by_id(int id){
+            for (LabWork work : labWork) {
+                if (work.getId() == id) {
+                    labWork.remove(work);
+                    System.out.println("\u001B[34m Element with id " + id + " removed.");
+                    return;
+                }
+            }
+            System.out.println("\u001B[31m Element with id " + id + " not found.");
+        }
+
+
+        public void clear () {
+            labWork.remove(labWork);
+            System.out.println("\u001B[34m Collection cleared.");
+        }
+
+        public void save () throws IOException {
+            // TODO
+            try (BufferedWriter outputStreamWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(jsonCollection)))) {
+                outputStreamWriter.write(gson.toJson(labWork));
+                System.out.println("\u001B[34m Collection saved to " + jsonCollection.getAbsolutePath());
+            }
+        }
+
+        public void execute_scrpit () {
+            // TODO
+        }
+
+        public void exit () {
+            System.out.println("\u001B[34m Bye!");
+            System.exit(0);
+        }
+
+        public void add_if_max (LabWork labWork){
+            if (labWork.compareTo(Collections.max(this.labWork)) > 0) {
                 this.labWork.add(labWork);
-                System.out.println("\u001B[34m Element with id " + id + " updated.");
-                return;
+                System.out.println("\u001B[34m Element added.");
+            } else {
+                System.out.println("\u001B[31m Element not added.");
             }
         }
-        System.out.println("\u001B[31m Element with id " + id + " not found.");
-    }
 
-
-    public void remove_by_id(int id) {
-        for (LabWork work : labWork) {
-            if (work.getId() == id) {
-                labWork.remove(work);
-                System.out.println("\u001B[34m Element with id " + id + " removed.");
-                return;
+        public void add_if_min (LabWork labWork){
+            if (labWork.compareTo(Collections.min(this.labWork)) < 0) {
+                this.labWork.add(labWork);
+                System.out.println("\u001B[34m Element added.");
+            } else {
+                System.out.println("\u001B[31m Element not added.");
             }
         }
-        System.out.println("\u001B[31m Element with id " + id + " not found.");
-    }
 
-
-    public void clear() {
-        labWork.remove(labWork);
-        System.out.println("\u001B[34m Collection cleared.");
-    }
-
-    public void save() throws IOException {
-        // TODO
-        try (BufferedWriter outputStreamWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(jsonCollection)))) {
-            outputStreamWriter.write(gson.toJson(labWork));
-            System.out.println("\u001B[34m Collection saved to " + jsonCollection.getAbsolutePath());
-        }
-    }
-
-    public void execute_scrpit() {
-        // TODO
-    }
-
-    public void exit() {
-        System.out.println("\u001B[34m Bye!");
-        System.exit(0);
-    }
-
-    public void add_if_max(LabWork labWork) {
-        if (labWork.compareTo(Collections.max(this.labWork)) > 0) {
-            this.labWork.add(labWork);
-            System.out.println("\u001B[34m Element added.");
-        } else {
-            System.out.println("\u001B[31m Element not added.");
-        }
-    }
-
-    public void add_if_min(LabWork labWork) {
-        if (labWork.compareTo(Collections.min(this.labWork)) < 0) {
-            this.labWork.add(labWork);
-            System.out.println("\u001B[34m Element added.");
-        } else {
-            System.out.println("\u001B[31m Element not added.");
-        }
-    }
-
-    public void remove_lower(LabWork labWork) {
-        for (LabWork work : this.labWork) {
-            if (work.compareTo(labWork) < 0) {
-                this.labWork.remove(work);
+        public void remove_lower (LabWork labWork){
+            for (LabWork work : this.labWork) {
+                if (work.compareTo(labWork) < 0) {
+                    this.labWork.remove(work);
+                }
             }
+            System.out.println("\u001B[34m Elements removed.");
         }
-        System.out.println("\u001B[34m Elements removed.");
-    }
 
-    public void max_by_creation_date() {
-        // TODO
-    }
-
-    public void group_conting_by_id() {
-        // TODO
-    }
-
-    public void filter_greater_than_personal_qualities_maximun() {
-        // TODO
-    }
-
-    @Override
-    public String toString() {
-        if (labWork.isEmpty()){
-            return "Collection is empty!";
-        };
-
-        String info = "";
-        for (LabWork work : labWork) {
-            info += work;
-            info += "\n\n";
+        public void max_by_creation_date () {
+            // TODO
         }
-        System.out.println(info);
-        return info;
+
+        public void group_conting_by_id () {
+            // TODO
+        }
+
+        public void filter_greater_than_personal_qualities_maximun () {
+            // TODO
+        }
+
+        @Override
+        public String toString () {
+            if (labWork.isEmpty()) {
+                return "Collection is empty!";
+            }
+            ;
+
+            String info = "";
+            for (LabWork work : labWork) {
+                info += work;
+                info += "\n\n";
+            }
+            System.out.println(info);
+            return info;
+
+        }
 
     }
-
-}
 
