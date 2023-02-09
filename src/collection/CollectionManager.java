@@ -3,10 +3,9 @@ package src.collection;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
-
+import src.collection.*;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
-import com.google.gson.internal.bind.util.ISO8601Utils;
 import com.google.gson.reflect.TypeToken;
 
 import src.utils.*;
@@ -34,7 +33,6 @@ import src.utils.*;
 
 public class CollectionManager {
 
-    //    private LinkedHashSet<LabWork> works;
     private LinkedHashSet <LabWork> labWork = new LinkedHashSet <>();
     private File jsonCollection;
     private Date initDate;
