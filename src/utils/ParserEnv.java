@@ -6,6 +6,10 @@ import java.util.*;
 import javax.validation.constraints.NotNull;
 
 
+/**
+ * ParserEnv class. Parses .env file and returns a map with key-value pairs.
+ * @see FileHandler
+ */
 public class ParserEnv extends FileHandler {
 
 

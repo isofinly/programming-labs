@@ -7,6 +7,10 @@ import src.collection.LabWork;
 import java.io.*;
 import java.util.LinkedHashSet;
 
+/**
+ * Class for command save
+ * @see CommandsWithArguments
+ */
 public class SaveCommand extends CommandsWithArguments <String> {
     public SaveCommand(LinkedHashSet <LabWork> collection, File file) {
         super(collection, file);

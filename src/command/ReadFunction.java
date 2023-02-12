@@ -1,5 +1,6 @@
 package src.command;
 
+import jdk.jfr.Unsigned;
 import src.collection.LabWork;
 
 import java.io.File;
@@ -8,6 +9,11 @@ import java.util.*;
 import java.util.regex.Pattern;
 
 
+/**
+ * Class for reading commands from input s
+ * Uses regex
+ * see @CommandsWithArguments
+ */
 public class ReadFunction {
 
     Commands[] commands;
@@ -49,8 +55,8 @@ public class ReadFunction {
         }
     }
 
-
-    public class HistoryCommand extends Commands {
+@Deprecated
+public class HistoryCommand extends Commands {
         public HistoryCommand(LinkedHashSet <LabWork> labWorks, File file) {
             super(labWorks, file);
         }
@@ -82,6 +88,10 @@ public class ReadFunction {
 
     }
 
+    /**
+     * Class for command execution that converts string to argument
+     * @see CommandsWithArguments
+     */
     public class ExecuteCommand extends CommandsWithArguments <String> {
 
         public ExecuteCommand(LinkedHashSet <LabWork> labWorks, File file) {
@@ -92,7 +102,6 @@ public class ReadFunction {
         }
 
         private List <File> FileArray = new ArrayList <>();
-
 
         @Override
         public void execute() {

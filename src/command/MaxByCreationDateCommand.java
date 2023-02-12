@@ -7,13 +7,11 @@ import java.util.*;
 
 public class MaxByCreationDateCommand extends Commands {
 
-
     public MaxByCreationDateCommand(LinkedHashSet <LabWork> collection, File file) {
         super(collection, file);
         this.name = "max_by_creation_date";
         this.hasArgument = false;
     }
-
 
     @Override
     public String getDescription() {

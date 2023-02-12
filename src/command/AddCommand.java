@@ -8,6 +8,10 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
+/**
+ * Class responsible for adding a new element to the collection
+ * @see Commands
+ */
 public class AddCommand extends Commands{
 
     public AddCommand(LinkedHashSet <LabWork> collection, File file) {

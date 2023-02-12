@@ -9,8 +9,10 @@ import java.util.Scanner;
 import javax.validation.constraints.NotNull;
 
 /*
- *  private String name; //Поле не может быть null, Строка не может быть пустой
- *  private Long practiceHours; //Поле может быть null
+ *  String name; //Поле не может быть null, Строка не может быть пустой
+ *  Long practiceHours; //Поле может быть null
+ *  Class for discipline
+ *  @see LabWork
  */
 public class Discipline {
 

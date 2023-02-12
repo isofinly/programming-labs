@@ -6,7 +6,11 @@ import java.io.File;
 
 import java.util.LinkedHashSet;
 
-public class HelpCommand extends CommandsUseArray {
+/**
+ * Class for command "help"
+ * @see CommandsUseArray
+ */
+public class HelpCommand extends Commands {
     public HelpCommand(LinkedHashSet <LabWork> labWorks, File file) {
         super(labWorks, file);
         this.name = "help";

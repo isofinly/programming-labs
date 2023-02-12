@@ -10,6 +10,13 @@ import src.utils.*;
 
 import src.collection.*;
 
+/**
+ * Class for lab work
+ * @see Comparable
+ * @see Coordinates
+ * @see Difficulty
+ * @see Discipline
+ */
 public class LabWork implements Comparable <LabWork> {
 
     /**

@@ -10,6 +10,11 @@ import java.util.Set;
 
 import java.util.TreeSet;
 
+/**
+ * Class responsible for adding a new element to the collection
+ * if its value exceeds the value of the largest element of this collection
+ * @see Commands
+ */
 public class AddIfMaxCommand extends Commands {
     public AddIfMaxCommand(LinkedHashSet <LabWork> collection, File file) {
         super(collection, file);

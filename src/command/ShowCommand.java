@@ -7,6 +7,10 @@ import src.command.Commands;
 import java.io.File;
 import java.util.LinkedHashSet;
 
+/**
+ * Class for command show
+ * @see Commands
+ */
 public class ShowCommand extends Commands {
     public ShowCommand(LinkedHashSet <LabWork> collection, File file) {
         super(collection, file);

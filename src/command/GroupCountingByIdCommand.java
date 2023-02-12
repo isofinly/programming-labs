@@ -7,6 +7,10 @@ import java.util.LinkedHashSet;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 
+/**
+ * Class for command group_counting_by_id
+ * @see Commands
+ */
 public class GroupCountingByIdCommand extends Commands{
     public GroupCountingByIdCommand(LinkedHashSet <LabWork> collection, File file) {
         super(collection, file);

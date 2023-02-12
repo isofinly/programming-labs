@@ -6,6 +6,11 @@ import src.utils.*;
 
 import java.io.File;
 
+/**
+ * Main class of the program that starts the program
+ * and calls the method for reading commands from the file
+ * and executing them or executing them from the console
+ */
 public final class Main {
     public static void main(String... args) throws Exception {
         try {

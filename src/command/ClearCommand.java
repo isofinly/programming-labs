@@ -2,11 +2,15 @@ package src.command;
 
 
 import src.collection.LabWork;
-import src.command.Commands;
+
 
 import java.io.File;
 import java.util.LinkedHashSet;
 
+/**
+ * Class responsible for the command clear
+ * @see Commands
+ */
 public class ClearCommand extends Commands {
     public ClearCommand(LinkedHashSet <LabWork> collection, File file) {
         super(collection, file);

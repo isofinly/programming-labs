@@ -7,6 +7,10 @@ import java.io.File;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
 
+/**
+ * Command reader class for interactive mode. Read commands from console and sends them to ReadFunction class.
+ * @see ReadFunction
+ */
 public class CommandReader {
     public static void ReadCommand(File file, LinkedHashSet <LabWork> collection) {
 

@@ -5,6 +5,13 @@ import src.collection.LabWork;
 import java.io.File;
 import java.util.LinkedHashSet;
 
+/**
+ * Abstract class for commands.
+ * @see Command
+ * Do not confuse with CommandsWithArguments or CommandsUseArray
+ * @see CommandsUseArray
+ * @see CommandsWithArguments
+ */
 public abstract class Commands implements Command {
     protected LinkedHashSet <LabWork> collection;
     File file;

@@ -1,12 +1,14 @@
 package src.command;
 
-
 import src.collection.LabWork;
-import src.command.Commands;
-
 import java.io.File;
 import java.util.LinkedHashSet;
 
+/**
+ * @param <T> Type of argument
+ *           Class for commands with arguments
+ * @see Command
+ */
 public abstract class CommandsWithArguments<T> extends Commands {
     protected T argument;
 

@@ -1,5 +1,9 @@
 package src.collection;
 
+/**
+ * Enum for difficulty
+ * @see LabWork
+ */
 public enum Difficulty {
     HARD,
     INSANE,

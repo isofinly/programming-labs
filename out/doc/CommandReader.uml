@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>src.utils.CommandReader</OriginalElement>
+  <nodes>
+    <node x="-234.42624148441485" y="604.8874817853964">src.command.UpdateCommand</node>
+    <node x="467.2844844736135" y="350.98779940785346">src.command.CommandsUseArray</node>
+    <node x="2481.6174907019863" y="333.9757291199931">src.command.RemoveLowerCommand</node>
+    <node x="188.90500785861576" y="305.26277170595745">src.command.RemoveCommand</node>
+    <node x="473.7285894154952" y="487.82982187503467">src.command.ReadFunction</node>
+    <node x="2500.5627771642967" y="45.70147289144333">src.command.AddIfMaxCommand</node>
+    <node x="-97.32796153281203" y="782.2256841236875">src.utils.ParserEnv</node>
+    <node x="936.4334563891839" y="468.8666616741418">src.collection.Discipline</node>
+    <node x="1176.35301659062" y="449.6524753095771">src.command.HelpCommand</node>
+    <node x="1582.787646313067" y="178.25325927496687">src.command.Commands</node>
+    <node x="-51.73208899442159" y="693.1472266426881">src.utils.FileHandler</node>
+    <node x="2008.4107582929191" y="295.08154023062286">src.command.InfoCommand</node>
+    <node x="2763.42486609887" y="-26.281963490897112">src.command.AddCommand</node>
+    <node x="749.9646686325304" y="288.72092738177014">src.collection.Coordinates</node>
+    <node x="1072.258117864281" y="369.0415405750008">src.command.ReadFunction.HistoryCommand</node>
+    <node x="224.58109840431257" y="394.6927638131771">src.utils.CommandReader</node>
+    <node x="145.69774767384598" y="555.3279481164334">src.collection.CollectionManager</node>
+    <node x="2244.9929567531494" y="314.4625749227326">src.command.ShowCommand</node>
+    <node x="2006.3333867408014" y="446.9868677499187">src.main.Main</node>
+    <node x="1707.6201816496603" y="505.6808078447816">src.utils.IdGen</node>
+    <node x="1353.999361514686" y="560.3599945226124">src.command.MaxByCreationDateCommand</node>
+    <node x="2153.4589301652863" y="526.6175573554351">src.command.User</node>
+    <node x="-4.460634179272915" y="463.595139535351">src.command.SaveCommand</node>
+    <node x="1777.0624989585558" y="361.95282340213146">src.command.ClearCommand</node>
+    <node x="219.58109840431257" y="464.97958542025646">src.command.ReadFunction.ExecuteCommand</node>
+    <node x="1587.6576292277525" y="383.6612124839643">src.command.Command</node>
+    <node x="957.3273830675512" y="252.1672822959526">src.command.GroupCountingByIdCommand</node>
+    <node x="-173.69580731571676" y="299.12934896547824">src.command.CommandsWithArguments</node>
+    <node x="1172.928975940701" y="601.4322317720097">src.collection.Difficulty</node>
+    <node x="517.2303564654671" y="143.52434176814842">src.command.FilterGreaterThanPersonalQualitiesMaximumCommand</node>
+    <node x="1396.2438548846233" y="649.1098788442973">src.collection.LabWork</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="src.command.ShowCommand" target="src.command.Commands" relationship="GENERALIZATION">
+      <point x="4.3246850509603973E-5" y="14.0" />
+      <point x="2330.993" y="430.0" />
+      <point x="1977.0" y="430.0" />
+      <point x="1977.0" y="109.0" />
+      <point x="1721.788" y="109.0" />
+      <point x="3.536869330673653E-4" y="-61.5" />
+    </edge>
+    <edge source="src.command.FilterGreaterThanPersonalQualitiesMaximumCommand" target="src.command.CommandsWithArguments" relationship="GENERALIZATION">
+      <point x="-235.0" y="-3.417681484165769E-4" />
+      <point x="154.0" y="157.524" />
+      <point x="154.0" y="337.629" />
+      <point x="145.49980731571677" y="-3.489654782242724E-4" />
+    </edge>
+    <edge source="src.collection.CollectionManager" target="src.collection.Discipline" relationship="CREATE">
+      <point x="134.0" y="15.000051883566584" />
+      <point x="883.5" y="666.328" />
+      <point x="883.5" y="734.0" />
+      <point x="1021.933" y="734.0" />
+      <point x="-4.563891839097778E-4" y="38.5" />
+    </edge>
+    <edge source="src.command.User" target="src.command.Commands" relationship="CREATE">
+      <point x="-134.96597341213692" y="-188.0" />
+      <point x="2227.4929567531494" y="239.75325927496687" />
+      <point x="139.0" y="0.0" />
+    </edge>
+    <edge source="src.command.AddCommand" target="src.command.Commands" relationship="GENERALIZATION">
+      <point x="1.3390113008426852E-4" y="13.99996349089713" />
+      <point x="2843.425" y="109.0" />
+      <point x="1721.788" y="109.0" />
+      <point x="3.536869330673653E-4" y="-61.5" />
+    </edge>
+    <edge source="src.command.ReadFunction.HistoryCommand" target="src.command.ReadFunction" relationship="INNER_CLASS">
+      <point x="-11.258117864281076" y="14.0" />
+      <point x="1153.5" y="448.0" />
+      <point x="607.729" y="448.0" />
+      <point x="4.105845048343326E-4" y="-38.499821875034684" />
+    </edge>
+    <edge source="src.main.Main" target="src.collection.CollectionManager" relationship="CREATE">
+      <point x="8.999613259198668" y="14.0" />
+      <point x="2058.833" y="935.118" />
+      <point x="264.698" y="935.118" />
+      <point x="-14.999747673846002" y="96.0" />
+    </edge>
+    <edge source="src.command.AddIfMaxCommand" target="src.command.Commands" relationship="GENERALIZATION">
+      <point x="2.2283570342551684E-4" y="13.999527108556663" />
+      <point x="2601.563" y="109.0" />
+      <point x="1721.788" y="109.0" />
+      <point x="3.536869330673653E-4" y="-61.5" />
+    </edge>
+    <edge source="src.command.CommandsWithArguments" target="src.command.Commands" relationship="GENERALIZATION">
+      <point x="-1.926842832631337E-4" y="-38.5" />
+      <point x="-28.196000000000026" y="109.0" />
+      <point x="1721.788" y="109.0" />
+      <point x="3.536869330673653E-4" y="-61.5" />
+    </edge>
+    <edge source="src.command.UpdateCommand" target="src.command.CommandsWithArguments" relationship="GENERALIZATION">
+      <point x="2.4148441485749572E-4" y="-14.0" />
+      <point x="-141.926" y="442.0" />
+      <point x="154.0" y="442.0" />
+      <point x="154.0" y="337.629" />
+      <point x="145.49980731571677" y="-3.489654782242724E-4" />
+    </edge>
+    <edge source="src.utils.CommandReader" target="src.command.ReadFunction" relationship="CREATE">
+      <point x="91.0" y="10.5" />
+      <point x="562.2840000000001" y="419.1927638131771" />
+      <point x="-45.4445894154951" y="-38.5" />
+    </edge>
+    <edge source="src.command.UpdateCommand" target="src.collection.LabWork" relationship="CREATE">
+      <point x="-49.26975851558515" y="-14.0" />
+      <point x="-191.196" y="92.0" />
+      <point x="2742.0" y="92.0" />
+      <point x="2742.0" y="513.181" />
+      <point x="2043.833" y="513.181" />
+      <point x="2043.833" y="768.11" />
+      <point x="134.0" y="1.2115570268633746E-4" />
+    </edge>
+    <edge source="src.command.ClearCommand" target="src.command.Commands" relationship="GENERALIZATION">
+      <point x="84.49950104144409" y="1.7659786851709214E-4" />
+      <point x="1977.0" y="375.953" />
+      <point x="1977.0" y="109.0" />
+      <point x="1721.788" y="109.0" />
+      <point x="3.536869330673653E-4" y="-61.5" />
+    </edge>
+    <edge source="src.utils.CommandReader" target="src.command.InfoCommand" relationship="CREATE">
+      <point x="50.749950797843724" y="14.0" />
+      <point x="366.3310492021563" y="434.91311882739427" />
+      <point x="2087.910758292919" y="434.91311882739427" />
+      <point x="-0.0" y="14.0" />
+    </edge>
+    <edge source="src.utils.CommandReader" target="src.command.ClearCommand" relationship="CREATE">
+      <point x="-91.0" y="-10.5" />
+      <point x="165.40500785861576" y="398.1927638131771" />
+      <point x="165.40500785861576" y="130.52434176814842" />
+      <point x="1873.787646313067" y="130.52434176814842" />
+      <point x="12.225147354511137" y="-14.0" />
+    </edge>
+    <edge source="src.utils.CommandReader" target="src.command.AddIfMaxCommand" relationship="CREATE">
+      <point x="91.0" y="4.666666666666686" />
+      <point x="416.58109840431257" y="413.3594304798438" />
+      <point x="416.58109840431257" y="59.7014728914433" />
+      <point x="-101.0" y="-2.8421709430404007E-14" />
+    </edge>
+    <edge source="src.command.RemoveCommand" target="src.command.CommandsWithArguments" relationship="GENERALIZATION">
+      <point x="-95.0" y="2.282940425857305E-4" />
+      <point x="154.0" y="319.26300000000003" />
+      <point x="154.0" y="337.629" />
+      <point x="145.49980731571677" y="-3.489654782242724E-4" />
+    </edge>
+    <edge source="src.collection.LabWork" target="src.collection.Discipline" relationship="CREATE">
+      <point x="-133.99985488462335" y="11.616121155702672" />
+      <point x="1148.0" y="779.726" />
+      <point x="1148.0" y="734.0" />
+      <point x="1021.933" y="734.0" />
+      <point x="-4.563891839097778E-4" y="38.5" />
+    </edge>
+    <edge source="src.utils.CommandReader" target="src.command.GroupCountingByIdCommand" relationship="CREATE">
+      <point x="30.0" y="-14.0" />
+      <point x="345.58109840431257" y="368.62934896547824" />
+      <point x="431.197747673846" y="368.62934896547824" />
+      <point x="431.197747673846" y="266.1672822959526" />
+      <point x="-140.5" y="0.0" />
+    </edge>
+    <edge source="src.command.MaxByCreationDateCommand" target="src.command.Commands" relationship="GENERALIZATION">
+      <point x="-3.6151468589196156E-4" y="-13.999994522612496" />
+      <point x="1495.499" y="430.0" />
+      <point x="1977.0" y="430.0" />
+      <point x="1977.0" y="109.0" />
+      <point x="1721.788" y="109.0" />
+      <point x="3.536869330673653E-4" y="-61.5" />
+    </edge>
+    <edge source="src.command.ReadFunction.HistoryCommand" target="src.command.Commands" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="1164.758117864281" y="340.58154023062286" />
+      <point x="1637.1576292277525" y="340.58154023062286" />
+      <point x="-84.63001708531442" y="61.5" />
+    </edge>
+    <edge source="src.command.User" target="src.command.Commands" relationship="TO_MANY">
+      <point x="6.983471348576131E-5" y="188.0" />
+      <point x="2362.459" y="920.118" />
+      <point x="1133.0" y="920.118" />
+      <point x="1133.0" y="414.0" />
+      <point x="732.465" y="414.0" />
+      <point x="732.465" y="234.667" />
+      <point x="-138.99964631306693" y="-5.086259274966864" />
+    </edge>
+    <edge source="src.command.ReadFunction.ExecuteCommand" target="src.command.CommandsWithArguments" relationship="GENERALIZATION">
+      <point x="-96.0" y="17.11555411509454" />
+      <point x="-28.195807315716763" y="509.095139535351" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="src.command.Commands" target="src.command.Command" relationship="REALIZATION">
+      <point x="-69.63001708531442" y="61.5" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="src.command.AddIfMaxCommand" target="src.collection.LabWork" relationship="CREATE">
+      <point x="-14.999777164296574" y="13.999527108556663" />
+      <point x="2586.563" y="92.0" />
+      <point x="2742.0" y="92.0" />
+      <point x="2742.0" y="513.181" />
+      <point x="2043.833" y="513.181" />
+      <point x="2043.833" y="768.11" />
+      <point x="134.0" y="1.2115570268633746E-4" />
+    </edge>
+    <edge source="src.command.AddCommand" target="src.collection.LabWork" relationship="CREATE">
+      <point x="-79.99986609886992" y="-3.6509102887549716E-5" />
+      <point x="2742.0" y="-12.282" />
+      <point x="2742.0" y="513.181" />
+      <point x="2043.833" y="513.181" />
+      <point x="2043.833" y="768.11" />
+      <point x="134.0" y="1.2115570268633746E-4" />
+    </edge>
+    <edge source="src.utils.CommandReader" target="src.command.RemoveCommand" relationship="CREATE">
+      <point x="15.0" y="-14.0" />
+      <point x="46.67609054569681" y="14.0" />
+    </edge>
+    <edge source="src.utils.CommandReader" target="src.command.ShowCommand" relationship="CREATE">
+      <point x="-9.500098404312553" y="14.0" />
+      <point x="306.081" y="446.5" />
+      <point x="205.90500785861576" y="446.5" />
+      <point x="205.90500785861576" y="524.9795854202564" />
+      <point x="133.69774767384598" y="524.9795854202564" />
+      <point x="133.69774767384598" y="944.618" />
+      <point x="2852.925" y="944.618" />
+      <point x="2852.925" y="321.9757291199931" />
+      <point x="86.0" y="-6.486845802739481" />
+    </edge>
+    <edge source="src.utils.ParserEnv" target="src.utils.FileHandler" relationship="GENERALIZATION">
+      <point x="50.09587253839044" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="src.command.ReadFunction.ExecuteCommand" target="src.command.ReadFunction" relationship="INNER_CLASS">
+      <point x="-9.840431255270232E-5" y="-26.999585420256437" />
+      <point x="315.581" y="448.0" />
+      <point x="607.729" y="448.0" />
+      <point x="4.105845048343326E-4" y="-38.499821875034684" />
+    </edge>
+    <edge source="src.collection.LabWork" target="src.collection.Discipline" relationship="TO_ONE">
+      <point x="-134.0" y="-16.883878844297328" />
+      <point x="1332.929" y="751.226" />
+      <point x="1332.929" y="507.6808078447816" />
+      <point x="85.5" y="0.31414617063978767" />
+    </edge>
+    <edge source="src.utils.CommandReader" target="src.command.SaveCommand" relationship="CREATE">
+      <point x="0.0" y="-14.0" />
+      <point x="315.58109840431257" y="368.62934896547824" />
+      <point x="196.40500785861576" y="368.62934896547824" />
+      <point x="196.40500785861576" y="477.595139535351" />
+      <point x="83.0" y="0.0" />
+    </edge>
+    <edge source="src.collection.CollectionManager" target="src.collection.LabWork" relationship="TO_MANY">
+      <point x="2.523261539977284E-4" y="96.0" />
+      <point x="279.698" y="904.0" />
+      <point x="1530.244" y="904.0" />
+      <point x="1.4511537665384822E-4" y="119.0" />
+    </edge>
+    <edge source="src.utils.CommandReader" target="src.command.MaxByCreationDateCommand" relationship="CREATE">
+      <point x="91.0" y="-10.5" />
+      <point x="435.08109840431257" y="398.1927638131771" />
+      <point x="435.08109840431257" y="805.226" />
+      <point x="1383.2438548846233" y="805.226" />
+      <point x="-112.25550663006265" y="14.0" />
+    </edge>
+    <edge source="src.utils.CommandReader" target="src.command.FilterGreaterThanPersonalQualitiesMaximumCommand" relationship="CREATE">
+      <point x="80.82390945430319" y="-14.0" />
+      <point x="396.40500785861576" y="204.02434176814842" />
+      <point x="757.4646686325304" y="204.02434176814842" />
+      <point x="5.234312167063308" y="14.0" />
+    </edge>
+    <edge source="src.utils.CommandReader" target="src.command.UpdateCommand" relationship="CREATE">
+      <point x="-91.0" y="0.0" />
+      <point x="-156.926" y="408.6927638131771" />
+      <point x="-14.999758515585143" y="-14.0" />
+    </edge>
+    <edge source="src.collection.CollectionManager" target="src.collection.LabWork" relationship="CREATE">
+      <point x="-133.99974767384597" y="5.1883566584365326E-5" />
+      <point x="-251.926" y="651.328" />
+      <point x="-251.926" y="92.0" />
+      <point x="2742.0" y="92.0" />
+      <point x="2742.0" y="513.181" />
+      <point x="2043.833" y="513.181" />
+      <point x="2043.833" y="768.11" />
+      <point x="134.0" y="1.2115570268633746E-4" />
+    </edge>
+    <edge source="src.collection.LabWork" target="src.collection.Coordinates" relationship="CREATE">
+      <point x="-133.99985488462335" y="-3.383878844297328" />
+      <point x="1311.429" y="764.726" />
+      <point x="1311.429" y="584.0" />
+      <point x="449.784" y="584.0" />
+      <point x="449.784" y="325.763" />
+      <point x="-73.49966863253042" y="-1.457927381770162" />
+    </edge>
+    <edge source="src.utils.CommandReader" target="src.command.RemoveLowerCommand" relationship="CREATE">
+      <point x="40.749950797843724" y="14.0" />
+      <point x="356.3310492021563" y="439.82623765478854" />
+      <point x="2600.1174907019863" y="439.82623765478854" />
+      <point x="-0.0" y="14.0" />
+    </edge>
+    <edge source="src.command.GroupCountingByIdCommand" target="src.command.Commands" relationship="GENERALIZATION">
+      <point x="-3.8306755118355795E-4" y="-14.0" />
+      <point x="1097.827" y="109.0" />
+      <point x="1721.788" y="109.0" />
+      <point x="3.536869330673653E-4" y="-61.5" />
+    </edge>
+    <edge source="src.command.Commands" target="src.collection.LabWork" relationship="TO_MANY">
+      <point x="12.370353686932958" y="61.49974072503312" />
+      <point x="1734.158" y="457.152" />
+      <point x="1681.744" y="457.152" />
+      <point x="1681.744" y="904.0" />
+      <point x="1530.244" y="904.0" />
+      <point x="1.4511537665384822E-4" y="119.0" />
+    </edge>
+    <edge source="src.utils.CommandReader" target="src.command.HelpCommand" relationship="CREATE">
+      <point x="30.749950797843724" y="14.0" />
+      <point x="346.3310492021563" y="444.7393564821828" />
+      <point x="1258.35301659062" y="444.7393564821828" />
+      <point x="-0.0" y="-14.0" />
+    </edge>
+    <edge source="src.utils.CommandReader" target="src.command.ReadFunction.ExecuteCommand" relationship="CREATE">
+      <point x="14.999901595687447" y="14.0" />
+      <point x="14.999901595687447" y="-27.0" />
+    </edge>
+    <edge source="src.command.RemoveLowerCommand" target="src.collection.LabWork" relationship="CREATE">
+      <point x="118.49950929801389" y="2.7088000689445835E-4" />
+      <point x="2742.0" y="347.976" />
+      <point x="2742.0" y="513.181" />
+      <point x="2043.833" y="513.181" />
+      <point x="2043.833" y="768.11" />
+      <point x="134.0" y="1.2115570268633746E-4" />
+    </edge>
+    <edge source="src.command.ReadFunction" target="src.command.Commands" relationship="TO_MANY">
+      <point x="93.77141058450479" y="-38.499821875034684" />
+      <point x="701.5" y="414.0" />
+      <point x="732.465" y="414.0" />
+      <point x="732.465" y="234.667" />
+      <point x="-138.99964631306693" y="-5.086259274966864" />
+    </edge>
+    <edge source="src.command.SaveCommand" target="src.command.CommandsWithArguments" relationship="GENERALIZATION">
+      <point x="-3.658207270973435E-4" y="-14.0" />
+      <point x="78.53899999999999" y="442.0" />
+      <point x="154.0" y="442.0" />
+      <point x="154.0" y="337.629" />
+      <point x="145.49980731571677" y="-3.489654782242724E-4" />
+    </edge>
+    <edge source="src.command.CommandsUseArray" target="src.command.Commands" relationship="TO_MANY">
+      <point x="105.49951552638652" y="5.233200592146545" />
+      <point x="717.465" y="383.221" />
+      <point x="717.465" y="414.0" />
+      <point x="732.465" y="414.0" />
+      <point x="732.465" y="234.667" />
+      <point x="-138.99964631306693" y="-5.086259274966864" />
+    </edge>
+    <edge source="src.command.InfoCommand" target="src.command.Commands" relationship="GENERALIZATION">
+      <point x="-79.4997582929193" y="4.597693771302147E-4" />
+      <point x="1977.0" y="309.082" />
+      <point x="1977.0" y="109.0" />
+      <point x="1721.788" y="109.0" />
+      <point x="3.536869330673653E-4" y="-61.5" />
+    </edge>
+    <edge source="src.collection.LabWork" target="src.collection.Difficulty" relationship="TO_ONE">
+      <point x="-134.0" y="26.616121155702672" />
+      <point x="1233.428975940701" y="794.726" />
+      <point x="0.0" y="50.0" />
+    </edge>
+    <edge source="src.command.RemoveLowerCommand" target="src.command.Commands" relationship="GENERALIZATION">
+      <point x="-4.907019861093431E-4" y="14.0" />
+      <point x="2600.117" y="430.0" />
+      <point x="1977.0" y="430.0" />
+      <point x="1977.0" y="109.0" />
+      <point x="1721.788" y="109.0" />
+      <point x="3.536869330673653E-4" y="-61.5" />
+    </edge>
+    <edge source="src.collection.CollectionManager" target="src.collection.Coordinates" relationship="CREATE">
+      <point x="134.0" y="5.1883566584365326E-5" />
+      <point x="883.5" y="651.328" />
+      <point x="883.5" y="584.0" />
+      <point x="449.784" y="584.0" />
+      <point x="449.784" y="325.763" />
+      <point x="-73.49966863253042" y="-1.457927381770162" />
+    </edge>
+    <edge source="src.collection.LabWork" target="src.collection.Coordinates" relationship="TO_ONE">
+      <point x="-134.0" y="59.6158052793902" />
+      <point x="823.4646686325304" y="827.7256841236875" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="src.command.HelpCommand" target="src.command.Commands" relationship="GENERALIZATION">
+      <point x="-1.659061990721966E-5" y="-14.0" />
+      <point x="1258.353" y="430.0" />
+      <point x="1977.0" y="430.0" />
+      <point x="1977.0" y="109.0" />
+      <point x="1721.788" y="109.0" />
+      <point x="3.536869330673653E-4" y="-61.5" />
+    </edge>
+    <edge source="src.utils.CommandReader" target="src.command.User" relationship="CREATE">
+      <point x="91.0" y="9.333333333333314" />
+      <point x="416.58109840431257" y="418.02609714651044" />
+      <point x="416.58109840431257" y="912.6175573554351" />
+      <point x="2362.4589301652863" y="912.6175573554351" />
+      <point x="-0.0" y="188.0" />
+    </edge>
+    <edge source="src.command.CommandsUseArray" target="src.command.Commands" relationship="GENERALIZATION">
+      <point x="-4.8447361336911854E-4" y="27.0" />
+      <point x="572.784" y="430.0" />
+      <point x="1977.0" y="430.0" />
+      <point x="1977.0" y="109.0" />
+      <point x="1721.788" y="109.0" />
+      <point x="3.536869330673653E-4" y="-61.5" />
+    </edge>
+    <edge source="src.utils.CommandReader" target="src.command.AddCommand" relationship="CREATE">
+      <point x="91.0" y="0.0" />
+      <point x="418.58109840431257" y="408.6927638131771" />
+      <point x="418.58109840431257" y="-21.782" />
+      <point x="-80.0" y="-9.500036509102888" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.7117017930166725" showDependencies="true" x="1965.4551099442192" y="430.624972375691" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

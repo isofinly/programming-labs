@@ -6,9 +6,12 @@ import java.io.File;
 import java.util.LinkedHashSet;
 import java.util.Optional;
 import java.util.Set;
-import java.util.TreeSet;
 import java.util.stream.Collectors;
 
+/**
+ * Class for command remove_lower
+ * @see Commands
+ */
 public class RemoveLowerCommand extends Commands {
     public RemoveLowerCommand(LinkedHashSet <LabWork> collection, File file) {
         super(collection, file);

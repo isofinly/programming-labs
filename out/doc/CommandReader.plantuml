@@ -1,0 +1,156 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class AddCommand
+class AddIfMaxCommand
+class ClearCommand
+class CollectionManager {
+  - scriptStack: List<String>
+  ~ gson: Gson
+  # manual: HashMap<String, String>
+  # jsonCollection: File
+  # labWork: LinkedHashSet<LabWork>
+  - outPut: File
+  # initDate: Date
+}
+interface Command << interface >>
+class CommandReader
+class Commands {
+  # name: String
+  # hasArgument: boolean
+  ~ file: File
+  # collection: LinkedHashSet<LabWork>
+}
+class CommandsUseArray {
+  # commands: Commands[]
+}
+class CommandsWithArguments<T> {
+  # argumentName: String
+  # argument: T
+}
+class Coordinates {
+  - y: Float
+  - x: double
+}
+enum Difficulty << enumeration >> {
+  + HARD: 
+  + INSANE: 
+  + HOPELESS: 
+}
+class Discipline {
+  - name: String
+  - practiceHours: Long
+}
+class ExecuteCommand {
+  - FileArray: List<File>
+}
+class FileHandler
+class FilterGreaterThanPersonalQualitiesMaximumCommand
+class GroupCountingByIdCommand
+class HelpCommand
+class HistoryCommand
+class IdGen {
+  - int_id_counter: AtomicInteger
+}
+class InfoCommand
+class LabWork {
+  - creationDate: Date
+  - minimalPoint: Integer
+  - id: int
+  - personalQualitiesMinimum: Integer?
+  - difficulty: Difficulty
+  - discipline: Discipline
+  - coordinates: Coordinates
+  - name: String
+  - personalQualitiesMaximum: long
+}
+class Main
+class MaxByCreationDateCommand
+class ParserEnv
+class ReadFunction {
+  ~ commands: Commands[]
+  ~ Last_comands: Deque<Commands>
+}
+class RemoveCommand
+class RemoveLowerCommand
+class SaveCommand
+class ShowCommand
+class UpdateCommand
+class User {
+  - remove: Commands
+  - add_if_max: Commands
+  - filter_greater_than_personal_qualities_maximum: Commands
+  - help: Commands
+  - group_counting_by_id: Commands
+  - info: Commands
+  - save: Commands
+  - execute: Commands
+  - update: Commands
+  - show: Commands
+  - clear: Commands
+  - remove_lower: Commands
+  - commands: Commands[]
+  - add: Commands
+  - max_by_creation_date: Commands
+}
+
+AddCommand                                        -[#000082,plain]-^  Commands                                         
+AddCommand                                        -[#595959,dashed]->  LabWork                                          : "«create»"
+AddIfMaxCommand                                   -[#000082,plain]-^  Commands                                         
+AddIfMaxCommand                                   -[#595959,dashed]->  LabWork                                          : "«create»"
+ClearCommand                                      -[#000082,plain]-^  Commands                                         
+CollectionManager                                 -[#595959,dashed]->  Coordinates                                      : "«create»"
+CollectionManager                                 -[#595959,dashed]->  Discipline                                       : "«create»"
+CollectionManager                                "1" *-[#595959,plain]-> "labWork\n*" LabWork                                          
+CollectionManager                                 -[#595959,dashed]->  LabWork                                          : "«create»"
+CommandReader                                     -[#595959,dashed]->  AddCommand                                       : "«create»"
+CommandReader                                     -[#595959,dashed]->  AddIfMaxCommand                                  : "«create»"
+CommandReader                                     -[#595959,dashed]->  ClearCommand                                     : "«create»"
+CommandReader                                     -[#595959,dashed]->  ExecuteCommand                                   : "«create»"
+CommandReader                                     -[#595959,dashed]->  FilterGreaterThanPersonalQualitiesMaximumCommand : "«create»"
+CommandReader                                     -[#595959,dashed]->  GroupCountingByIdCommand                         : "«create»"
+CommandReader                                     -[#595959,dashed]->  HelpCommand                                      : "«create»"
+CommandReader                                     -[#595959,dashed]->  InfoCommand                                      : "«create»"
+CommandReader                                     -[#595959,dashed]->  MaxByCreationDateCommand                         : "«create»"
+CommandReader                                     -[#595959,dashed]->  ReadFunction                                     : "«create»"
+CommandReader                                     -[#595959,dashed]->  RemoveCommand                                    : "«create»"
+CommandReader                                     -[#595959,dashed]->  RemoveLowerCommand                               : "«create»"
+CommandReader                                     -[#595959,dashed]->  SaveCommand                                      : "«create»"
+CommandReader                                     -[#595959,dashed]->  ShowCommand                                      : "«create»"
+CommandReader                                     -[#595959,dashed]->  UpdateCommand                                    : "«create»"
+CommandReader                                     -[#595959,dashed]->  User                                             : "«create»"
+Commands                                          -[#008200,dashed]-^  Command                                          
+Commands                                         "1" *-[#595959,plain]-> "collection\n*" LabWork                                          
+CommandsUseArray                                  -[#000082,plain]-^  Commands                                         
+CommandsUseArray                                 "1" *-[#595959,plain]-> "commands\n*" Commands                                         
+CommandsWithArguments                             -[#000082,plain]-^  Commands                                         
+ExecuteCommand                                    -[#000082,plain]-^  CommandsWithArguments                            
+ExecuteCommand                                    +-[#820000,plain]-  ReadFunction                                     
+FilterGreaterThanPersonalQualitiesMaximumCommand  -[#000082,plain]-^  CommandsWithArguments                            
+GroupCountingByIdCommand                          -[#000082,plain]-^  Commands                                         
+HelpCommand                                       -[#000082,plain]-^  Commands                                         
+HistoryCommand                                    -[#000082,plain]-^  Commands                                         
+HistoryCommand                                    +-[#820000,plain]-  ReadFunction                                     
+InfoCommand                                       -[#000082,plain]-^  Commands                                         
+LabWork                                           -[#595959,dashed]->  Coordinates                                      : "«create»"
+LabWork                                          "1" *-[#595959,plain]-> "coordinates\n1" Coordinates                                      
+LabWork                                          "1" *-[#595959,plain]-> "difficulty\n1" Difficulty                                       
+LabWork                                           -[#595959,dashed]->  Discipline                                       : "«create»"
+LabWork                                          "1" *-[#595959,plain]-> "discipline\n1" Discipline                                       
+Main                                              -[#595959,dashed]->  CollectionManager                                : "«create»"
+MaxByCreationDateCommand                          -[#000082,plain]-^  Commands                                         
+ParserEnv                                         -[#000082,plain]-^  FileHandler                                      
+ReadFunction                                     "1" *-[#595959,plain]-> "commands\n*" Commands                                         
+RemoveCommand                                     -[#000082,plain]-^  CommandsWithArguments                            
+RemoveLowerCommand                                -[#000082,plain]-^  Commands                                         
+RemoveLowerCommand                                -[#595959,dashed]->  LabWork                                          : "«create»"
+SaveCommand                                       -[#000082,plain]-^  CommandsWithArguments                            
+ShowCommand                                       -[#000082,plain]-^  Commands                                         
+UpdateCommand                                     -[#000082,plain]-^  CommandsWithArguments                            
+UpdateCommand                                     -[#595959,dashed]->  LabWork                                          : "«create»"
+User                                              -[#595959,dashed]->  Commands                                         : "«create»"
+User                                             "1" *-[#595959,plain]-> "commands\n*" Commands                                         
+@enduml

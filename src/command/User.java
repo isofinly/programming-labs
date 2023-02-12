@@ -6,7 +6,15 @@ import src.collection.LabWork;
 import java.io.File;
 import java.util.LinkedHashSet;
 
+/**
+ * class that execute commands
+ * main interaction with commands is done by Reader
+ * @see ReadFunction
+ * @see Commands
+ * @see CommandsWithArguments
+ */
 public class User {
+    @Deprecated
     private static void help_print_for_command(Commands Commands) {
         System.out.println(Commands.getName() + (Commands.haveArgument() ? " " + ((CommandsWithArguments <?>) Commands).getArgumentName() + " " : "") + " - " + Commands.getDescription());
     }
@@ -32,8 +40,7 @@ public class User {
                 Commands clear, Commands save, Commands remove,
                 Commands help, Commands max_by_creation_date, Commands group_counting_by_id,
                 Commands filter_greater_than_personal_qualities_maximum, Commands add_if_max,
-                Commands remove_lower, Commands execute_script, Commands info
-    ) {
+                Commands remove_lower, Commands execute_script, Commands info ){
         this.info = info;
         this.info.setName("info");
         this.execute = execute_script;
@@ -74,55 +81,42 @@ public class User {
     public void add() {
         add.execute();
     }
-
     public void show() {
         show.execute();
     }
-
     public void clear() {
         clear.execute();
     }
-
     public void save() {
         save.execute();
     }
-
     public void update() {
         update.execute();
     }
-
     public void remove() {
         remove.execute();
     }
-
     public void help() {
         help.execute();
     }
-
     public void max_by_creation_date() {
         max_by_creation_date.execute();
     }
-
     public void filter_greater_than_personal_qualities_maximum() {
         filter_greater_than_personal_qualities_maximum.execute();
     }
-
     public void add_if_max() {
         add_if_max.execute();
     }
-
     public void remove_lower() {
         remove_lower.execute();
     }
-
     public void execute_script() {
         execute.execute();
     }
-
     public void info() {
         info.execute();
     }
-
 
     public Commands[] getCommands() {
         return this.commands;

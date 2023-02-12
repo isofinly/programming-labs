@@ -5,6 +5,11 @@ import src.collection.LabWork;
 import java.io.File;
 import java.util.LinkedHashSet;
 
+/**
+ * Class for command remove
+ * Integer as an argument
+ * @see CommandsWithArguments
+ */
 public class RemoveCommand extends CommandsWithArguments<Integer>{
     public RemoveCommand(LinkedHashSet <LabWork> collection, File file) {
         super(collection, file);

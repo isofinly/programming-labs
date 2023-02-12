@@ -4,15 +4,11 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.util.Scanner;
 
-
-
 /*
- *  private double x;
- *  private Float y; //Значение поля должно быть больше -459, Поле не может быть null
+ *  double x;
+ *  Float y; //Значение поля должно быть больше -459, Поле не может быть null
+ *  Class for coordinates
  */
-
-
-
 
 public class Coordinates {
     private double x;

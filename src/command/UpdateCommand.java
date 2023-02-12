@@ -6,6 +6,10 @@ import java.io.File;
 import java.util.LinkedHashSet;
 import java.util.TreeSet;
 
+/**
+ * Class for command update
+ * @see CommandsWithArguments
+ */
 public class UpdateCommand extends CommandsWithArguments<Integer>{
 
     public UpdateCommand(LinkedHashSet <LabWork> collection, File file) {

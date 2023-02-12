@@ -8,6 +8,10 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedHashSet;
 
+/**
+ * Class for command info
+ * @see Commands
+ */
 public class InfoCommand extends Commands {
     public InfoCommand(LinkedHashSet <LabWork> collection, File file) {
         super(collection, file);

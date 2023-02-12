@@ -5,6 +5,10 @@ import src.collection.LabWork;
 import java.io.File;
 import java.util.LinkedHashSet;
 
+/**
+ * Class of command "filter_greater_than_personal_qualities_maximum"
+ * @see CommandsWithArguments
+ */
 public class FilterGreaterThanPersonalQualitiesMaximumCommand extends CommandsWithArguments<Integer>{
     public FilterGreaterThanPersonalQualitiesMaximumCommand(LinkedHashSet <LabWork> collection, File file) {
         super(collection, file);
