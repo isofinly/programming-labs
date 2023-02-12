@@ -133,7 +133,6 @@ public class CollectionManager {
                     System.exit(1);
                 }
             }
-            System.out.println(labWork);
             System.out.println("\u001B[34m Collection of type \u001B[0m" + labWork.getClass().getName() + "\u001B[34m successfully loaded in size of \u001B[0m" + (labWork.size() - fileSize) + "\u001B[34m elements.");
         }
     }
