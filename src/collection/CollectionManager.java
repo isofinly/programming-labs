@@ -471,8 +471,8 @@ public class CollectionManager {
         System.out.println("\u001B[34m Collection cleared.");
     }
 
-    public void save() throws IOException {
-        File savedJsonCollection = new File("saved.json");
+    public void save(String path) throws IOException {
+        File savedJsonCollection = new File(path + ".json");
         try (BufferedWriter outputStreamWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(savedJsonCollection)))) {
             outputStreamWriter.write(gson.toJson(labWork));
             System.out.println("\u001B[34m Collection saved to " + savedJsonCollection.getAbsolutePath());
@@ -489,7 +489,7 @@ public class CollectionManager {
         System.exit(0);
     }
 
-    public void add_if_max(@NotNull Scanner read) {
+    public void add_if_max() {
         // TODO
     }
 
@@ -545,6 +545,10 @@ public class CollectionManager {
 
 
         }
+    }
+
+    public LinkedHashSet<LabWork> getCollection() {
+        return labWork;
     }
 }
 

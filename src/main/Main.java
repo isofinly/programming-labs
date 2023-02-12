@@ -1,22 +1,18 @@
 package src.main;
 
-import java.io.*;
-
 import src.collection.*;
-import src.command.CommandManager;
+
 import src.utils.*;
 
+import java.io.File;
 
 public final class Main {
-
     public static void main(String... args) throws Exception {
         try {
-            CollectionManager cm = new CollectionManager(ParserEnv.envParser("src\\.env").get("COMMAND_1"));
-            CommandManager manager = new CommandManager(cm);
-            manager.interactiveMod();
+            CollectionManager cm = new CollectionManager(ParserEnv.envParser(".env").get("FILENAME"));
+            CommandReader.ReadCommand(new File(ParserEnv.envParser(".env").get("FILENAME")), cm.getCollection());
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("\u001B[31m No file path");
         }
-        System.out.println();
     }
 }

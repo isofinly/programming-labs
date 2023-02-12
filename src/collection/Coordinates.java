@@ -2,6 +2,7 @@ package src.collection;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import java.util.Scanner;
 
 
 
@@ -22,6 +23,31 @@ public class Coordinates {
     public Coordinates(double x, Float y) {
         this.x = x;
         this.y = y;
+    }
+    public Coordinates(){
+        x=readX();
+        y=readY();
+    }
+
+    private double readX(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter x");
+        double x = scanner.nextDouble();
+        while (x<=-459){
+            System.out.println("Enter x> -459");
+            x = scanner.nextDouble();
+        }
+        return x;
+    }
+
+    private float readY(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter y");
+        while (!scanner.hasNextFloat()) {
+            System.out.println("Enter y");
+            scanner.next();
+        }
+        return scanner.nextFloat();
     }
 
     public double getX() {

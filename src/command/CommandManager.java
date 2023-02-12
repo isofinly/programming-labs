@@ -17,19 +17,10 @@ public class CommandManager {
         commandName = "";
     }
 
-    /**
-     * @param manager collection manager
-     */
     public CommandManager(CollectionManager manager) {
         this.manager = manager;
     }
 
-
-    /**
-     * void that reads and calls all commands
-     *
-     * @throws IOException input and output exceptions
-     */
     public void interactiveMod() throws IOException {
         try (Scanner commandReader = new Scanner(System.in)) {
             while (!commandName.equals("exit")) {
@@ -101,7 +92,7 @@ public class CommandManager {
                                 System.out.println("\u001B[31m Illegal arguments. Enter help.\u001B[0m");
                                 break;
                             }
-                            manager.save();
+                            manager.save(finalUserCommand[1]);
                             break;
 
 //                        case "execute_script":
