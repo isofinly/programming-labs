@@ -1,14 +1,12 @@
 package src.collection;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.*;
-
 import javax.validation.constraints.NotNull;
-
 import org.jetbrains.annotations.Nullable;
-
 import src.utils.*;
-
-import src.collection.*;
 
 /**
  * Class for lab work
@@ -29,9 +27,47 @@ public class LabWork implements Comparable <LabWork> {
      * @param difficulty               Difficulty of the lab work != null
      * @param discipline               Discipline of the lab work != null
      */
-    public LabWork(@NotNull String name, @NotNull Coordinates coordinates, @NotNull Integer minimalPoint,
-                   @Nullable Integer personalQualitiesMinimum, long personalQualitiesMaximum,
-                   @NotNull Difficulty difficulty, @NotNull Discipline discipline) {
+    public LabWork(@NotNull Integer id, @NotNull String name,
+                   @NotNull Coordinates coordinates, String creationDate,
+                   @NotNull Integer minimalPoint, @Nullable Integer personalQualitiesMinimum,
+                   long personalQualitiesMaximum, @NotNull Difficulty difficulty,
+                   @NotNull Discipline discipline) {
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException("\u001B[31m Name cannot be empty");
+        }
+
+        if (minimalPoint <= 0) {
+            throw new IllegalArgumentException("\u001B[31m Minimal point cannot be less than 0");
+        }
+
+        if (personalQualitiesMinimum <= 0) {
+            throw new IllegalArgumentException("\u001B[31m Personal qualities minimum cannot be less than 0");
+        }
+
+        if (personalQualitiesMaximum <= 0) {
+            throw new IllegalArgumentException("\u001B[31m Personal qualities maximum cannot be less than 0");
+        }
+        if (id.toString().isEmpty()) {
+            throw new IllegalArgumentException("\u001B[31m Id cannot be empty");
+        }
+        if (creationDate.toString().isEmpty()) {
+            throw new IllegalArgumentException("\u001B[31m Creation date cannot be empty");
+        }
+        this.creationDate = creationDate;
+        this.id = id;
+        this.discipline = discipline;
+        this.difficulty = difficulty;
+        this.coordinates = coordinates;
+        this.name = name;
+        this.minimalPoint = minimalPoint;
+        this.personalQualitiesMaximum = personalQualitiesMaximum;
+        this.personalQualitiesMinimum = personalQualitiesMinimum;
+    }
+
+    public LabWork(@NotNull String name, @NotNull Coordinates coordinates,
+                   @NotNull Integer minimalPoint, @Nullable Integer personalQualitiesMinimum,
+                   long personalQualitiesMaximum, @NotNull Difficulty difficulty,
+                   @NotNull Discipline discipline) {
         if (name.isEmpty()) {
             throw new IllegalArgumentException("\u001B[31m Name cannot be empty");
         }
@@ -52,15 +88,21 @@ public class LabWork implements Comparable <LabWork> {
         this.coordinates = coordinates;
         this.name = name;
         this.minimalPoint = minimalPoint;
-//        this.creationDate = java.time.LocalDate.now();
 
-        this.creationDate = new java.util.Date(((long) (Math.random() * System.currentTimeMillis())));
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM uuuu");
+//        LocalDate lt
+//                = LocalDate.parse("31 Dec 2018", formatter);
+//        this.creationDate = (DateTimeFormatter.ofPattern("dd MMM uuuu").format(LocalDate.now()));
+//        this.creationDate = new java.util.Date(((long) (Math.random() * System.currentTimeMillis())));
 
-
+        long millis=System.currentTimeMillis();
+        Date creationDate = new Date(millis);
+        this.creationDate = creationDate.toString();
         this.id = IdGen.getNewId();
         this.personalQualitiesMaximum = personalQualitiesMaximum;
         this.personalQualitiesMinimum = personalQualitiesMinimum;
     }
+
 
     public LabWork(int id) {
         LabWork labWork = new LabWork();
@@ -92,6 +134,9 @@ public class LabWork implements Comparable <LabWork> {
             name = read.nextLine();
             if (!name.isEmpty()) {
                 break;
+            } else {
+                System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
+                System.out.println("\u001B[31m Name cannot be empty");
             }
         }
         setName(name);
@@ -103,6 +148,7 @@ public class LabWork implements Comparable <LabWork> {
                 x = Double.parseDouble(read.nextLine());
                 break;
             } catch (NumberFormatException ex) {
+                System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
                 System.out.println("\u001B[31m Invalid number format.");
             }
         }
@@ -113,12 +159,18 @@ public class LabWork implements Comparable <LabWork> {
                 y = Float.parseFloat(read.nextLine());
                 if (y > -459) {
                     break;
+                } else {
+                    System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
+                    System.out.println("\u001B[31m Y cannot be less than -459");
                 }
             } catch (NumberFormatException ex) {
                 System.out.println("\u001B[31m Invalid number format.");
             }
         }
-        creationDate = new java.util.Date(((long) (Math.random() * System.currentTimeMillis())));
+//        creationDate = new java.util.Date(((long) (Math.random() * System.currentTimeMillis())));
+//        creationDate = LocalDate.now();
+        creationDate = (DateTimeFormatter.ofPattern("dd MMM uuuu").format(LocalDate.now()));
+
         setCreationDate(creationDate);
         coordinates = new Coordinates(x, y);
         setCoordinates(coordinates);
@@ -128,12 +180,15 @@ public class LabWork implements Comparable <LabWork> {
                 minimalPoint = Integer.parseInt(read.nextLine());
                 if (minimalPoint > 0) {
                     break;
+                } else{
+                    System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
+                    System.out.println("\u001B[31m Minimal point cannot be less than 0");
                 }
             } catch (NumberFormatException ex) {
+                System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
                 System.out.println("\u001B[31m Invalid number format.");
             }
         }
-        setCreationDate(new Date());
         setMinimalPoint(minimalPoint);
         while (true) {
             System.out.println("\u001B[34m Enter personal qualities minimum: ");
@@ -142,6 +197,9 @@ public class LabWork implements Comparable <LabWork> {
                 if (personalQualitiesMinimum > 0) {
                     setPersonalQualitiesMinimum(personalQualitiesMinimum);
                     break;
+                } else {
+                    System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
+                    System.out.println("\u001B[31m Personal qualities minimum cannot be less than 0");
                 }
             } catch (NumberFormatException ex) {
                 System.out.println("\u001B[31m Invalid number format.");
@@ -154,6 +212,9 @@ public class LabWork implements Comparable <LabWork> {
                 if (personalQualitiesMaximum > 0) {
                     setPersonalQualitiesMaximum(personalQualitiesMaximum);
                     break;
+                } else {
+                    System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
+                    System.out.println("\u001B[31m Personal qualities maximum cannot be less than 0");
                 }
             } catch (NumberFormatException ex) {
                 System.out.println("\u001B[31m Invalid number format.");
@@ -169,6 +230,7 @@ public class LabWork implements Comparable <LabWork> {
                 setDifficulty(difficulty);
                 break;
             } catch (IllegalArgumentException ex) {
+                System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
                 System.out.println("\u001B[31m Invalid difficulty type.");
             }
         }
@@ -183,6 +245,7 @@ public class LabWork implements Comparable <LabWork> {
                     try {
                         selfStudyHours = Long.parseLong(read.nextLine());
                     } catch (NumberFormatException ex) {
+                        System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
                         System.out.println("\u001B[31m Invalid number format.");
                     }
                 }
@@ -190,6 +253,7 @@ public class LabWork implements Comparable <LabWork> {
                 setDiscipline(discipline);
                 break;
             } catch (IllegalArgumentException ex) {
+                System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
                 System.out.println("\u001B[31m Invalid discipline name.");
             }
         }
@@ -199,66 +263,10 @@ public class LabWork implements Comparable <LabWork> {
 //                labWork.add(new LabWork(name, coordinates, minimalPoint, personalQualitiesMinimum, personalQualitiesMaximum, difficulty, discipline));
             System.out.println("\u001B[34m Element added.");
         } catch (IllegalArgumentException ex) {
-            System.out.println("\u001B[31m Invalid argument.");
+            System.out.println("\u001B[31m Element was not added due to BAD input.");
         }
 
     }
-
-//        System.out.println();
-//        Scanner in = new Scanner(System.in);
-//        System.out.println("Enter name: ");
-//        name = in.nextLine();
-//        while (true){
-//            System.out.println("Enter name: ");
-//            name = in.nextLine();
-//            if (name.isEmpty()){
-//                System.out.println("Name cannot be empty");
-//            } else {
-//                break;
-//            }
-//        }
-//        System.out.println("Enter coordinates: ");
-//        coordinates = new Coordinates();
-//        System.out.println("Enter minimal point: ");
-//        minimalPoint = in.nextInt();
-//        while (true){
-//            System.out.println("Enter minimal point: ");
-//            minimalPoint = in.nextInt();
-//            if (minimalPoint <= 0){
-//                System.out.println("Minimal point cannot be less than 0");
-//            } else {
-//                break;
-//            }
-//        }
-//        System.out.println("Enter personal qualities minimum: ");
-//        personalQualitiesMinimum = in.nextInt();
-//        while (true){
-//            System.out.println("Enter personal qualities minimum: ");
-//            personalQualitiesMinimum = in.nextInt();
-//            if (personalQualitiesMinimum <= 0){
-//                System.out.println("Personal qualities minimum cannot be less than 0");
-//            } else {
-//                break;
-//            }
-//        }
-//        System.out.println("Enter personal qualities maximum: ");
-//        personalQualitiesMaximum = in.nextLong();
-//        while (true){
-//            System.out.println("Enter personal qualities maximum: ");
-//            personalQualitiesMaximum = in.nextLong();
-//            if (personalQualitiesMaximum <= 0){
-//                System.out.println("Personal qualities maximum cannot be less than 0");
-//            } else {
-//                break;
-//            }
-//        }
-//        System.out.println("Enter difficulty: ");
-//        difficulty = Difficulty.valueOf(in.next());
-//        System.out.println("Enter discipline: ");
-//        discipline = new Discipline();
-//        creationDate = new java.util.Date(((long) (Math.random() * System.currentTimeMillis())));
-//        id = IdGen.getNewId();
-//    }
 
     private int id;
 
@@ -296,15 +304,14 @@ public class LabWork implements Comparable <LabWork> {
         this.coordinates = coordinates;
     }
 
-    @NotNull
-    private Date creationDate;
+    private String creationDate;
 
-    public @NotNull Date getCreationDate() {
+    public String getCreationDate() {
         return creationDate;
     }
 
 
-    public void setCreationDate(@NotNull Date creationDate) {
+    public void setCreationDate(String creationDate) {
         this.creationDate = creationDate;
     }
 

@@ -7,6 +7,13 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -113,21 +120,57 @@ public class CollectionManager {
             Type collectionTypeObject = new TypeToken <LinkedHashSet <Object>>() {
             }.getType();
             LinkedHashSet <Object> itemsObj = gson.fromJson(result.toString(), collectionTypeObject);
+            ArrayList <Object> lenArray = new ArrayList <>();
+
+
             ArrayList <String> args2 = new ArrayList <>();
             while (itemsObj.iterator().hasNext()) {
                 String[] args = itemsObj.iterator().next().toString().split("\\w*=");
                 for (String arg : args) {
+
                     String cleanedArg = arg.replace("{", "").replace("}", "").replace(",", "").trim();
                     if (!cleanedArg.isEmpty()) {
                         args2.add(cleanedArg);
+                        lenArray.add(cleanedArg);
                     }
                 }
 
                 itemsObj.remove(itemsObj.iterator().next());
 
                 try {
-                    labWork.add(new LabWork(args2.get(0), new Coordinates(Double.parseDouble(args2.get(1)), Float.parseFloat(args2.get(2))), (int) Double.parseDouble(args2.get(3)), (int) Double.parseDouble(args2.get(4)), (long) Double.parseDouble(args2.get(5)), Difficulty.valueOf(args2.get(6)), new Discipline(args2.get(7), (long) Double.parseDouble(args2.get(8)))));
-                    args2.clear();
+                    DateTimeFormatter f = new DateTimeFormatterBuilder().parseCaseInsensitive()
+                            .append(DateTimeFormatter.ofPattern("MMM dd yyyy")).toFormatter();
+                    if (args2.size() == 9) {
+                        labWork.add(new LabWork(args2.get(0),
+                                new Coordinates(Double.parseDouble(args2.get(1)),
+                                        Float.parseFloat(args2.get(2))),
+                                (int) Double.parseDouble(args2.get(3)),
+                                (int) Double.parseDouble(args2.get(4)),
+                                (long) Double.parseDouble(args2.get(5)),
+                                Difficulty.valueOf(args2.get(6)),
+                                new Discipline(
+                                        args2.get(7),
+                                        (long) Double.parseDouble(args2.get(8)))));
+                        args2.clear();
+                    } else if (args2.size() == 11){
+                        labWork.add(new LabWork(
+                                        (int) Double.parseDouble(args2.get(0)),
+                                        args2.get(1),
+                                        new Coordinates(
+                                                Double.parseDouble(args2.get(2)),
+                                                Float.parseFloat(args2.get(3))
+                                        ),
+                                        args2.get(4),
+                                        (int) Double.parseDouble(args2.get(5)),
+                                        (int) Double.parseDouble(args2.get(6)),
+                                        (long) Double.parseDouble(args2.get(7)),
+                                Difficulty.valueOf(args2.get(8)),
+                                new Discipline(
+                                        args2.get(9),
+                                        (long) Double.parseDouble(args2.get(10))
+                                )));
+                        args2.clear();
+                    }
                 } catch (JsonSyntaxException ex) {
                     System.out.println("\u001B[31m JSON syntax erorr.");
                     System.exit(1);

@@ -5,6 +5,7 @@ import src.collection.*;
 import src.utils.*;
 
 import java.io.File;
+import java.util.logging.Logger;
 
 /**
  * Main class of the program that starts the program
@@ -12,12 +13,13 @@ import java.io.File;
  * and executing them or executing them from the console
  */
 public final class Main {
-    public static void main(String... args) throws Exception {
+    public static void main(String... args) {
         try {
             CollectionManager cm = new CollectionManager(ParserEnv.envParser(".env").get("FILENAME"));
             CommandReader.ReadCommand(new File(ParserEnv.envParser(".env").get("FILENAME")), cm.getCollection());
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("\u001B[31m No file path");
+        } catch (Exception e) {
+            System.out.println("\u001B[31m ACHTUNG EIN FEHLER IST ENTSCHULDIGT, ICH MOCHTE DIESES PROGRAMM NICHT MACHEN");
+            Logger.getGlobal().info(e.getMessage());
         }
     }
 }

@@ -46,6 +46,6 @@ public abstract class Commands implements Command {
 
     @Override
     public String toString() {
-        return "Command with name " + name;
+        return name;
     }
 }

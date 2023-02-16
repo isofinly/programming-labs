@@ -2,7 +2,10 @@ package src.command;
 
 import src.collection.LabWork;
 
+import javax.validation.constraints.NotNull;
 import java.io.File;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -19,11 +22,11 @@ public class InfoCommand extends Commands {
         this.hasArgument = false;
     }
 
-    private Date DateCreated() {
+    private @NotNull String DateCreated() {
         return Collections.min(collection, Comparator.comparing(LabWork::getCreationDate)).getCreationDate();
     }
 
-    private Date DateLastModification() {
+    private @NotNull String DateLastModification() {
         return Collections.max(collection, Comparator.comparing(LabWork::getCreationDate)).getCreationDate();
     }
 
