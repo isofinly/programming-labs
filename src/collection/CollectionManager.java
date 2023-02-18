@@ -133,7 +133,7 @@ public class CollectionManager {
             while (itemsObj.iterator().hasNext()) {
 
                 Map<String, Object> map= objectMapper.convertValue(itemsObj.iterator().next(), new TypeReference<Map<String, Object>>() {});
-                System.out.println(itemsObj.iterator().next());
+//                System.out.println(itemsObj.iterator().next());
                 try {
                     if (map.size() == 7) {
                         labWork.add(new LabWork((String) getMapValue(map, "name"),
@@ -170,6 +170,7 @@ public class CollectionManager {
                                 )
                         ));
                     }
+                itemsObj.remove(itemsObj.iterator().next());
                 } catch (NullPointerException ex) {
                     System.out.println("\u001B[31m Null pointer, my friendo.");
                     System.exit(1);

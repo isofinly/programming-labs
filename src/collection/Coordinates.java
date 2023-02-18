@@ -1,8 +1,6 @@
 package src.collection;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import java.util.Scanner;
+import org.jetbrains.annotations.NotNull;import java.util.Scanner;
 
 /*
  *  double x;
@@ -13,11 +11,13 @@ import java.util.Scanner;
 public class Coordinates {
     private double x;
     @NotNull
-    @Min(-459)
     private Float y;
 
     public Coordinates(double x, Float y) {
         this.x = x;
+        if (y <= -459){
+            throw new IllegalArgumentException();
+        }
         this.y = y;
     }
     public Coordinates(){

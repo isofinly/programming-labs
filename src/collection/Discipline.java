@@ -6,8 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
-import javax.validation.constraints.NotNull;
-
+import org.jetbrains.annotations.NotNull;
 /*
  *  String name; //Поле не может быть null, Строка не может быть пустой
  *  Long practiceHours; //Поле может быть null
