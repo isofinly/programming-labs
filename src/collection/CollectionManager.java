@@ -1,9 +1,15 @@
 package src.collection;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.*;
 import java.lang.reflect.Type;
@@ -15,7 +21,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.util.*;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 /*
@@ -92,7 +100,7 @@ public class CollectionManager {
     }
 
     public void load() throws IOException {
-
+        ObjectMapper objectMapper = new ObjectMapper();
         int fileSize = labWork.size();
 
         if (!jsonCollection.exists()) {
@@ -117,62 +125,53 @@ public class CollectionManager {
                 result.append(nextLine);
             }
 
+
             Type collectionTypeObject = new TypeToken <LinkedHashSet <Object>>() {
             }.getType();
             LinkedHashSet <Object> itemsObj = gson.fromJson(result.toString(), collectionTypeObject);
-            ArrayList <Object> lenArray = new ArrayList <>();
 
-
-            ArrayList <String> args2 = new ArrayList <>();
             while (itemsObj.iterator().hasNext()) {
-                String[] args = itemsObj.iterator().next().toString().split("\\w*=");
-                for (String arg : args) {
 
-                    String cleanedArg = arg.replace("{", "").replace("}", "").replace(",", "").trim();
-                    if (!cleanedArg.isEmpty()) {
-                        args2.add(cleanedArg);
-                        lenArray.add(cleanedArg);
-                    }
-                }
-
-                itemsObj.remove(itemsObj.iterator().next());
-
+                Map<String, Object> map= objectMapper.convertValue(itemsObj.iterator().next(), new TypeReference<Map<String, Object>>() {});
+                System.out.println(itemsObj.iterator().next());
                 try {
-                    DateTimeFormatter f = new DateTimeFormatterBuilder().parseCaseInsensitive()
-                            .append(DateTimeFormatter.ofPattern("MMM dd yyyy")).toFormatter();
-                    if (args2.size() == 9) {
-                        labWork.add(new LabWork(args2.get(0),
-                                new Coordinates(Double.parseDouble(args2.get(1)),
-                                        Float.parseFloat(args2.get(2))),
-                                (int) Double.parseDouble(args2.get(3)),
-                                (int) Double.parseDouble(args2.get(4)),
-                                (long) Double.parseDouble(args2.get(5)),
-                                Difficulty.valueOf(args2.get(6)),
+                    if (map.size() == 7) {
+                        labWork.add(new LabWork((String) getMapValue(map, "name"),
+                                new Coordinates(
+                                        (Double) getMapValue(map, "coordinates.x"),
+                                        Float.parseFloat(getMapValue(map, "coordinates.y").toString())
+                                ),
+                                (int) Double.parseDouble(getMapValue(map, "minimalPoint").toString()),
+                                (int) Double.parseDouble(getMapValue(map, "personalQualitiesMinimum").toString()),
+                                (long)  Double.parseDouble(getMapValue(map, "personalQualitiesMaximum").toString()),
+                                Difficulty.valueOf((String) getMapValue(map, "difficulty")),
                                 new Discipline(
-                                        args2.get(7),
-                                        (long) Double.parseDouble(args2.get(8)))));
-                        args2.clear();
-                    } else if (args2.size() == 11){
-                        labWork.add(new LabWork(
-                                        (int) Double.parseDouble(args2.get(0)),
-                                        args2.get(1),
-                                        new Coordinates(
-                                                Double.parseDouble(args2.get(2)),
-                                                Float.parseFloat(args2.get(3))
-                                        ),
-                                        args2.get(4),
-                                        (int) Double.parseDouble(args2.get(5)),
-                                        (int) Double.parseDouble(args2.get(6)),
-                                        (long) Double.parseDouble(args2.get(7)),
-                                Difficulty.valueOf(args2.get(8)),
-                                new Discipline(
-                                        args2.get(9),
-                                        (long) Double.parseDouble(args2.get(10))
-                                )));
-                        args2.clear();
+                                        (String) getMapValue(map, "discipline.name"),
+                                        (long) Double.parseDouble(getMapValue(map, "discipline.practiceHours").toString())
+                                )
+                        ));
                     }
-                } catch (JsonSyntaxException ex) {
-                    System.out.println("\u001B[31m JSON syntax erorr.");
+                    else if (map.size() == 9){
+                        labWork.add(new LabWork(
+                                        (int) Double.parseDouble(getMapValue(map, "id").toString()),
+                                        (String) getMapValue(map, "name"),
+                                        new Coordinates(
+                                                Double.parseDouble( getMapValue(map, "coordinates.x").toString()),
+                                                Float.parseFloat( getMapValue(map, "coordinates.y").toString())
+                                        ),
+                                        (String) getMapValue(map, "creationDate"),
+                                        (int) Double.parseDouble(getMapValue(map, "minimalPoint").toString()),
+                                        (int) Double.parseDouble( getMapValue(map, "personalQualitiesMinimum").toString()),
+                                        (long) Double.parseDouble( getMapValue(map, "personalQualitiesMaximum").toString()),
+                                Difficulty.valueOf( (String) getMapValue(map, "difficulty")),
+                                new Discipline(
+                                          (String) getMapValue(map, "discipline.name"),
+                                        (long) Double.parseDouble(getMapValue(map, "discipline.practiceHours").toString())
+                                )
+                        ));
+                    }
+                } catch (NullPointerException ex) {
+                    System.out.println("\u001B[31m Null pointer, my friendo.");
                     System.exit(1);
                 }
             }
@@ -180,403 +179,29 @@ public class CollectionManager {
         }
     }
 
-    @Deprecated
-    public void add(List <String> args) {
-
+    public static Object getMapValue(Map<String, Object> map, String key) {
+        return getMapValue(map, key, ".");
     }
+
+    @Nullable
+    private static Object getMapValue(Map<String, Object> map, String key, String delimiter) {
+        String[] keys = key.split(Pattern.quote(delimiter));
+        Object value = map;
+        for (String k : keys) {
+            if (!(value instanceof Map)) {
+                return null;
+            }
+            value = ((Map) value).get(k);
+            if (value == null) {
+                return null;
+            }
+        }
+        return value;
+    }
+
     @Deprecated
     public HashMap <String, String> getManual() {
         return manual;
-    }
-    @Deprecated
-    public void help() {
-        for (Map.Entry <String, String> entry : manual.entrySet()) {
-            System.out.println(entry.getKey() + "- " + entry.getValue());
-        }
-    }
-    @Deprecated
-    public void info() {
-        System.out.println("\u001B[34m Collection type: " + labWork.getClass().getName());
-        System.out.println("\u001B[34m Collection size: " + labWork.size());
-        System.out.println("\u001B[34m Initialization date: " + initDate);
-    }
-    @Deprecated
-    public void show() {
-        if (labWork.isEmpty()) {
-            System.out.println("\u001B[31m Collection is empty!");
-            return;
-        }
-        ;
-        for (LabWork work : labWork) {
-            System.out.println(work);
-        }
-    }
-    @Deprecated
-    public void add(@NotNull Scanner read) {
-
-        Discipline discipline;
-        Difficulty difficulty;
-        String name = "";
-        long personalQualitiesMaximum;
-        int personalQualitiesMinimum;
-        int minimalPoint;
-        float y;
-        double x;
-
-        while (true) {
-            System.out.println("\u001B[34m Enter name: ");
-            name = read.nextLine();
-            if (!name.isEmpty()) {
-                break;
-            }
-        }
-
-        System.out.println("\u001B[34m Enter coordinates: ");
-
-        while (true) {
-            System.out.println("\u001B[34m Enter x: ");
-            try {
-                x = Double.parseDouble(read.nextLine());
-                break;
-            } catch (NumberFormatException ex) {
-                System.out.println("\u001B[31m Invalid number format.");
-            }
-        }
-
-        while (true) {
-            System.out.println("\u001B[34m Enter y: ");
-            try {
-                y = Float.parseFloat(read.nextLine());
-                if (y > -459) {
-                    break;
-                }
-            } catch (NumberFormatException ex) {
-                System.out.println("\u001B[31m Invalid number format.");
-            }
-        }
-
-        Coordinates coordinates = new Coordinates(x, y);
-
-        while (true) {
-            System.out.println("\u001B[34m Enter minimal point: ");
-            try {
-                minimalPoint = Integer.parseInt(read.nextLine());
-                if (minimalPoint > 0) {
-                    break;
-                }
-            } catch (NumberFormatException ex) {
-                System.out.println("\u001B[31m Invalid number format.");
-            }
-        }
-
-        while (true) {
-            System.out.println("\u001B[34m Enter personal qualities minimum: ");
-            try {
-                personalQualitiesMinimum = Integer.parseInt(read.nextLine());
-                if (personalQualitiesMinimum > 0) {
-                    break;
-                }
-            } catch (NumberFormatException ex) {
-                System.out.println("\u001B[31m Invalid number format.");
-            }
-        }
-
-        while (true) {
-            System.out.println("\u001B[34m Enter personal qualities maximum: ");
-            try {
-                personalQualitiesMaximum = Long.parseLong(read.nextLine());
-                if (personalQualitiesMaximum > 0) {
-                    break;
-                }
-            } catch (NumberFormatException ex) {
-                System.out.println("\u001B[31m Invalid number format.");
-            }
-        }
-
-        while (true) {
-            System.out.println("\u001B[34m Enter difficulty: ");
-            try {
-
-                System.out.println("\u001B[34m Enter one of these types of difficulty:  \u001B[0m");
-                System.out.println(Difficulty.nameList());
-                String input = read.nextLine().trim().toUpperCase();
-                difficulty = Difficulty.valueOf(input);
-                break;
-            } catch (IllegalArgumentException ex) {
-                System.out.println("\u001B[31m Invalid difficulty type.");
-            }
-        }
-
-        while (true) {
-            System.out.println("\u001B[34m Enter discipline name: ");
-            try {
-                String disciplineName = read.nextLine();
-                long selfStudyHours = 0;
-                while (selfStudyHours == 0) {
-                    System.out.println("\u001B[34m Enter self study hours: ");
-                    try {
-                        selfStudyHours = Long.parseLong(read.nextLine());
-                    } catch (NumberFormatException ex) {
-                        System.out.println("\u001B[31m Invalid number format.");
-                    }
-                }
-                discipline = new Discipline(disciplineName, selfStudyHours);
-                break;
-            } catch (IllegalArgumentException ex) {
-                System.out.println("\u001B[31m Invalid discipline name.");
-            }
-        }
-
-        try {
-
-            labWork.add(new LabWork(name, coordinates, minimalPoint, personalQualitiesMinimum, personalQualitiesMaximum, difficulty, discipline));
-            System.out.println("\u001B[34m Element added.");
-        } catch (IllegalArgumentException ex) {
-            System.out.println("\u001B[31m Invalid argument.");
-        }
-
-    }
-    @Deprecated
-    public void updateId(String id) {
-        int labWorkId;
-        try {
-            labWorkId = (int) Double.parseDouble(id);
-        } catch (NumberFormatException ex) {
-            System.out.println("\u001B[31m Invalid id format.");
-            return;
-        }
-        boolean found = false;
-        for (LabWork work : labWork) {
-            if (work.getId() == labWorkId) {
-                {
-                    Scanner read = new Scanner(System.in);
-                    Discipline discipline;
-                    Difficulty difficulty;
-                    String name = "";
-                    double x;
-                    float y;
-                    long personalQualitiesMaximum;
-                    int personalQualitiesMinimum;
-                    int minimalPoint;
-
-                    while (true) {
-                        System.out.println("\u001B[34m Enter name: ");
-                        name = read.nextLine();
-                        if (!name.isEmpty()) {
-                            break;
-                        }
-                    }
-
-                    System.out.println("\u001B[34m Enter coordinates: ");
-
-                    while (true) {
-                        System.out.println("\u001B[34m Enter x: ");
-                        try {
-                            x = Double.parseDouble(read.nextLine());
-                            break;
-                        } catch (NumberFormatException ex) {
-                            System.out.println("\u001B[31m Invalid number format.");
-                        }
-                    }
-
-                    while (true) {
-                        System.out.println("\u001B[34m Enter y: ");
-                        try {
-                            y = Float.parseFloat(read.nextLine());
-                            if (y > -459) {
-                                break;
-                            }
-                        } catch (NumberFormatException ex) {
-                            System.out.println("\u001B[31m Invalid number format.");
-                        }
-                    }
-
-                    Coordinates coordinates = new Coordinates(x, y);
-
-                    while (true) {
-                        System.out.println("\u001B[34m Enter minimal point: ");
-                        try {
-                            minimalPoint = Integer.parseInt(read.nextLine());
-                            if (minimalPoint > 0) {
-                                break;
-                            }
-                        } catch (NumberFormatException ex) {
-                            System.out.println("\u001B[31m Invalid number format.");
-                        }
-                    }
-
-                    while (true) {
-                        System.out.println("\u001B[34m Enter personal qualities minimum: ");
-                        try {
-                            personalQualitiesMinimum = Integer.parseInt(read.nextLine());
-                            if (personalQualitiesMinimum > 0) {
-                                break;
-                            }
-                        } catch (NumberFormatException ex) {
-                            System.out.println("\u001B[31m Invalid number format.");
-                        }
-                    }
-
-                    while (true) {
-                        System.out.println("\u001B[34m Enter personal qualities maximum: ");
-                        try {
-                            personalQualitiesMaximum = Long.parseLong(read.nextLine());
-                            if (personalQualitiesMaximum > 0) {
-                                break;
-                            }
-                        } catch (NumberFormatException ex) {
-                            System.out.println("\u001B[31m Invalid number format.");
-                        }
-                    }
-
-                    while (true) {
-                        System.out.println("\u001B[34m Enter difficulty: ");
-                        try {
-
-                            System.out.println("\u001B[34m Enter one of these types of difficulty:  \u001B[0m");
-                            System.out.println(Difficulty.nameList());
-                            String input = read.nextLine().trim().toUpperCase();
-                            difficulty = Difficulty.valueOf(input);
-                            break;
-                        } catch (IllegalArgumentException ex) {
-                            System.out.println("\u001B[31m Invalid difficulty type.");
-                        }
-                    }
-
-                    while (true) {
-                        System.out.println("\u001B[34m Enter discipline name: ");
-                        try {
-                            String disciplineName = read.nextLine();
-                            long selfStudyHours = 0;
-                            while (selfStudyHours == 0) {
-                                System.out.println("\u001B[34m Enter self study hours: ");
-                                try {
-                                    selfStudyHours = Long.parseLong(read.nextLine());
-                                } catch (NumberFormatException ex) {
-                                    System.out.println("\u001B[31m Invalid number format.");
-                                }
-                            }
-                            discipline = new Discipline(disciplineName, selfStudyHours);
-                            break;
-                        } catch (IllegalArgumentException ex) {
-                            System.out.println("\u001B[31m Invalid discipline name.");
-                        }
-                    }
-
-                    try {
-                        work.setCoordinates(coordinates);
-                        work.setDifficulty(difficulty);
-                        work.setDiscipline(discipline);
-                        work.setMinimalPoint(minimalPoint);
-                        work.setPersonalQualitiesMaximum(personalQualitiesMaximum);
-                        work.setPersonalQualitiesMinimum(personalQualitiesMinimum);
-                        work.setName(name);
-                        labWork.remove(work);
-                        labWork.add(work);
-                    } catch (IllegalArgumentException ex) {
-                        System.out.println("\u001B[31m Invalid argument.");
-                    }
-
-                }
-                found = true;
-                System.out.println("\u001B[34m Element updated.");
-                break;
-            }
-        }
-        if (!found) {
-            System.out.println("\u001B[31m Element with id " + labWorkId + " \u001B[31m not found.");
-        }
-    }
-    @Deprecated
-    public void remove_by_id(String id) {
-        int labWorkId;
-        try {
-            labWorkId = (int) Double.parseDouble(id);
-        } catch (NumberFormatException ex) {
-            System.out.println("\u001B[31m Invalid id format.");
-            return;
-        }
-        boolean found = false;
-        for (LabWork work : labWork) {
-            if (work.getId() == labWorkId) {
-                labWork.remove(work);
-                found = true;
-                System.out.println("\u001B[34m Element removed.");
-                break;
-            }
-        }
-        if (!found) {
-            System.out.println("\u001B[31m Element with id " + labWorkId + " not found.");
-        }
-
-    }
-    @Deprecated
-    public void clear() {
-        labWork.remove(labWork);
-        System.out.println("\u001B[34m Collection cleared.");
-    }
-    @Deprecated
-    public void save(String path) throws IOException {
-        File savedJsonCollection = new File(path + ".json");
-        try (BufferedWriter outputStreamWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(savedJsonCollection)))) {
-            outputStreamWriter.write(gson.toJson(labWork));
-            System.out.println("\u001B[34m Collection saved to " + savedJsonCollection.getAbsolutePath());
-        }
-    }
-    @Deprecated
-    public void execute_scrpit() {
-        // TODO
-
-    }
-    @Deprecated
-    public void exit() {
-        System.out.println("\u001B[34m Bye!");
-        System.exit(0);
-    }
-    @Deprecated
-    public void add_if_max() {
-        // TODO
-    }
-    @Deprecated
-    public void add_if_min() {
-        // TODO
-    }
-    @Deprecated
-    public void remove_lower() {
-        // TODO
-    }
-    @Deprecated
-    public void max_by_creation_date() {
-        for (LabWork work : labWork) {
-            if (work.getCreationDate().compareTo(Collections.max(labWork).getCreationDate()) > 0) {
-                System.out.println(work);
-            }
-        }
-    }
-    @Deprecated
-    public void group_counting_by_id() {
-        try {
-            TreeMap <Integer, Long> groupCollectionByIdRemainder = new TreeMap(labWork.stream().collect(Collectors.groupingBy(LabWork::getIdRemainder, Collectors.counting())));
-            System.out.println("\u001B[32m Collection grouped by id % 5: \u001B[0m" + groupCollectionByIdRemainder);
-        } catch (NullPointerException ex) {
-            System.out.println("\u001B[31m Collection is empty!");
-
-        }
-    }
-    @Deprecated
-    public void filter_greater_than_personal_qualities_maximum(String maxPersonalQualities) {
-        int maxPersonalQualitiesValue;
-        try {
-            maxPersonalQualitiesValue = (int) Double.parseDouble(maxPersonalQualities);
-            for (LabWork work : labWork) {
-                if (work.getPersonalQualitiesMaximum() > maxPersonalQualitiesValue) {
-                    System.out.println(work);
-
-                }
-            }
-        } catch (NumberFormatException nfe) {
-            System.out.println("\u001B[31m Try command again");
-        }
     }
 
     @Override

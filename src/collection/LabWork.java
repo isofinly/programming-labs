@@ -27,6 +27,8 @@ public class LabWork implements Comparable <LabWork> {
      * @param difficulty               Difficulty of the lab work != null
      * @param discipline               Discipline of the lab work != null
      */
+
+//    (int, String, Coordinates, String, int, int, int, long, Difficulty, Discipline)
     public LabWork(@NotNull Integer id, @NotNull String name,
                    @NotNull Coordinates coordinates, String creationDate,
                    @NotNull Integer minimalPoint, @Nullable Integer personalQualitiesMinimum,
@@ -268,6 +270,7 @@ public class LabWork implements Comparable <LabWork> {
 
     }
 
+
     private int id;
 
     public int getId() {
@@ -379,6 +382,7 @@ public class LabWork implements Comparable <LabWork> {
      *
      the LabWork objects will be sorted first by difficulty, then by minimalPoint, and finally by name.
      */
+
     @Override
     public int compareTo(LabWork other) {
 //        if (this.difficulty != other.difficulty) {

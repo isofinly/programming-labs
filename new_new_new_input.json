@@ -1,1 +1,121 @@
-[{"id":1,"name":"Labwork1","coordinates":{"x":5.0,"y":3.0},"creationDate":"Feb 16 2023","minimalPoint":10,"personalQualitiesMinimum":10,"personalQualitiesMaximum":12,"difficulty":"HOPELESS","discipline":{"name":"BIOLOGY","practiceHours":1233242}},{"id":2,"name":"Labwork2","coordinates":{"x":2.0,"y":1.0},"creationDate":"Feb 16 2023","minimalPoint":100,"personalQualitiesMinimum":12,"personalQualitiesMaximum":14,"difficulty":"INSANE","discipline":{"name":"CHEMISTRY","practiceHours":12323}},{"id":3,"name":"Labwork3","coordinates":{"x":21.0,"y":3.0},"creationDate":"Feb 16 2023","minimalPoint":50,"personalQualitiesMinimum":14,"personalQualitiesMaximum":16,"difficulty":"HARD","discipline":{"name":"PHYSICS","practiceHours":1235422}},{"id":4,"name":"Labwork4","coordinates":{"x":2.0,"y":31.0},"creationDate":"Feb 16 2023","minimalPoint":87,"personalQualitiesMinimum":1,"personalQualitiesMaximum":78,"difficulty":"HARD","discipline":{"name":"NONINEGNESS","practiceHours":1245322}},{"id":5,"name":"Labwork5","coordinates":{"x":20.0,"y":3.0},"creationDate":"Feb 16 2023","minimalPoint":98,"personalQualitiesMinimum":78,"personalQualitiesMaximum":100,"difficulty":"HARD","discipline":{"name":"MATH","practiceHours":12489322}},{"id":6,"name":"Labwork6","coordinates":{"x":2.0,"y":354.0},"creationDate":"Feb 16 2023","minimalPoint":12,"personalQualitiesMinimum":53,"personalQualitiesMaximum":455,"difficulty":"HARD","discipline":{"name":"ICT","practiceHours":123787822}},{"id":7,"name":"Labwork7","coordinates":{"x":52.0,"y":3.0},"creationDate":"Feb 16 2023","minimalPoint":89,"personalQualitiesMinimum":442,"personalQualitiesMaximum":897,"difficulty":"HARD","discipline":{"name":"PE","practiceHours":12398722}},{"id":8,"name":"1","coordinates":{"x":1.0,"y":1.0},"creationDate":"16 Feb 2023","minimalPoint":1,"personalQualitiesMinimum":1,"personalQualitiesMaximum":1,"difficulty":"HARD","discipline":{"name":"1","practiceHours":1}},{"id":9,"name":"1","coordinates":{"x":1.0,"y":1.0},"creationDate":"16 Feb 2023","minimalPoint":1,"personalQualitiesMinimum":1,"personalQualitiesMaximum":1,"difficulty":"HARD","discipline":{"name":"1","practiceHours":1}}]
+[
+  {
+    "id": 1,
+    "name": "Labwork1",
+    "coordinates": {
+      "x": 5,
+      "y": 3
+    },
+    "creationDate": "Feb 16 2023",
+    "minimalPoint": 10,
+    "personalQualitiesMinimum": 10,
+    "personalQualitiesMaximum": 12,
+    "difficulty": "HOPELESS",
+    "discipline": {
+      "name": "BIOLOGY",
+      "practiceHours": 1233242
+    }
+  },
+  {
+    "id": 2,
+    "name": "Labwork2",
+    "coordinates": {
+      "x": 2,
+      "y": 1
+    },
+    "creationDate": "Feb 16 2023",
+    "minimalPoint": 100,
+    "personalQualitiesMinimum": 12,
+    "personalQualitiesMaximum": 14,
+    "difficulty": "INSANE",
+    "discipline": {
+      "name": "CHEMISTRY",
+      "practiceHours": 12323
+    }
+  },
+  {
+    "id": 3,
+    "name": "Labwork3",
+    "coordinates": {
+      "x": 21,
+      "y": 3
+    },
+    "creationDate": "Feb 16 2023",
+    "minimalPoint": 50,
+    "personalQualitiesMinimum": 14,
+    "personalQualitiesMaximum": 16,
+    "difficulty": "HARD",
+    "discipline": {
+      "name": "PHYSICS",
+      "practiceHours": 1235422
+    }
+  },
+  {
+    "id": 4,
+    "name": "Labwork4",
+    "coordinates": {
+      "x": 2,
+      "y": 31
+    },
+    "creationDate": "Feb 16 2023",
+    "minimalPoint": 87,
+    "personalQualitiesMinimum": 1,
+    "personalQualitiesMaximum": 78,
+    "difficulty": "HARD",
+    "discipline": {
+      "name": "NONINEGNESS",
+      "practiceHours": 1245322
+    }
+  },
+  {
+    "id": 5,
+    "name": "Labwork5",
+    "coordinates": {
+      "x": 20,
+      "y": 3
+    },
+    "creationDate": "Feb 16 2023",
+    "minimalPoint": 98,
+    "personalQualitiesMinimum": 78,
+    "personalQualitiesMaximum": 100,
+    "difficulty": "HARD",
+    "discipline": {
+      "name": "MATH",
+      "practiceHours": 12489322
+    }
+  },
+  {
+    "id": 6,
+    "name": "Labwork6",
+    "coordinates": {
+      "x": 2,
+      "y": 354
+    },
+    "creationDate": "Feb 16 2023",
+    "minimalPoint": 12,
+    "personalQualitiesMinimum": 53,
+    "personalQualitiesMaximum": 455,
+    "difficulty": "HARD",
+    "discipline": {
+      "name": "ICT",
+      "practiceHours": 123787822
+    }
+  },
+  {
+    "id": 7,
+    "name": "Labwork7",
+    "coordinates": {
+      "x": 52,
+      "y": 3
+    },
+    "creationDate": "Feb 16 2023",
+    "minimalPoint": 89,
+    "personalQualitiesMinimum": 442,
+    "personalQualitiesMaximum": 897,
+    "difficulty": "HARD",
+    "discipline": {
+      "name": "PE",
+      "practiceHours": 12398722
+    }
+  }
+]
