@@ -1,115 +1,141 @@
 package src.command;
 
+import src.collection.CollectionManager;
 import src.collection.LabWork;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.sql.SQLOutput;
 import java.util.*;
-import java.util.regex.Pattern;
+
+import static src.collection.CollectionManager.getCollection;
 
 
 /**
- * Class for reading commands from input s
- * Uses regex
- * see @CommandsWithArguments
+ * Class for reading commands from input s;
+ * <p>
+ * uses regex;
+ *
+ * @see CommandsWithArguments
  */
 public class ReadFunction {
+    //        boolean canModify = (
+//                (getLastCommands().stream().anyMatch(y -> y.getName().equals("add")))
+//                        | (getLastCommands().stream().anyMatch(y -> y.getName().equals("update")))
+//                        | (getLastCommands().stream().anyMatch(y -> y.getName().equals("remove")))
+//                        | (getLastCommands().stream().anyMatch(y -> y.getName().equals("clear")))
+//                        | (getLastCommands().stream().anyMatch(y -> y.getName().equals("add_if_max")))
+//                        | (getLastCommands().stream().anyMatch(y -> y.getName().equals("remove_lower")))
+//        );
+    boolean canModify = (
+            getLastCommands() != null && getLastCommands().peekLast().equals("clear")
+    );
 
-    Commands[] commands;
-    Deque <Commands> last_commands = new LinkedList <>();
 
     public void setCommands(Commands[] commands) {
         this.commands = commands;
     }
 
+    //    File tempFile = File.createTempFile("collectionBackup", ".json");
+//    gson.toJson(getCollection(), new java.io.FileWriter(tempFile));
+//    System.out.println("Temporary file is located on default location: " + tempFile.getAbsolutePath());
+    Commands[] commands;
+    Deque<Commands> last_commands = new LinkedList<>();
 
-    // TODO 1: change for loop to stream API
     public void read(String s) {
-        boolean flag = false;
 
-        for (Commands x : commands) {
-            String[] S = s.split(" ");
-
-            if (x.getName().equals(S[0].trim())) {
-                Pattern pattern = Pattern.compile(x.getName());
-
-                if (pattern.matcher(x.getName()).matches()) {
-                    try {
-                        if (x.haveArgument()) {
+        Arrays.stream(commands)
+                .filter(x -> x.getName().equals(s.split(" ")[0].trim()))
+                .findFirst()
+                .ifPresentOrElse(
+                        x -> {
                             try {
-                                CommandsWithArguments <?> command_arg = (CommandsWithArguments <?>) x;
-                                command_arg.stringToArgument(S[S.length - 1].trim());
-                                command_arg.execute();
-                                last_commands.add(command_arg);
-                                flag = true;
+                                if (x.hasArgument) {
+                                    CommandsWithArguments<?> command_arg = (CommandsWithArguments<?>) x;
+                                    command_arg.stringToArgument(s.split(" ")[s.split(" ").length - 1].trim());
+                                    command_arg.execute();
+                                    last_commands.add(command_arg);
+                                    tmpSave();
+                                } else if (x.getName().equals("exit")) {
+                                    if (getLastCommands().size() != 0 && getLastCommands().peekLast().getName().equals("save")) {
+                                        x.execute();
+                                        last_commands.add(x);
+                                        tmpSave();
+                                    } else if ((getLastCommands().isEmpty())) {
+                                        x.execute();
+                                        last_commands.add(x);
+                                        tmpSave();
+                                    } else {
+                                        if (getLastCommands().peekLast().getName().equals("save")) {
+                                            x.execute();
+                                            last_commands.add(x);
+                                            tmpSave();
+                                        } else if (getLastCommands().peekLast().getName().equals("clear")
+                                                || getLastCommands().peekLast().getName().equals("remove_lower")
+                                                || getLastCommands().peekLast().getName().equals("remove")
+                                                || getLastCommands().peekLast().getName().equals("add_if_max")
+                                                || getLastCommands().peekLast().getName().equals("add")
+                                                || getLastCommands().peekLast().getName().equals("update")) {
+                                            System.out.println(" \u001B[31m Your data will be lost.");
+                                            System.out.println(" \u001B[31m Do you want to save it? (y/n)");
+                                            Scanner scanner = new Scanner(System.in);
+                                            String answer = scanner.nextLine();
+                                            if (answer.equals("y")) {
+                                                SaveCommand saveCommand = new SaveCommand(getCollection(), new File("collection.json"));
+                                                saveCommand.execute();
+                                                x.execute();
+                                                last_commands.add(x);
+                                                tmpSave();
+                                            } else if (answer.equals("n")) {
+                                                x.execute();
+                                                last_commands.add(x);
+                                                tmpSave();
+                                            } else {
+                                                System.out.println(" \u001B[31m Please, enter y or n.");
+                                            }
+                                        }
+                                    }
+                                } else {
+                                    x.execute();
+                                    last_commands.add(x);
+                                    tmpSave();
+                                }
                             } catch (Exception e) {
-                                System.out.println("\u001B[01m Congrats, you found a bug. Please, contact the developer." +
-                                        " \n \u001B[31m Error message: " + e.getMessage());
+                                System.out.println("\u001B[31m " + e.getMessage());
                             }
-                        } else {
-                            x.execute();
-                            last_commands.add(x);
-                            flag = true;
-                        }
-                    } catch (Exception e) {
-                        System.out.println("\u001B[31m " + e.getMessage());
-                    }
-                }
-            }
-        } if (!flag) {
-                System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
-                System.out.println("\u001B[32m help : \u001B[0m show all commands");
-            }
+                        },
+                        () -> {
+                            System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
+                            System.out.println("\u001B[32m help : \u001B[0m show all commands");
+                        });
     }
 
-@Deprecated
-public class HistoryCommand extends Commands {
-        public HistoryCommand(LinkedHashSet <LabWork> labWorks, File file) {
-            super(labWorks, file);
-        }
+    public Deque<Commands> getLastCommands() {
+        return last_commands;
+    }
 
-        @Override
-        public void execute() {
-            if (ReadFunction.this.last_commands.size() < 9) {
-                last_commands.forEach(System.out::println);
-                if (ReadFunction.this.last_commands.size() == 0) {
-                    System.out.println("Команд нет.");
-                }
-
-            } else {
-                int i = 0;
-                for (Commands x : last_commands) {
-                    i++;
-                    System.out.println(x);
-                    if (i == 9) {
-                        break;
-                    }
-                }
-            }
-        }
-
-        @Override
-        public String getDescription() {
-            return "\u001B[32m history :\u001B[0m show last 9 commands";
-        }
-
+    private static void tmpSave() {
+        BackgroundSaveCommand backgroundSaveCommand = new BackgroundSaveCommand(getCollection(), new File(Objects.requireNonNull(CollectionManager.getFile()).getName()));
+        backgroundSaveCommand.execute();
+//        SaveCommand saveCommand = new SaveCommand(CollectionManager.getCollection(), new File(Objects.requireNonNull(CollectionManager.getFile()).getName()));
+//        saveCommand.execute();
     }
 
     /**
      * Class for command execution that converts string to argument
+     *
      * @see CommandsWithArguments
      */
-    public class ExecuteCommand extends CommandsWithArguments <String> {
+    public class ExecuteCommand extends CommandsWithArguments<String> {
 
-        public ExecuteCommand(LinkedHashSet <LabWork> labWorks, File file) {
+        public ExecuteCommand(LinkedHashSet<LabWork> labWorks, File file) {
             super(labWorks, file);
             argumentName = "file_name";
             this.name = "execute_script";
             this.hasArgument = true;
         }
 
-        private List <File> FileArray = new ArrayList <>();
+        private List<File> FileArray = new ArrayList<>();
+
         @Override
         public void execute() {
 
@@ -138,6 +164,5 @@ public class HistoryCommand extends Commands {
         public String getDescription() {
             return "\u001B[32m execute_script file_name :\u001B[0m считать и исполнить скрипт из указанного файла.";
         }
-
     }
 }

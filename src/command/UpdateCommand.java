@@ -39,6 +39,7 @@ public class UpdateCommand extends CommandsWithArguments<Integer>{
                 collection.removeIf(x -> x.getId() == argument);
                 collection.add(labWork);
                 System.out.println(" \u001B[32m The element was updated.");
+
             } else {
                 System.out.println(" \u001B[31m The element with this id does not exist.");
             }

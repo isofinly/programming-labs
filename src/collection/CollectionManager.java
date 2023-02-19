@@ -1,29 +1,18 @@
 package src.collection;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonNode;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
 
 import java.io.*;
 import java.lang.reflect.Type;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
 import java.util.*;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 
 /*
@@ -48,26 +37,27 @@ import java.util.stream.Stream;
 
 /**
  * Class for managing the collection and its elements
+ *
  * @see LabWork
  * @see LinkedHashSet
  */
 public class CollectionManager {
 
-    protected LinkedHashSet <LabWork> labWork = new LinkedHashSet <>();
+    protected static LinkedHashSet<LabWork> labWork;
     protected File jsonCollection;
     protected Date initDate;
     private File outPut;
 
     Gson gson = new Gson();
     @Deprecated
-    protected static HashMap <String, String> manual;
+    protected static HashMap<String, String> manual;
     @Deprecated
-    private List <String> scriptStack = new ArrayList <>();
+    private final List<String> scriptStack = new ArrayList<>();
 
     {
         Gson gson = new Gson();
-        labWork = new LinkedHashSet <>();
-        manual = new HashMap <>();
+        labWork = new LinkedHashSet<>();
+        manual = new HashMap<>();
 
         manual.put("\u001B[32m help: \u001B[0m", "output help for available commands");
         manual.put("\u001B[32m info: \u001B[0m", "output information about the collection (type, initialization date, number of items, etc.) to the standard output stream.");
@@ -88,18 +78,23 @@ public class CollectionManager {
     }
 
 
-    public CollectionManager(String inPath) throws Exception {
+    public CollectionManager(String inPath) {
         this.jsonCollection = new File(inPath);
         this.initDate = new Date();
         this.load();
-        for (LabWork p : labWork) {
-            if (p.getMinimalPoint() < 0.0) {
-                throw new Exception();
-            }
-        }
+
     }
 
-    public void load() throws IOException {
+    public static File getFile() {
+        try {
+            return File.createTempFile("collectionBackup", ".json");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void load() {
         ObjectMapper objectMapper = new ObjectMapper();
         int fileSize = labWork.size();
 
@@ -124,15 +119,12 @@ public class CollectionManager {
             while ((nextLine = inputStreamReader.readLine()) != null) {
                 result.append(nextLine);
             }
-
-
-            Type collectionTypeObject = new TypeToken <LinkedHashSet <Object>>() {
+            Type collectionTypeObject = new TypeToken<LinkedHashSet<Object>>() {
             }.getType();
-            LinkedHashSet <Object> itemsObj = gson.fromJson(result.toString(), collectionTypeObject);
-
+            LinkedHashSet<Object> itemsObj = gson.fromJson(result.toString(), collectionTypeObject);
             while (itemsObj.iterator().hasNext()) {
-
-                Map<String, Object> map= objectMapper.convertValue(itemsObj.iterator().next(), new TypeReference<Map<String, Object>>() {});
+                Map<String, Object> map = objectMapper.convertValue(itemsObj.iterator().next(), new TypeReference<>() {
+                });
 //                System.out.println(itemsObj.iterator().next());
                 try {
                     if (map.size() == 7) {
@@ -143,40 +135,45 @@ public class CollectionManager {
                                 ),
                                 (int) Double.parseDouble(getMapValue(map, "minimalPoint").toString()),
                                 (int) Double.parseDouble(getMapValue(map, "personalQualitiesMinimum").toString()),
-                                (long)  Double.parseDouble(getMapValue(map, "personalQualitiesMaximum").toString()),
+                                (long) Double.parseDouble(getMapValue(map, "personalQualitiesMaximum").toString()),
                                 Difficulty.valueOf((String) getMapValue(map, "difficulty")),
                                 new Discipline(
                                         (String) getMapValue(map, "discipline.name"),
                                         (long) Double.parseDouble(getMapValue(map, "discipline.practiceHours").toString())
                                 )
                         ));
-                    }
-                    else if (map.size() == 9){
+                    } else if (map.size() == 9) {
                         labWork.add(new LabWork(
-                                        (int) Double.parseDouble(getMapValue(map, "id").toString()),
-                                        (String) getMapValue(map, "name"),
-                                        new Coordinates(
-                                                Double.parseDouble( getMapValue(map, "coordinates.x").toString()),
-                                                Float.parseFloat( getMapValue(map, "coordinates.y").toString())
-                                        ),
-                                        (String) getMapValue(map, "creationDate"),
-                                        (int) Double.parseDouble(getMapValue(map, "minimalPoint").toString()),
-                                        (int) Double.parseDouble( getMapValue(map, "personalQualitiesMinimum").toString()),
-                                        (long) Double.parseDouble( getMapValue(map, "personalQualitiesMaximum").toString()),
-                                Difficulty.valueOf( (String) getMapValue(map, "difficulty")),
+                                (int) Double.parseDouble(getMapValue(map, "id").toString()),
+                                (String) getMapValue(map, "name"),
+                                new Coordinates(
+                                        Double.parseDouble(getMapValue(map, "coordinates.x").toString()),
+                                        Float.parseFloat(getMapValue(map, "coordinates.y").toString())
+                                ),
+                                (String) getMapValue(map, "creationDate"),
+                                (int) Double.parseDouble(getMapValue(map, "minimalPoint").toString()),
+                                (int) Double.parseDouble(getMapValue(map, "personalQualitiesMinimum").toString()),
+                                (long) Double.parseDouble(getMapValue(map, "personalQualitiesMaximum").toString()),
+                                Difficulty.valueOf((String) getMapValue(map, "difficulty")),
                                 new Discipline(
-                                          (String) getMapValue(map, "discipline.name"),
+                                        (String) getMapValue(map, "discipline.name"),
                                         (long) Double.parseDouble(getMapValue(map, "discipline.practiceHours").toString())
                                 )
                         ));
+                    } else {
+                        System.out.println("\u001B[31m Invalid collection file format.");
+                        System.exit(1);
                     }
-                itemsObj.remove(itemsObj.iterator().next());
+                    itemsObj.remove(itemsObj.iterator().next());
                 } catch (NullPointerException ex) {
                     System.out.println("\u001B[31m Null pointer, my friendo.");
                     System.exit(1);
                 }
             }
             System.out.println("\u001B[34m Collection of type \u001B[0m" + labWork.getClass().getName() + "\u001B[34m successfully loaded in size of \u001B[0m" + (labWork.size() - fileSize) + "\u001B[34m elements.");
+        } catch (IOException e) {
+            System.out.println("\u001B[31m IO error while operating file.");
+            System.exit(1);
         }
     }
 
@@ -200,8 +197,9 @@ public class CollectionManager {
         return value;
     }
 
+
     @Deprecated
-    public HashMap <String, String> getManual() {
+    public HashMap<String, String> getManual() {
         return manual;
     }
 
@@ -216,8 +214,9 @@ public class CollectionManager {
         }
     }
 
-    public LinkedHashSet<LabWork> getCollection() {
+    public static LinkedHashSet<LabWork> getCollection() {
         return labWork;
     }
+
 }
 

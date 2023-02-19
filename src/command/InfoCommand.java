@@ -32,16 +32,19 @@ public class InfoCommand extends Commands {
 
     @Override
     public void execute() {
-
-        System.out.println("\u001b[32m Minimal date of collection : \u001b[37m" + DateCreated());
-        System.out.println("\u001b[32m Maimum date of collection : \u001b[37m" + DateLastModification());
-        System.out.println("\u001b[32m Size of the collection : \u001b[37m" + collection.size());
-        System.out.println("\u001b[32m Data types : \u001b[37m" + collection.getClass());
-        System.out.println("\u001b[32m Hash code : \u001b[37m" + collection.hashCode());
-        System.out.println("\u001b[32m IsEmpty? : \u001b[37m" + collection.isEmpty());
-        System.out.println();
-        System.out.println("\u001b[32m Max element : \u001b[37m" + Collections.max(collection, Comparator.comparing(LabWork::getId)));
-        System.out.println("\u001b[32m Min element : \u001b[37m" + Collections.min(collection, Comparator.comparing(LabWork::getId)));
+        if (collection.isEmpty()) {
+            System.out.println("\u001b[31m Collection is empty.");
+        } else {
+            System.out.println("\u001b[32m Minimal date of collection : \u001b[37m" + DateCreated());
+            System.out.println("\u001b[32m Maimum date of collection : \u001b[37m" + DateLastModification());
+            System.out.println("\u001b[32m Size of the collection : \u001b[37m" + collection.size());
+            System.out.println("\u001b[32m Data types : \u001b[37m" + collection.getClass());
+            System.out.println("\u001b[32m Hash code : \u001b[37m" + collection.hashCode());
+            System.out.println("\u001b[32m IsEmpty? : \u001b[37m" + collection.isEmpty());
+            System.out.println();
+            System.out.println("\u001b[32m Max element : \u001b[37m" + Collections.max(collection, Comparator.comparing(LabWork::getId)));
+            System.out.println("\u001b[32m Min element : \u001b[37m" + Collections.min(collection, Comparator.comparing(LabWork::getId)));
+        }
     }
 
     @Override

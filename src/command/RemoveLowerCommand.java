@@ -16,7 +16,7 @@ public class RemoveLowerCommand extends Commands {
     public RemoveLowerCommand(LinkedHashSet <LabWork> collection, File file) {
         super(collection, file);
         this.name = "remove_lower";
-        this.hasArgument = true;
+        this.hasArgument = false;
     }
 
     @Override

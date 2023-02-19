@@ -9,10 +9,11 @@ import java.util.LinkedHashSet;
 
 /**
  * Class for command save
+ *
  * @see CommandsWithArguments
  */
-public class SaveCommand extends CommandsWithArguments <String> {
-    public SaveCommand(LinkedHashSet <LabWork> collection, File file) {
+public class SaveCommand extends CommandsWithArguments<String> {
+    public SaveCommand(LinkedHashSet<LabWork> collection, File file) {
         super(collection, file);
         argumentName = "file_name";
         this.name = "save";
@@ -27,7 +28,8 @@ public class SaveCommand extends CommandsWithArguments <String> {
             outputStreamWriter.write(gson.toJson(collection));
             System.out.println("\u001B[34m Collection saved to " + savedJsonCollection.getAbsolutePath());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("\u001b[31m FEHLER ZUM SPEICHERN DER DATEI BITTE KONTAKTIEREN SIE DEN PROGRAMMAUTOR");
+            System.out.println("\u001b[31m"+e);
         }
     }
 

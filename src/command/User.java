@@ -1,46 +1,38 @@
 package src.command;
 
-
-import src.collection.LabWork;
-
-import java.io.File;
-import java.util.LinkedHashSet;
-
 /**
  * class that execute commands
  * main interaction with commands is done by Reader
+ *
  * @see ReadFunction
  * @see Commands
  * @see CommandsWithArguments
  */
 public class User {
-    @Deprecated
-    private static void help_print_for_command(Commands Commands) {
-        System.out.println(Commands.getName() + (Commands.haveArgument() ? " " + ((CommandsWithArguments <?>) Commands).getArgumentName() + " " : "") + " - " + Commands.getDescription());
-    }
+    private final Commands exit;
+    private final Commands add;
+    private final Commands show;
+    private final Commands clear;
+    private final Commands save;
+    private final Commands update;
+    private final Commands remove;
+    private final Commands help;
+    private final Commands max_by_creation_date;
+    private final Commands group_counting_by_id;
+    private final Commands filter_greater_than_personal_qualities_maximum;
+    private final Commands add_if_max;
+    private final Commands remove_lower;
+    private final Commands execute;
+    private final Commands info;
+    private final Commands[] commands;
 
-    private Commands add;
-    private Commands show;
-    private Commands clear;
-    private Commands save;
-    private Commands update;
-    private Commands remove;
-    private Commands help;
-    private Commands max_by_creation_date;
-    private Commands group_counting_by_id;
-    private Commands filter_greater_than_personal_qualities_maximum;
-    private Commands add_if_max;
-    private Commands remove_lower;
-    private Commands execute;
-    private Commands info;
-    private Commands[] commands;
-
-    public User(File file, LinkedHashSet <LabWork> labWorks,
-                Commands show, Commands add, Commands update,
+    public User(Commands show, Commands add, Commands update,
                 Commands clear, Commands save, Commands remove,
                 Commands help, Commands max_by_creation_date, Commands group_counting_by_id,
                 Commands filter_greater_than_personal_qualities_maximum, Commands add_if_max,
-                Commands remove_lower, Commands execute_script, Commands info ){
+                Commands remove_lower, Commands execute_script, Commands info, Commands exit) {
+        this.exit = exit;
+        this.exit.setName("exit");
         this.info = info;
         this.info.setName("info");
         this.execute = execute_script;
@@ -74,46 +66,58 @@ public class User {
                 this.save, this.update, this.remove,
                 this.help, this.max_by_creation_date, this.group_counting_by_id,
                 this.filter_greater_than_personal_qualities_maximum, this.add_if_max, this.remove_lower,
-                this.execute, this.info
+                this.execute, this.info, this.exit
         };
     }
 
     public void add() {
         add.execute();
     }
+
     public void show() {
         show.execute();
     }
+
     public void clear() {
         clear.execute();
     }
+
     public void save() {
         save.execute();
     }
+
     public void update() {
         update.execute();
     }
+
     public void remove() {
         remove.execute();
     }
+
     public void help() {
         help.execute();
     }
+
     public void max_by_creation_date() {
         max_by_creation_date.execute();
     }
+
     public void filter_greater_than_personal_qualities_maximum() {
         filter_greater_than_personal_qualities_maximum.execute();
     }
+
     public void add_if_max() {
         add_if_max.execute();
     }
+
     public void remove_lower() {
         remove_lower.execute();
     }
+
     public void execute_script() {
         execute.execute();
     }
+
     public void info() {
         info.execute();
     }

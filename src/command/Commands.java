@@ -13,10 +13,10 @@ import java.util.LinkedHashSet;
  * @see CommandsWithArguments
  */
 public abstract class Commands implements Command {
-    protected LinkedHashSet <LabWork> collection;
+    protected LinkedHashSet<LabWork> collection;
     File file;
 
-    public Commands(LinkedHashSet <LabWork> collection, File file) {
+    public Commands(LinkedHashSet<LabWork> collection, File file) {
         this.collection = collection;
         this.file = file;
     }
