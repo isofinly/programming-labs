@@ -54,7 +54,7 @@ public class ReadFunction {
                                     command_arg.stringToArgument(s.split(" ")[s.split(" ").length - 1].trim());
                                     command_arg.execute();
                                     last_commands.add(command_arg);
-                                    tmpSave();
+
                                 } else if (x.getName().equals("exit")) {
                                     if (getLastCommands().size() != 0 && getLastCommands().peekLast().getName().equals("save")) {
                                         x.execute();
