@@ -6,6 +6,7 @@ import src.collection.LabWork;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
+import java.util.stream.Stream;
 
 import static src.collection.CollectionManager.getCollection;
 
@@ -42,62 +43,50 @@ public class ReadFunction {
     Deque<Commands> last_commands = new LinkedList<>();
 
     public void read(String s) {
-
+        String[] tokens = s.split(" ");
         Arrays.stream(commands)
-                .filter(x -> x.getName().equals(s.split(" ")[0].trim()))
+                .filter(x -> x.getName().equals(tokens[0].trim()))
                 .findFirst()
                 .ifPresentOrElse(
                         x -> {
                             try {
                                 if (x.hasArgument) {
                                     CommandsWithArguments<?> command_arg = (CommandsWithArguments<?>) x;
-                                    command_arg.stringToArgument(s.split(" ")[s.split(" ").length - 1].trim());
+                                    command_arg.stringToArgument(tokens[tokens.length - 1].trim());
                                     command_arg.execute();
                                     last_commands.add(command_arg);
-
-                                } else if (x.getName().equals("exit")) {
-                                    if (getLastCommands().size() != 0 && getLastCommands().peekLast().getName().equals("save")) {
-                                        x.execute();
-                                        last_commands.add(x);
-                                        tmpSave();
-                                    } else if ((getLastCommands().isEmpty())) {
-                                        x.execute();
-                                        last_commands.add(x);
-                                        tmpSave();
-                                    } else {
-                                        if (getLastCommands().peekLast().getName().equals("save")) {
+                                } else {
+                                    switch (x.getName()) {
+                                        case "exit" -> {
+                                            if (!getLastCommands().isEmpty()) {
+                                                String lastCommandName = getLastCommands().peekLast().getName();
+                                                if (lastCommandName.equals("save")) {
+                                                    x.execute();
+                                                    last_commands.add(x);
+                                                    tmpSave();
+                                                    break;
+                                                } else if (Stream.of("clear", "remove_lower", "remove", "add_if_max", "add", "update")
+                                                        .anyMatch(cmd -> cmd.equals(getLastCommands().peekLast().getName()))) {
+                                                    System.out.println(" \u001B[31m Your data will be lost.");
+                                                    System.out.println(" \u001B[31m Do you want to save it? (y/n)");
+                                                    Scanner scanner = new Scanner(System.in);
+                                                    String answer = scanner.nextLine();
+                                                    if (answer.equals("y")) {
+                                                        SaveCommand saveCommand = new SaveCommand(getCollection(), new File("collection.json"));
+                                                        saveCommand.execute();
+                                                    }
+                                                }
+                                            }
                                             x.execute();
                                             last_commands.add(x);
                                             tmpSave();
-                                        } else if (getLastCommands().peekLast().getName().equals("clear")
-                                                || getLastCommands().peekLast().getName().equals("remove_lower")
-                                                || getLastCommands().peekLast().getName().equals("remove")
-                                                || getLastCommands().peekLast().getName().equals("add_if_max")
-                                                || getLastCommands().peekLast().getName().equals("add")
-                                                || getLastCommands().peekLast().getName().equals("update")) {
-                                            System.out.println(" \u001B[31m Your data will be lost.");
-                                            System.out.println(" \u001B[31m Do you want to save it? (y/n)");
-                                            Scanner scanner = new Scanner(System.in);
-                                            String answer = scanner.nextLine();
-                                            if (answer.equals("y")) {
-                                                SaveCommand saveCommand = new SaveCommand(getCollection(), new File("collection.json"));
-                                                saveCommand.execute();
-                                                x.execute();
-                                                last_commands.add(x);
-                                                tmpSave();
-                                            } else if (answer.equals("n")) {
-                                                x.execute();
-                                                last_commands.add(x);
-                                                tmpSave();
-                                            } else {
-                                                System.out.println(" \u001B[31m Please, enter y or n.");
-                                            }
+                                        }
+                                        default -> {
+                                            x.execute();
+                                            last_commands.add(x);
+                                            tmpSave();
                                         }
                                     }
-                                } else {
-                                    x.execute();
-                                    last_commands.add(x);
-                                    tmpSave();
                                 }
                             } catch (Exception e) {
                                 System.out.println("\u001B[31m " + e.getMessage());
@@ -134,7 +123,7 @@ public class ReadFunction {
             this.hasArgument = true;
         }
 
-        private List<File> FileArray = new ArrayList<>();
+        private final List<File> FileArray = new ArrayList<>();
 
         @Override
         public void execute() {
