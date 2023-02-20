@@ -29,18 +29,17 @@ public class BackgroundSaveCommand extends CommandsWithArguments<String> {
 
         try {
             // Creating a temporary file
-
             tempFile = File.createTempFile("collection", ".tmp");
             writer = new BufferedWriter(new FileWriter(tempFile));
             writer.write(gson.toJson(collection));
         } catch (IOException e) {
-            System.out.println("\u001b[31mFEHLER BEIM SPEICHERN DER DATEI BITTE");
+            System.out.println("\u001b[31m FEHLER BEIM SPEICHERN DER DATEI BITTE");
         } finally {
             if (writer != null) {
                 try {
                     writer.close();
                 } catch (IOException e) {
-                    System.out.println("\u001b[31mFEHLER BEIM SCHLIESSEN DER DATEI BITTE");
+                    System.out.println("\u001b[31m FEHLER BEIM SCHLIESSEN DER DATEI BITTE");
                 }
             }
         }

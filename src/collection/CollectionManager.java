@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.jetbrains.annotations.Nullable;
+import src.utils.CrashFileHandler;
 
 
 import java.io.*;
@@ -79,27 +80,13 @@ public class CollectionManager {
 
 
     public CollectionManager(String inPath) {
-        File tempFile = null;
-        tempFile = new File(".crash");
+        CrashFileHandler.createCrashFile();
         this.jsonCollection = new File(inPath);
         this.initDate = new Date();
         this.load();
-        if (!tempFile.exists()) {
-            try {
-                BufferedWriter writer = null;
-                writer = new BufferedWriter(new FileWriter(tempFile));
-                writer.write("");
-                writer.close();
-                System.out.println("File created @" + tempFile.getAbsolutePath());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        } else {
-            System.out.println("\u001B[31m Program crashed previously");
-            tempFile.delete();
-        }
-
     }
+
+
 
     public static File getFile() {
         try {

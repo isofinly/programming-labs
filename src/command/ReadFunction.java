@@ -2,11 +2,11 @@ package src.command;
 
 import src.collection.CollectionManager;
 import src.collection.LabWork;
+import src.utils.CrashFileHandler;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -41,8 +41,6 @@ public class ReadFunction {
                 .ifPresentOrElse(
                         x -> {
                             try {
-
-                                boolean saveExit = false;
                                 if (x.hasArgument) {
                                     CommandsWithArguments<?> command_arg = (CommandsWithArguments<?>) x;
                                     command_arg.stringToArgument(tokens[tokens.length - 1].trim());
@@ -54,42 +52,42 @@ public class ReadFunction {
                                             if (!getLastCommands().isEmpty()) {
                                                 String lastCommandName = getLastCommands().peekLast().getName();
                                                 if (lastCommandName.equals("save")) {
-                                                    x.execute();
+                                                    CrashFileHandler.deleteCrashFile();
                                                     last_commands.add(x);
-                                                    saveExit = true;
+                                                    x.execute();
+
                                                     break;
                                                 } else if (Stream.of("clear", "remove_lower", "remove", "add_if_max", "add", "update")
                                                         .anyMatch(cmd -> cmd.equals(getLastCommands().peekLast().getName()))) {
-                                                    System.out.println(" \u001B[31m Your data will be lost.");
-                                                    System.out.println(" \u001B[31m Do you want to save it? (y/n)");
+                                                    System.out.println(" \u001B[31m Your data will be lost. \n Do you want to save it? (y/n)");
                                                     Scanner scanner = new Scanner(System.in);
                                                     String answer = scanner.nextLine();
                                                     if (answer.equals("y")) {
-                                                        SaveCommand saveCommand = new SaveCommand(getCollection(), new File("collection.json"));
+                                                        SaveCommand saveCommand = new SaveCommand(getCollection(), new File("late_collection_save.json"));
                                                         saveCommand.execute();
+
+                                                    } else if (answer.equals("n")) {
+                                                        CrashFileHandler.deleteCrashFile();
+                                                        last_commands.add(x);
+                                                        x.execute();
+
+                                                        break;
+                                                    } else {
+                                                        System.out.println(" \u001B[31m Please enter y or n");
                                                     }
                                                 }
                                             }
-                                            x.execute();
+                                            CrashFileHandler.deleteCrashFile();
                                             last_commands.add(x);
                                             tmpSave();
-                                            saveExit = true;
+                                            x.execute();
                                         }
                                         default -> {
-                                            x.execute();
                                             last_commands.add(x);
                                             tmpSave();
-                                            saveExit = true;
+                                            x.execute();
                                         }
                                     }
-                                }
-                                if (!saveExit){
-                                    System.out.println();
-//                                    File tempFile = null;
-//                                    BufferedWriter writer = null;
-//                                    tempFile = File.createTempFile(".", "crash");
-//                                    writer = new BufferedWriter(new FileWriter(tempFile));
-//                                    writer.write("");
                                 }
                             } catch (Exception e) {
                                 System.out.println("\u001B[31m " + e.getMessage());
@@ -104,6 +102,7 @@ public class ReadFunction {
     public Deque<Commands> getLastCommands() {
         return last_commands;
     }
+
 
     private static void tmpSave() {
         BackgroundSaveCommand backgroundSaveCommand = new BackgroundSaveCommand(getCollection(), new File(Objects.requireNonNull(CollectionManager.getFile()).getName()));
