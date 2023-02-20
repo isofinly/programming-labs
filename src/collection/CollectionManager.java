@@ -79,9 +79,25 @@ public class CollectionManager {
 
 
     public CollectionManager(String inPath) {
+        File tempFile = null;
+        tempFile = new File(".crash");
         this.jsonCollection = new File(inPath);
         this.initDate = new Date();
         this.load();
+        if (!tempFile.exists()) {
+            try {
+                BufferedWriter writer = null;
+                writer = new BufferedWriter(new FileWriter(tempFile));
+                writer.write("");
+                writer.close();
+                System.out.println("File created @" + tempFile.getAbsolutePath());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            System.out.println("\u001B[31m Program crashed previously");
+            tempFile.delete();
+        }
 
     }
 

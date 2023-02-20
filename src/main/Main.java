@@ -7,6 +7,8 @@ import src.utils.*;
 import java.io.File;
 import java.util.logging.Logger;
 
+
+// TODO restore last session
 /**
  * Main class of the program that starts the program
  * and calls the method for reading commands from the file

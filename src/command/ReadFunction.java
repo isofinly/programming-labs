@@ -3,8 +3,10 @@ package src.command;
 import src.collection.CollectionManager;
 import src.collection.LabWork;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -19,14 +21,6 @@ import static src.collection.CollectionManager.getCollection;
  * @see CommandsWithArguments
  */
 public class ReadFunction {
-    //        boolean canModify = (
-//                (getLastCommands().stream().anyMatch(y -> y.getName().equals("add")))
-//                        | (getLastCommands().stream().anyMatch(y -> y.getName().equals("update")))
-//                        | (getLastCommands().stream().anyMatch(y -> y.getName().equals("remove")))
-//                        | (getLastCommands().stream().anyMatch(y -> y.getName().equals("clear")))
-//                        | (getLastCommands().stream().anyMatch(y -> y.getName().equals("add_if_max")))
-//                        | (getLastCommands().stream().anyMatch(y -> y.getName().equals("remove_lower")))
-//        );
     boolean canModify = (
             getLastCommands() != null && getLastCommands().peekLast().equals("clear")
     );
@@ -36,9 +30,6 @@ public class ReadFunction {
         this.commands = commands;
     }
 
-    //    File tempFile = File.createTempFile("collectionBackup", ".json");
-//    gson.toJson(getCollection(), new java.io.FileWriter(tempFile));
-//    System.out.println("Temporary file is located on default location: " + tempFile.getAbsolutePath());
     Commands[] commands;
     Deque<Commands> last_commands = new LinkedList<>();
 
@@ -50,6 +41,8 @@ public class ReadFunction {
                 .ifPresentOrElse(
                         x -> {
                             try {
+
+                                boolean saveExit = false;
                                 if (x.hasArgument) {
                                     CommandsWithArguments<?> command_arg = (CommandsWithArguments<?>) x;
                                     command_arg.stringToArgument(tokens[tokens.length - 1].trim());
@@ -63,7 +56,7 @@ public class ReadFunction {
                                                 if (lastCommandName.equals("save")) {
                                                     x.execute();
                                                     last_commands.add(x);
-                                                    tmpSave();
+                                                    saveExit = true;
                                                     break;
                                                 } else if (Stream.of("clear", "remove_lower", "remove", "add_if_max", "add", "update")
                                                         .anyMatch(cmd -> cmd.equals(getLastCommands().peekLast().getName()))) {
@@ -80,13 +73,23 @@ public class ReadFunction {
                                             x.execute();
                                             last_commands.add(x);
                                             tmpSave();
+                                            saveExit = true;
                                         }
                                         default -> {
                                             x.execute();
                                             last_commands.add(x);
                                             tmpSave();
+                                            saveExit = true;
                                         }
                                     }
+                                }
+                                if (!saveExit){
+                                    System.out.println();
+//                                    File tempFile = null;
+//                                    BufferedWriter writer = null;
+//                                    tempFile = File.createTempFile(".", "crash");
+//                                    writer = new BufferedWriter(new FileWriter(tempFile));
+//                                    writer.write("");
                                 }
                             } catch (Exception e) {
                                 System.out.println("\u001B[31m " + e.getMessage());
@@ -105,8 +108,6 @@ public class ReadFunction {
     private static void tmpSave() {
         BackgroundSaveCommand backgroundSaveCommand = new BackgroundSaveCommand(getCollection(), new File(Objects.requireNonNull(CollectionManager.getFile()).getName()));
         backgroundSaveCommand.execute();
-//        SaveCommand saveCommand = new SaveCommand(CollectionManager.getCollection(), new File(Objects.requireNonNull(CollectionManager.getFile()).getName()));
-//        saveCommand.execute();
     }
 
     /**
