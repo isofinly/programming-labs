@@ -8,7 +8,6 @@ import java.io.File;
 import java.util.logging.Logger;
 
 
-// TODO restore last session
 /**
  * Main class of the program that starts the program
  * and calls the method for reading commands from the file
@@ -22,8 +21,7 @@ public final class Main {
             new CollectionManager(path);
             CommandReader.ReadCommand(new File(path), CollectionManager.getCollection());
         } catch (Exception e) {
-            System.out.println("\u001B[31m ACHTUNG EIN FEHLER IST ENTSCHULDIGT, ICH MOCHTE DIESES PROGRAMM NICHT MACHEN");
-            Logger.getGlobal().info(e.getMessage());
+            System.err.println(" ACHTUNG EIN FEHLER IST ENTSCHULDIGT, ICH MOCHTE DIESES PROGRAMM NICHT MACHEN");
         }
     }
 }

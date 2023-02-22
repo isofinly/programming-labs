@@ -30,7 +30,7 @@ public class RemoveCommand extends CommandsWithArguments<Integer>{
                 break;
             }
         } if (!flag) {
-            throw new IllegalArgumentException(" \u001B[31m The element with this id is not in the collection.");
+            System.err.println(" The element with this id is not in the collection.");
         }
     }
 

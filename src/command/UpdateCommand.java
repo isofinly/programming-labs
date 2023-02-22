@@ -6,12 +6,12 @@ import java.io.File;
 import java.util.LinkedHashSet;
 import java.util.TreeSet;
 
+
 /**
  * Class for command update
  * @see CommandsWithArguments
  */
 public class UpdateCommand extends CommandsWithArguments<Integer>{
-
     public UpdateCommand(LinkedHashSet <LabWork> collection, File file) {
         super(collection, file);
         argumentName = "id";
@@ -41,7 +41,7 @@ public class UpdateCommand extends CommandsWithArguments<Integer>{
                 System.out.println(" \u001B[32m The element was updated.");
 
             } else {
-                System.out.println(" \u001B[31m The element with this id does not exist.");
+                System.err.println(" The element with this id does not exist.");
             }
     }
     @Override

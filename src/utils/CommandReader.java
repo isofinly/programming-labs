@@ -43,7 +43,7 @@ public class CommandReader {
                 String userInput = String.valueOf(in.nextLine());
                 read.read(userInput);
             } catch (Exception e) {
-                System.out.println("\u001B[31m Invalid number format.");
+                System.err.println(" Invalid number format.");
             }
         }
     }

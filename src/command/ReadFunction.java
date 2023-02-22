@@ -83,11 +83,11 @@ public class ReadFunction {
                                     }
                                 }
                             } catch (Exception e) {
-                                System.out.println("\u001B[31m " + e.getMessage());
+                                System.err.println(e.getMessage());
                             }
                         },
                         () -> {
-                            System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
+                            System.err.println(" BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
                             System.out.println("\u001B[32m help : \u001B[0m show all commands");
                         });
     }
@@ -110,7 +110,7 @@ public class ReadFunction {
     public class ExecuteCommand extends CommandsWithArguments<String> {
 
         public ExecuteCommand(LinkedHashSet<LabWork> labWorks, File file) {
-            super(labWorks, file);
+            super(labWorks, file.getAbsoluteFile());
             argumentName = "file_name";
             this.name = "execute_script";
             this.hasArgument = true;
@@ -123,22 +123,20 @@ public class ReadFunction {
 
             File script = new File(argument);
 
-            if (!FileArray.contains(script)) {
-                FileArray.add(script);
+            if (!FileArray.contains(script.getAbsoluteFile())) {
+                FileArray.add(script.getAbsoluteFile());
                 try {
-                    Scanner in_script = new Scanner(script);
+                    Scanner in_script = new Scanner(script.getAbsoluteFile());
                     while (in_script.hasNext()) {
                         read(in_script.nextLine());
                     }
-
 //                    System.out.println(last_commands);
-
                 } catch (FileNotFoundException e) {
-                    System.out.println("\u001B[31m File not found");
+                    System.err.println(" File not found");
                 }
-                FileArray.remove(script);
+                FileArray.remove(script.getAbsoluteFile());
             } else {
-                System.out.println("\u001B[31m ACHTUNG CHAOS UND REKURSION IST MÖGLICH SIE WURDEN DURCH DEN BLOCK GERETTET WENN SIE IHM DANKE SAGEN");
+                System.err.println(" ACHTUNG CHAOS UND REKURSION IST MÖGLICH SIE WURDEN DURCH DEN BLOCK GERETTET WENN SIE IHM DANKE SAGEN");
             }
         }
 

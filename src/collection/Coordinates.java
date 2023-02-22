@@ -27,10 +27,10 @@ public class Coordinates {
 
     private double readX(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter x");
+        System.out.println("Enter x of type: double");
         double x = scanner.nextDouble();
         while (x<=-459){
-            System.out.println("Enter x> -459");
+            System.out.println("Enter x> -459 of type: double");
             x = scanner.nextDouble();
         }
         return x;
@@ -38,9 +38,9 @@ public class Coordinates {
 
     private float readY(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter y");
+        System.out.println("Enter y of type: float");
         while (!scanner.hasNextFloat()) {
-            System.out.println("Enter y");
+            System.out.println("Enter y of type: float");
             scanner.next();
         }
         return scanner.nextFloat();

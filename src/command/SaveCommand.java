@@ -28,8 +28,7 @@ public class SaveCommand extends CommandsWithArguments<String> {
             outputStreamWriter.write(gson.toJson(collection));
             System.out.println("\u001B[34m Collection saved to " + savedJsonCollection.getAbsolutePath());
         } catch (IOException e) {
-            System.out.println("\u001b[31m FEHLER ZUM SPEICHERN DER DATEI BITTE KONTAKTIEREN SIE DEN PROGRAMMAUTOR");
-            System.out.println("\u001b[31m"+e);
+            System.err.println(" FEHLER ZUM SPEICHERN DER DATEI BITTE KONTAKTIEREN SIE DEN PROGRAMMAUTOR");
         }
     }
 

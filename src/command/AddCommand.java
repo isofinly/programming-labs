@@ -8,6 +8,8 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
+import static src.collection.CollectionManager.sort;
+
 /**
  * Class responsible for adding a new element to the collection
  * @see Commands

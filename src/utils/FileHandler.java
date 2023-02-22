@@ -36,7 +36,7 @@ public class FileHandler {
             fileWriter.close();
         }
         catch(IOException e) {
-            System.out.println("\u001B[31m Error writing file exception");
+            System.err.println(" Error writing file exception");
         }
     }
 
@@ -49,7 +49,7 @@ public class FileHandler {
             return lines;
         }
         catch(IOException e) {
-            System.out.println("\u001B[31m Error writing file exception");
+            System.err.println(" Error writing file exception");
         }
         return 0;
     }

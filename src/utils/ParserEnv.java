@@ -27,7 +27,7 @@ public class ParserEnv extends FileHandler {
             }
             return envMap;
         } catch (Exception e) {
-            System.out.println("Error parsing .env file");
+            System.err.println("Error parsing .env file");
         }
         return envMap;
     }

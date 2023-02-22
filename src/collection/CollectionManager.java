@@ -48,7 +48,6 @@ public class CollectionManager {
     protected static LinkedHashSet<LabWork> labWork;
     protected File jsonCollection;
     protected Date initDate;
-    private File outPut;
 
     Gson gson = new Gson();
     @Deprecated
@@ -96,11 +95,11 @@ public class CollectionManager {
         this.jsonCollection = new File(inPath);
         this.initDate = new Date();
         this.load();
-        this.sort();
+        sort();
         BackgroundSaveCommand.createCrashFile();
     }
 
-    private void sort() {
+    public static void sort() {
         Comparator<LabWork> comparator = Comparator.comparing(LabWork::getId, Comparator.nullsLast(Comparator.naturalOrder()))
                 .thenComparing(LabWork::getName);
 
@@ -123,17 +122,17 @@ public class CollectionManager {
         int fileSize = labWork.size();
 
         if (!jsonCollection.exists()) {
-            System.out.println("\u001B[31m File not found.");
+            System.err.println(" File not found.");
             System.exit(1);
         }
 
         if (!jsonCollection.canRead() || !jsonCollection.canWrite()) {
-            System.out.println("\u001B[31m No access to file. Check file permissions.");
+            System.err.println(" No access to file. Check file permissions.");
             System.exit(1);
         }
 
         if (jsonCollection.length() == 0) {
-            System.out.println("\u001B[31m File is empty.");
+            System.err.println(" File is empty.");
             System.exit(1);
         }
         try (BufferedReader inputStreamReader = new BufferedReader(new InputStreamReader(new FileInputStream(jsonCollection)))) {
@@ -185,18 +184,18 @@ public class CollectionManager {
                                 )
                         ));
                     } else {
-                        System.out.println("\u001B[31m Invalid collection file format.");
+                        System.err.println(" Invalid collection file format.");
                         System.exit(1);
                     }
                     itemsObj.remove(itemsObj.iterator().next());
                 } catch (NullPointerException ex) {
-                    System.out.println("\u001B[31m Null pointer, my friendo.");
+                    System.err.println(" Null pointer, my friendo.");
                     System.exit(1);
                 }
             }
             System.out.println("\u001B[34m Collection of type \u001B[0m" + labWork.getClass().getName() + "\u001B[34m successfully loaded in size of \u001B[0m" + (labWork.size() - fileSize) + "\u001B[34m elements.");
         } catch (IOException e) {
-            System.out.println("\u001B[31m IO error while operating file.");
+            System.err.println(" IO error while operating file.");
             System.exit(1);
         }
     }

@@ -11,12 +11,13 @@ import src.utils.*;
 
 /**
  * Class for lab work
+ *
  * @see Comparable
  * @see Coordinates
  * @see Difficulty
  * @see Discipline
  */
-public class LabWork implements Comparable <LabWork> {
+public class LabWork implements Comparable<LabWork> {
 
     /**
      * @param id                       id of the lab work unique and automatically generated
@@ -36,25 +37,25 @@ public class LabWork implements Comparable <LabWork> {
                    long personalQualitiesMaximum, @NotNull Difficulty difficulty,
                    @NotNull Discipline discipline) {
         if (name.isEmpty()) {
-            throw new IllegalArgumentException("\u001B[31m Name cannot be empty");
+            throw new IllegalArgumentException(" Name cannot be empty");
         }
 
         if (minimalPoint <= 0) {
-            throw new IllegalArgumentException("\u001B[31m Minimal point cannot be less than 0");
+            throw new IllegalArgumentException(" Minimal point cannot be less than 0");
         }
 
         if (personalQualitiesMinimum <= 0) {
-            throw new IllegalArgumentException("\u001B[31m Personal qualities minimum cannot be less than 0");
+            throw new IllegalArgumentException(" Personal qualities minimum cannot be less than 0");
         }
 
         if (personalQualitiesMaximum <= 0) {
-            throw new IllegalArgumentException("\u001B[31m Personal qualities maximum cannot be less than 0");
+            throw new IllegalArgumentException(" Personal qualities maximum cannot be less than 0");
         }
         if (id.toString().isEmpty()) {
-            throw new IllegalArgumentException("\u001B[31m Id cannot be empty");
+            throw new IllegalArgumentException(" Id cannot be empty");
         }
-        if (creationDate.toString().isEmpty()) {
-            throw new IllegalArgumentException("\u001B[31m Creation date cannot be empty");
+        if (creationDate.isEmpty()) {
+            throw new IllegalArgumentException(" Creation date cannot be empty");
         }
         this.creationDate = creationDate;
         this.id = id;
@@ -72,19 +73,19 @@ public class LabWork implements Comparable <LabWork> {
                    long personalQualitiesMaximum, @NotNull Difficulty difficulty,
                    @NotNull Discipline discipline) {
         if (name.isEmpty()) {
-            throw new IllegalArgumentException("\u001B[31m Name cannot be empty");
+            throw new IllegalArgumentException(" Name cannot be empty");
         }
 
         if (minimalPoint <= 0) {
-            throw new IllegalArgumentException("\u001B[31m Minimal point cannot be less than 0");
+            throw new IllegalArgumentException(" Minimal point cannot be less than 0");
         }
 
         if (personalQualitiesMinimum <= 0) {
-            throw new IllegalArgumentException("\u001B[31m Personal qualities minimum cannot be less than 0");
+            throw new IllegalArgumentException(" Personal qualities minimum cannot be less than 0");
         }
 
         if (personalQualitiesMaximum <= 0) {
-            throw new IllegalArgumentException("\u001B[31m Personal qualities maximum cannot be less than 0");
+            throw new IllegalArgumentException(" Personal qualities maximum cannot be less than 0");
         }
         this.discipline = discipline;
         this.difficulty = difficulty;
@@ -98,7 +99,7 @@ public class LabWork implements Comparable <LabWork> {
 //        this.creationDate = (DateTimeFormatter.ofPattern("dd MMM uuuu").format(LocalDate.now()));
 //        this.creationDate = new java.util.Date(((long) (Math.random() * System.currentTimeMillis())));
 
-        long millis=System.currentTimeMillis();
+        long millis = System.currentTimeMillis();
         Date creationDate = new Date(millis);
         this.creationDate = creationDate.toString();
         this.id = IdGen.getNewId();
@@ -138,36 +139,33 @@ public class LabWork implements Comparable <LabWork> {
             if (!name.isEmpty()) {
                 break;
             } else {
-                System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
-                System.out.println("\u001B[31m Name cannot be empty");
+                System.err.println(" Name cannot be empty");
             }
         }
         setName(name);
         System.out.println("\u001B[34m Enter coordinates: ");
 
         while (true) {
-            System.out.println("\u001B[34m Enter x: ");
+            System.out.println("\u001B[34m Enter x of type double: ");
             try {
                 x = Double.parseDouble(read.nextLine());
                 break;
             } catch (NumberFormatException ex) {
-                System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
-                System.out.println("\u001B[31m Invalid number format.");
+                System.err.println(" Invalid number format.");
             }
         }
 
         while (true) {
-            System.out.println("\u001B[34m Enter y: ");
+            System.out.println("\u001B[34m Enter y of type float: ");
             try {
                 y = Float.parseFloat(read.nextLine());
                 if (y > -459) {
                     break;
                 } else {
-                    System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
                     System.out.println("\u001B[31m Y cannot be less than -459");
                 }
             } catch (NumberFormatException ex) {
-                System.out.println("\u001B[31m Invalid number format.");
+                System.err.println(" Invalid number format.");
             }
         }
 //        creationDate = new java.util.Date(((long) (Math.random() * System.currentTimeMillis())));
@@ -178,49 +176,45 @@ public class LabWork implements Comparable <LabWork> {
         coordinates = new Coordinates(x, y);
         setCoordinates(coordinates);
         while (true) {
-            System.out.println("\u001B[34m Enter minimal point: ");
+            System.out.println("\u001B[34m Enter minimal point of type integer: ");
             try {
                 minimalPoint = Integer.parseInt(read.nextLine());
                 if (minimalPoint > 0) {
                     break;
-                } else{
-                    System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
+                } else {
                     System.out.println("\u001B[31m Minimal point cannot be less than 0");
                 }
             } catch (NumberFormatException ex) {
-                System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
-                System.out.println("\u001B[31m Invalid number format.");
+                System.err.println(" Invalid number format.");
             }
         }
         setMinimalPoint(minimalPoint);
         while (true) {
-            System.out.println("\u001B[34m Enter personal qualities minimum: ");
+            System.out.println("\u001B[34m Enter personal qualities minimum of type integer: ");
             try {
                 personalQualitiesMinimum = Integer.parseInt(read.nextLine());
                 if (personalQualitiesMinimum > 0) {
                     setPersonalQualitiesMinimum(personalQualitiesMinimum);
                     break;
                 } else {
-                    System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
                     System.out.println("\u001B[31m Personal qualities minimum cannot be less than 0");
                 }
             } catch (NumberFormatException ex) {
-                System.out.println("\u001B[31m Invalid number format.");
+                System.err.println(" Invalid number format.");
             }
         }
         while (true) {
-            System.out.println("\u001B[34m Enter personal qualities maximum: ");
+            System.out.println("\u001B[34m Enter personal qualities maximum of type long: ");
             try {
                 personalQualitiesMaximum = Long.parseLong(read.nextLine());
                 if (personalQualitiesMaximum > 0) {
                     setPersonalQualitiesMaximum(personalQualitiesMaximum);
                     break;
                 } else {
-                    System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
                     System.out.println("\u001B[31m Personal qualities maximum cannot be less than 0");
                 }
             } catch (NumberFormatException ex) {
-                System.out.println("\u001B[31m Invalid number format.");
+                System.err.println(" Invalid number format.");
             }
         }
         while (true) {
@@ -233,8 +227,7 @@ public class LabWork implements Comparable <LabWork> {
                 setDifficulty(difficulty);
                 break;
             } catch (IllegalArgumentException ex) {
-                System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
-                System.out.println("\u001B[31m Invalid difficulty type.");
+                System.err.println(" Invalid difficulty type.");
             }
         }
 
@@ -244,29 +237,26 @@ public class LabWork implements Comparable <LabWork> {
                 String disciplineName = read.nextLine();
                 long selfStudyHours = 0;
                 while (selfStudyHours == 0) {
-                    System.out.println("\u001B[34m Enter self study hours: ");
+                    System.out.println("\u001B[34m Enter self study hours of type long: ");
                     try {
                         selfStudyHours = Long.parseLong(read.nextLine());
                     } catch (NumberFormatException ex) {
-                        System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
-                        System.out.println("\u001B[31m Invalid number format.");
+                        System.err.println(" Invalid number format.");
                     }
                 }
                 discipline = new Discipline(disciplineName, selfStudyHours);
                 setDiscipline(discipline);
                 break;
             } catch (IllegalArgumentException ex) {
-                System.out.println("\u001B[31m BITTE GEBEN SIE DEN RICHTIGEN BEFEHL EIN. ICH BIN ZU EINFACH, UM GEDANKEN ZU LESEN.");
-                System.out.println("\u001B[31m Invalid discipline name.");
+                System.err.println(" Invalid discipline name.");
             }
         }
 
         try {
-
 //                labWork.add(new LabWork(name, coordinates, minimalPoint, personalQualitiesMinimum, personalQualitiesMaximum, difficulty, discipline));
             System.out.println("\u001B[34m Element added.");
         } catch (IllegalArgumentException ex) {
-            System.out.println("\u001B[31m Element was not added due to BAD input.");
+            System.err.println(" Element was not added due to BAD input.");
         }
 
     }

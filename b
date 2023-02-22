@@ -2,4 +2,4 @@ show
 show
 show
 show
-execute a
+execute_script a

@@ -33,13 +33,13 @@ public class BackgroundSaveCommand extends Commands {
             writer.write(gson.toJson(collection).getBytes());
             writer.close();
         } catch (IOException e) {
-            System.out.println("\u001b[31m FEHLER BEIM SPEICHERN DER DATEI BITTE");
+            System.out.println(" FEHLER BEIM SPEICHERN DER DATEI BITTE");
         } finally {
             if (writer != null) {
                 try {
                     writer.close();
                 } catch (IOException e) {
-                    System.out.println("\u001b[31m FEHLER BEIM SCHLIESSEN DER DATEI BITTE");
+                    System.err.println(" FEHLER BEIM SCHLIESSEN DER DATEI BITTE");
                 }
             }
         }
@@ -54,8 +54,7 @@ public class BackgroundSaveCommand extends Commands {
                 writer.close();
 //                System.out.println("File created @ " + tempFile.getAbsolutePath());
             } catch (IOException e) {
-                System.out.println("\u001B[31m Failed to create crash file");
-                System.out.println("\u001B[31m " + e.getMessage());
+                System.err.println("Failed to create crash file");
             }
         }
     }
@@ -63,8 +62,7 @@ public class BackgroundSaveCommand extends Commands {
         try {
             Files.deleteIfExists(tempFile.toPath());
         } catch (IOException e) {
-            System.out.println("\u001B[31m FEHLER BEIM LÖSCHEN DER DATEI BITTE KONTAKTIEREN SIE DEN PROGRAMMAUTOR");
-            System.out.println("\u001B[31m" + e);
+            System.err.println(" FEHLER BEIM LÖSCHEN DER DATEI BITTE KONTAKTIEREN SIE DEN PROGRAMMAUTOR");
         }
 
     }

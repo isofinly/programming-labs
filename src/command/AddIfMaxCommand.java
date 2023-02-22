@@ -35,7 +35,7 @@ public class AddIfMaxCommand extends Commands {
             collection.add(labWork);
             System.out.println(" \u001B[32m The element was added to the collection.");
         } else {
-            System.out.println(" \u001B[31m The element was not added to the collection.");
+            System.err.println(" The element was not added to the collection.");
         }
     }
 

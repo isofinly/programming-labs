@@ -58,13 +58,13 @@ public class Discipline {
 
 
     @NotNull
-    private String name;
+    private final String name;
     public  @NotNull String getName() {
         return name;
     }
     
     @NotNull 
-    private Long practiceHours;
+    private final Long practiceHours;
     public @NotNull Long getPracticeHours() {
         return practiceHours;
     }
