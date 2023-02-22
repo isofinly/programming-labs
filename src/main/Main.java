@@ -16,9 +16,11 @@ import java.util.logging.Logger;
  */
 public final class Main {
     public static void main(String... args) {
+        String path =
+        System.getenv().getOrDefault("LABFILEPATH", "input.json");
         try {
-            new CollectionManager("input.json");
-            CommandReader.ReadCommand(new File("input.json"), CollectionManager.getCollection());
+            new CollectionManager(path);
+            CommandReader.ReadCommand(new File(path), CollectionManager.getCollection());
         } catch (Exception e) {
             System.out.println("\u001B[31m ACHTUNG EIN FEHLER IST ENTSCHULDIGT, ICH MOCHTE DIESES PROGRAMM NICHT MACHEN");
             Logger.getGlobal().info(e.getMessage());

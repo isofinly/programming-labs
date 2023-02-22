@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.jetbrains.annotations.Nullable;
-import src.utils.CrashFileHandler;
+import src.command.BackgroundSaveCommand;
 
 
 import java.io.*;
@@ -80,10 +80,22 @@ public class CollectionManager {
 
 
     public CollectionManager(String inPath) {
-        CrashFileHandler.createCrashFile();
+        File tempFile = new File("crashReport.txt");
+        if (tempFile.exists()){
+            System.out.println("\u001B[31m Previos session was not exited properly. \n Do you want to restore it? (y/n)");
+            Scanner scanner = new Scanner(System.in);
+            String answer = scanner.nextLine();
+            if (answer.equals("y")){
+                System.out.println("\u001B[32m Loading previos session.");
+                inPath = "crashReport.txt";
+            } else {
+                System.out.println("\u001B[32m Starting new session.");
+            }
+        }
         this.jsonCollection = new File(inPath);
         this.initDate = new Date();
         this.load();
+        BackgroundSaveCommand.createCrashFile();
     }
 
 

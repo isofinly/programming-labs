@@ -9,8 +9,10 @@
     "personalQualitiesMinimum": 10,
     "personalQualitiesMaximum": 12,
     "difficulty": "HOPELESS",
-    "discipline": "BIOLOGY",
-    "practiceHours": 1233242
+    "discipline": {
+      "name": "BIOLOGY",
+      "practiceHours": 1233242
+    }
   },
   {
     "name": "Labwork2",
@@ -22,8 +24,10 @@
     "personalQualitiesMinimum": 12,
     "personalQualitiesMaximum": 14,
     "difficulty": "INSANE",
-    "discipline": "CHEMISTRY",
-    "practiceHours": 12323
+    "discipline": {
+      "name": "CHEMISTRY",
+      "practiceHours": 12323
+    }
   },
   {
     "name": "Labwork3",
@@ -35,59 +39,9 @@
     "personalQualitiesMinimum": 14,
     "personalQualitiesMaximum": 16,
     "difficulty": "HARD",
-    "discipline": "PHYSICS",
-    "practiceHours": 1235422
-  },
-  {
-    "name": "Labwork4",
-    "coordinates": {
-      "x": 2,
-      "y": 31
-    },
-    "minimalPoint": 87,
-    "personalQualitiesMinimum": 1,
-    "personalQualitiesMaximum": 78,
-    "difficulty": "HARD",
-    "discipline": "NONINEGNESS",
-    "practiceHours": 1245322
-  },
-  {
-    "name": "Labwork5",
-    "coordinates": {
-      "x": 20,
-      "y": 3
-    },
-    "minimalPoint": 98,
-    "personalQualitiesMinimum": 78,
-    "personalQualitiesMaximum": 100,
-    "difficulty": "HARD",
-    "discipline": "MATH",
-    "practiceHours": 12489322
-  },
-  {
-    "name": "Labwork6",
-    "coordinates": {
-      "x": 2,
-      "y": 354
-    },
-    "minimalPoint": 12,
-    "personalQualitiesMinimum": 53,
-    "personalQualitiesMaximum": 455,
-    "difficulty": "HARD",
-    "discipline": "ICT",
-    "practiceHours": 123787822
-  },
-  {
-    "name": "Labwork7",
-    "coordinates": {
-      "x": 52,
-      "y": 3
-    },
-    "minimalPoint": 89,
-    "personalQualitiesMinimum": 442,
-    "personalQualitiesMaximum": 897,
-    "difficulty": "HARD",
-    "discipline": "PE",
-    "practiceHours": 12398722
+    "discipline": {
+      "name": "PHYSICS",
+      "practiceHours": 1235422
+    }
   }
 ]
