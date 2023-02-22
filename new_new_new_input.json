@@ -1,5 +1,22 @@
 [
   {
+    "id": 4,
+    "name": "Labwork4",
+    "coordinates": {
+      "x": 2,
+      "y": 31
+    },
+    "creationDate": "Feb 16 2023",
+    "minimalPoint": 87,
+    "personalQualitiesMinimum": 1,
+    "personalQualitiesMaximum": 78,
+    "difficulty": "HARD",
+    "discipline": {
+      "name": "NONINEGNESS",
+      "practiceHours": 1245322
+    }
+  },
+  {
     "id": 1,
     "name": "Labwork1",
     "coordinates": {
@@ -14,23 +31,6 @@
     "discipline": {
       "name": "BIOLOGY",
       "practiceHours": 1233242
-    }
-  },
-  {
-    "id": 2,
-    "name": "Labwork2",
-    "coordinates": {
-      "x": 2,
-      "y": 1
-    },
-    "creationDate": "Feb 16 2023",
-    "minimalPoint": 100,
-    "personalQualitiesMinimum": 12,
-    "personalQualitiesMaximum": 14,
-    "difficulty": "INSANE",
-    "discipline": {
-      "name": "CHEMISTRY",
-      "practiceHours": 12323
     }
   },
   {
@@ -51,20 +51,20 @@
     }
   },
   {
-    "id": 4,
-    "name": "Labwork4",
+    "id": 2,
+    "name": "Labwork2",
     "coordinates": {
       "x": 2,
-      "y": 31
+      "y": 1
     },
     "creationDate": "Feb 16 2023",
-    "minimalPoint": 87,
-    "personalQualitiesMinimum": 1,
-    "personalQualitiesMaximum": 78,
-    "difficulty": "HARD",
+    "minimalPoint": 100,
+    "personalQualitiesMinimum": 12,
+    "personalQualitiesMaximum": 14,
+    "difficulty": "INSANE",
     "discipline": {
-      "name": "NONINEGNESS",
-      "practiceHours": 1245322
+      "name": "CHEMISTRY",
+      "practiceHours": 12323
     }
   },
   {

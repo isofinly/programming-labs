@@ -13,6 +13,7 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 
 
@@ -81,11 +82,11 @@ public class CollectionManager {
 
     public CollectionManager(String inPath) {
         File tempFile = new File("crashReport.txt");
-        if (tempFile.exists()){
+        if (tempFile.exists()) {
             System.out.println("\u001B[31m Previos session was not exited properly. \n Do you want to restore it? (y/n)");
             Scanner scanner = new Scanner(System.in);
             String answer = scanner.nextLine();
-            if (answer.equals("y")){
+            if (answer.equals("y")) {
                 System.out.println("\u001B[32m Loading previos session.");
                 inPath = "crashReport.txt";
             } else {
@@ -95,10 +96,18 @@ public class CollectionManager {
         this.jsonCollection = new File(inPath);
         this.initDate = new Date();
         this.load();
+        this.sort();
         BackgroundSaveCommand.createCrashFile();
     }
 
+    private void sort() {
+        Comparator<LabWork> comparator = Comparator.comparing(LabWork::getId, Comparator.nullsLast(Comparator.naturalOrder()))
+                .thenComparing(LabWork::getName);
 
+        List<LabWork> sortedList = labWork.stream().sorted(comparator).toList();
+        labWork.clear();
+        labWork.addAll(sortedList);
+    }
 
     public static File getFile() {
         try {
