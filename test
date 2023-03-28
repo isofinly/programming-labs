@@ -1,0 +1,40 @@
+clear
+insert 99
+name
+70
+100
+100
+IMPOSSIBLE
+disc
+11
+insert 98
+name2
+72
+11
+13
+IMPOSSIBLE
+disc
+13
+insert 97
+name3
+7
+10
+10
+IMPOSSIBLE
+dis
+1
+insert 96
+name32
+1
+15
+12
+IMPOSSIBLE
+d
+51
+show
+average_of_minimal_point
+info
+print_field_descending_difficulty
+show
+show
+history

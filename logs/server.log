@@ -1,0 +1,28 @@
+2023-03-28 00:37:26,644 INFO logic.ServerRunner [main] ServerRunner just started initialization.
+2023-03-28 00:37:26,686 INFO logic.ServerRunner [main] Everything went fine.
+2023-03-28 00:38:13,375 INFO logic.ServerRunner [main] ServerRunner just started initialization.
+2023-03-28 00:38:13,402 INFO logic.ServerRunner [main] Everything went fine.
+2023-03-28 00:38:21,217 WARN thread.CMDManager [ForkJoinPool-1-worker-1] Validating command: connect for /127.0.0.1:64153
+2023-03-28 00:38:21,222 WARN thread.CMDManager [ForkJoinPool-1-worker-1] Executing command: connect for /127.0.0.1:64153
+2023-03-28 00:38:21,223 WARN thread.CMDManager [ForkJoinPool-1-worker-1] Executed command: connect for /127.0.0.1:64153
+2023-03-28 00:38:21,223 INFO thread.CMDManager [ForkJoinPool-1-worker-1] connect: That took 8 milliseconds
+2023-03-28 00:38:21,282 INFO thread.WriteHandler [pool-2-thread-1] Sending answer to /127.0.0.1:64153
+2023-03-28 00:38:21,282 INFO thread.WriteHandler [pool-2-thread-1] Sent answer 150 bytes
+2023-03-28 00:38:28,569 WARN thread.CMDManager [ForkJoinPool-1-worker-1] Validating command: help for /127.0.0.1:64153
+2023-03-28 00:38:28,570 WARN thread.CMDManager [ForkJoinPool-1-worker-1] Executing command: help for /127.0.0.1:64153
+2023-03-28 00:38:32,712 WARN thread.CMDManager [ForkJoinPool-1-worker-2] Validating command: show for /127.0.0.1:64153
+2023-03-28 00:38:32,713 WARN thread.CMDManager [ForkJoinPool-1-worker-2] Executing command: show for /127.0.0.1:64153
+2023-03-28 00:38:32,724 WARN thread.CMDManager [ForkJoinPool-1-worker-2] Executed command: show for /127.0.0.1:64153
+2023-03-28 00:38:32,724 INFO thread.CMDManager [ForkJoinPool-1-worker-2] show: That took 12 milliseconds
+2023-03-28 00:38:32,763 INFO thread.WriteHandler [pool-2-thread-2] Sending answer to /127.0.0.1:64153
+2023-03-28 00:38:32,763 INFO thread.WriteHandler [pool-2-thread-2] Sent answer 520 bytes
+2023-03-28 00:38:33,576 WARN thread.CMDManager [ForkJoinPool-1-worker-1] Executed command: help for /127.0.0.1:64153
+2023-03-28 00:38:33,576 INFO thread.CMDManager [ForkJoinPool-1-worker-1] help: That took 5007 milliseconds
+2023-03-28 00:38:33,627 INFO thread.WriteHandler [pool-2-thread-3] Sending answer to /127.0.0.1:64153
+2023-03-28 00:38:33,627 INFO thread.WriteHandler [pool-2-thread-3] Sent answer 1147 bytes
+2023-03-28 00:38:39,617 WARN thread.CMDManager [ForkJoinPool-1-worker-1] Validating command: info for /127.0.0.1:64153
+2023-03-28 00:38:39,618 WARN thread.CMDManager [ForkJoinPool-1-worker-1] Executing command: info for /127.0.0.1:64153
+2023-03-28 00:38:39,619 WARN thread.CMDManager [ForkJoinPool-1-worker-1] Executed command: info for /127.0.0.1:64153
+2023-03-28 00:38:39,620 INFO thread.CMDManager [ForkJoinPool-1-worker-1] info: That took 3 milliseconds
+2023-03-28 00:38:39,679 INFO thread.WriteHandler [pool-2-thread-4] Sending answer to /127.0.0.1:64153
+2023-03-28 00:38:39,680 INFO thread.WriteHandler [pool-2-thread-4] Sent answer 191 bytes

@@ -1,0 +1,48 @@
+2023-03-28 00:38:21,291 INFO logic.ResponseHandler [Thread-0] OutputData has been received.
+2023-03-28 00:38:21,308 WARN logic.ResponseHandler [Thread-0] Успешно законнектился!
+2023-03-28 00:38:28,535 INFO interfaces.UI [main] Got a valid command: help
+2023-03-28 00:38:28,547 WARN interfaces.UI [main] Getting input data.
+2023-03-28 00:38:28,548 WARN interfaces.UI [main] No input data was provided.
+2023-03-28 00:38:28,548 INFO logic.RequestHandler [main] Sending input to server...
+2023-03-28 00:38:32,702 INFO interfaces.UI [main] Got a valid command: show
+2023-03-28 00:38:32,704 WARN interfaces.UI [main] Getting input data.
+2023-03-28 00:38:32,704 WARN interfaces.UI [main] No input data was provided.
+2023-03-28 00:38:32,704 INFO logic.RequestHandler [main] Sending input to server...
+2023-03-28 00:38:32,763 INFO logic.ResponseHandler [Thread-0] OutputData has been received.
+2023-03-28 00:38:32,764 WARN logic.ResponseHandler [Thread-0]   key       id     name   author               coords           creation_date    min_point    difficulty                     discipline
+    1        7    proga  default       {x=1.0, y=2.0}              2023-03-28            2          EASY {name='java', selfStudyHours=10}
+    2       15    proga  default       {x=1.0, y=2.0}              2023-03-28           10    IMPOSSIBLE {name='java', selfStudyHours=10}
+
+2023-03-28 00:38:33,628 INFO logic.ResponseHandler [Thread-0] OutputData has been received.
+2023-03-28 00:38:33,628 WARN logic.ResponseHandler [Thread-0] help - a command which gives an information about
+every single command which is supported in this app.
+history - a command to show history of commands usage!
+exit - a command to exit everything.
+show - a command which shows the collection items
+info - a command to get info about the collection:
+ type, time, etc
+remove_key <key> - a command which removes an element by key.
+clear - a command to clear the collection.
+remove_lower <element> - a command which removes the elements
+which are lower than <key> one.
+execute_script <filename> - a command which executes a script.
+average_of_minimal_point - a command which show an average
+ minimal point field value of collection items.
+print_field_descending_difficulty - a command which prints descending difficulty.
+remove_any_by_discipline <discipline> - a command to remove by disc.
+insert <key> - a command which asks to give element info and inserts it by key.
+update <id> - a command which updates element values by id.
+save - a command which saves the collection into collection.json
+
+
+2023-03-28 00:38:39,587 INFO interfaces.UI [main] Got a valid command: info
+2023-03-28 00:38:39,592 WARN interfaces.UI [main] Getting input data.
+2023-03-28 00:38:39,592 WARN interfaces.UI [main] No input data was provided.
+2023-03-28 00:38:39,593 INFO logic.RequestHandler [main] Sending input to server...
+2023-03-28 00:38:39,680 INFO logic.ResponseHandler [Thread-0] OutputData has been received.
+2023-03-28 00:38:39,680 WARN logic.ResponseHandler [Thread-0] Collection info:
+Type: java.util.HashMap
+Date: Tue Mar 28 00:38:39 MSK 2023
+Size: 2
+2023-03-28 00:45:32,552 INFO logic.ResponseHandler [Thread-0] OutputData has been received.
+2023-03-28 00:45:32,553 WARN logic.ResponseHandler [Thread-0] Успешно законнектился!

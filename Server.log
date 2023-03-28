@@ -1,0 +1,50 @@
+2023-03-28 15:00:40.513 [main] INFO  logic.ServerRunner - ServerRunner is starting... 
+Waiting for user input of PORT
+2023-03-28 15:00:41.838 [main] ERROR logic.ServerRunner - Type of PORT was Scanner Intended Integer
+2023-03-28 15:00:41.839 [main] INFO  logic.ServerRunner - Server port was set to 2023
+2023-03-28 15:00:41.839 [main] INFO  logic.ServerRunner - ServerRunner just started initialization.
+2023-03-28 15:00:42.018 [main] INFO  logic.ServerRunner - Everything went fine.
+2023-03-28 15:00:43.892 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - Validating command: connect for /127.0.0.1:55405
+2023-03-28 15:00:43.892 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: connect for /127.0.0.1:55405
+2023-03-28 15:00:43.893 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: connect for /127.0.0.1:55405
+2023-03-28 15:00:43.893 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - connect: That took 2 milliseconds
+2023-03-28 15:00:43.936 [pool-2-thread-1] INFO  thread.WriteHandler - Sending answer to /127.0.0.1:55405
+2023-03-28 15:00:43.936 [pool-2-thread-1] INFO  thread.WriteHandler - Sent answer 150 bytes
+2023-03-28 15:02:00.980 [ForkJoinPool-1-worker-2] INFO  thread.CMDManager - Validating command: info for /127.0.0.1:55405
+2023-03-28 15:02:00.981 [ForkJoinPool-1-worker-2] WARN  thread.CMDManager - Executing command: info for /127.0.0.1:55405
+2023-03-28 15:02:00.993 [ForkJoinPool-1-worker-2] WARN  thread.CMDManager - Executed command: info for /127.0.0.1:55405
+2023-03-28 15:02:00.993 [ForkJoinPool-1-worker-2] INFO  thread.CMDManager - info: That took 13 milliseconds
+2023-03-28 15:02:01.032 [pool-2-thread-2] INFO  thread.WriteHandler - Sending answer to /127.0.0.1:55405
+2023-03-28 15:02:01.032 [pool-2-thread-2] INFO  thread.WriteHandler - Sent answer 191 bytes
+2023-03-28 15:02:02.819 [ForkJoinPool-1-worker-2] INFO  thread.CMDManager - Validating command: show for /127.0.0.1:55405
+2023-03-28 15:02:02.820 [ForkJoinPool-1-worker-2] WARN  thread.CMDManager - Executing command: show for /127.0.0.1:55405
+2023-03-28 15:02:02.821 [ForkJoinPool-1-worker-2] WARN  thread.CMDManager - Executed command: show for /127.0.0.1:55405
+2023-03-28 15:02:02.822 [ForkJoinPool-1-worker-2] INFO  thread.CMDManager - show: That took 3 milliseconds
+2023-03-28 15:02:02.871 [pool-2-thread-3] INFO  thread.WriteHandler - Sending answer to /127.0.0.1:55405
+2023-03-28 15:02:02.871 [pool-2-thread-3] INFO  thread.WriteHandler - Sent answer 797 bytes
+2023-03-28 15:03:32.486 [main] INFO  logic.ServerRunner - ServerRunner is starting... 
+Waiting for user input of PORT
+2023-03-28 15:03:33.512 [main] ERROR logic.ServerRunner - Type of PORT was Scanner Intended Integer
+2023-03-28 15:03:33.513 [main] INFO  logic.ServerRunner - Server port was set to 2023
+2023-03-28 15:03:33.513 [main] INFO  logic.ServerRunner - ServerRunner just started initialization.
+2023-03-28 15:03:33.697 [main] INFO  logic.ServerRunner - Everything went fine.
+2023-03-28 15:03:35.853 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - Validating command: connect for /127.0.0.1:50840
+2023-03-28 15:03:35.854 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: connect for /127.0.0.1:50840
+2023-03-28 15:03:35.854 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: connect for /127.0.0.1:50840
+2023-03-28 15:03:35.854 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - connect: That took 1 milliseconds
+2023-03-28 15:03:35.900 [pool-2-thread-1] INFO  thread.WriteHandler - Sending answer to /127.0.0.1:50840
+2023-03-28 15:03:35.900 [pool-2-thread-1] INFO  thread.WriteHandler - Sent answer 150 bytes
+2023-03-28 15:03:40.764 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - Validating command: show for /127.0.0.1:50840
+2023-03-28 15:03:40.764 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: show for /127.0.0.1:50840
+2023-03-28 15:03:40.766 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: show for /127.0.0.1:50840
+2023-03-28 15:03:40.767 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - show: That took 4 milliseconds
+2023-03-28 15:03:40.815 [pool-2-thread-2] INFO  thread.WriteHandler - Sending answer to /127.0.0.1:50840
+2023-03-28 15:03:40.815 [pool-2-thread-2] INFO  thread.WriteHandler - Sent answer 797 bytes
+2023-03-28 15:03:42.297 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - Validating command: info for /127.0.0.1:50840
+2023-03-28 15:03:42.297 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: info for /127.0.0.1:50840
+2023-03-28 15:03:42.303 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: info for /127.0.0.1:50840
+2023-03-28 15:03:42.304 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - info: That took 7 milliseconds
+2023-03-28 15:03:42.348 [pool-2-thread-3] INFO  thread.WriteHandler - Sending answer to /127.0.0.1:50840
+2023-03-28 15:03:42.348 [pool-2-thread-3] INFO  thread.WriteHandler - Sent answer 191 bytes
+2023-03-28 15:03:49.892 [Thread-0] WARN  interfaces.UI - Got a valid command: exit
+2023-03-28 15:03:59.738 [Thread-0] WARN  interfaces.UI - Got a valid command: help

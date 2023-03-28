@@ -1,0 +1,37 @@
+2023-03-28 15:03:29.044 [main] INFO  interfaces.UI - Client is starting... 
+Waiting for user input of PORT
+2023-03-28 15:03:35.808 [main] ERROR interfaces.UI - Type of PORT was Scanner Intended Integer
+2023-03-28 15:03:35.810 [main] INFO  interfaces.UI - Client port was set to 2023
+2023-03-28 15:03:35.901 [Thread-0] INFO  logic.ResponseHandler - OutputData has been received.
+2023-03-28 15:03:35.901 [Thread-0] WARN  logic.ResponseHandler - Успешно законнектился!
+2023-03-28 15:03:40.752 [main] INFO  interfaces.UI - Got a valid command: show
+2023-03-28 15:03:40.753 [main] DEBUG interfaces.UI - Got a command: show
+2023-03-28 15:03:40.753 [main] WARN  interfaces.UI - Getting input data.
+2023-03-28 15:03:40.754 [main] WARN  interfaces.UI - No input data was provided.
+2023-03-28 15:03:40.754 [main] DEBUG interfaces.UI - Got an InputData: logic.InputData@94446f01
+2023-03-28 15:03:40.754 [main] INFO  logic.RequestHandler - Sending input to server...
+2023-03-28 15:03:40.815 [Thread-0] INFO  logic.ResponseHandler - OutputData has been received.
+2023-03-28 15:03:40.815 [Thread-0] WARN  logic.ResponseHandler - 
+  key       id     name   author               coords           creation_date    min_point    difficulty                     discipline
+
+   99      104     name     null    {x=70.0, y=100.0}              2023-03-28          100    IMPOSSIBLE {name='disc', selfStudyHours=11}
+
+   96       18   name32     null      {x=1.0, y=15.0}              2023-03-28           12    IMPOSSIBLE  {name='d', selfStudyHours=51}
+
+   97       15    name3     null      {x=7.0, y=10.0}              2023-03-28           10    IMPOSSIBLE {name='dis', selfStudyHours=1}
+
+   98       18    name2     null      {x=0.0, y=11.0}              2023-03-28           13    IMPOSSIBLE {name='disc', selfStudyHours=13}
+
+2023-03-28 15:03:42.285 [main] INFO  interfaces.UI - Got a valid command: info
+2023-03-28 15:03:42.285 [main] DEBUG interfaces.UI - Got a command: info
+2023-03-28 15:03:42.285 [main] WARN  interfaces.UI - Getting input data.
+2023-03-28 15:03:42.285 [main] WARN  interfaces.UI - No input data was provided.
+2023-03-28 15:03:42.286 [main] DEBUG interfaces.UI - Got an InputData: logic.InputData@94446f01
+2023-03-28 15:03:42.286 [main] INFO  logic.RequestHandler - Sending input to server...
+2023-03-28 15:03:42.349 [Thread-0] INFO  logic.ResponseHandler - OutputData has been received.
+2023-03-28 15:03:42.349 [Thread-0] WARN  logic.ResponseHandler - Collection info:
+Type: java.util.HashMap
+Date: Tue Mar 28 15:03:42 MSK 2023
+Size: 4
+2023-03-28 15:03:44.027 [main] INFO  interfaces.UI - Got a valid command: exit
+2023-03-28 15:03:44.027 [main] DEBUG interfaces.UI - Got a command: exit
