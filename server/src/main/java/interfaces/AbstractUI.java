@@ -2,6 +2,7 @@ package interfaces;
 
 import logic.DefaultCommandManager;
 import ch.qos.logback.classic.Logger;
+import logic.Editor;
 import org.slf4j.LoggerFactory;
 import henchmen.Validator;
 import thread.CMDManager;
@@ -44,7 +45,7 @@ public abstract class AbstractUI implements UI, Runnable{
         cmdManager = new DefaultCommandManager();
         cachedFilenames = new ArrayList<>();
         validator = new Validator();
-        logger = (Logger) LoggerFactory.getLogger(UI.class);
+        logger = (Logger) LoggerFactory.getLogger(AbstractUI.class);
         createUI();
     }
 
@@ -63,7 +64,12 @@ public abstract class AbstractUI implements UI, Runnable{
 //                System.out.println("Тут мог быть переход вниз, но вы его не увидите!");
 //                System.out.println("Посмотрите историю и сохраните в файлик, чтобы быстрее вводить команды!");
 //          SCANNER не может в юникоды :( :'_
-            } else {
+            } else if (pureCommand.equals("save")){
+                Editor editor = new Editor();
+                editor.save();
+                logger.info("Saved collection by user command");
+            }
+            else {
                 OutputData result = new OutputData("Info", "It is server, but you typed: " + pureCommand);
                 //logger.warn("This is result status: " + result.getStatusMessage());
                 //logger.warn("This is result:\n" + result.getResultMessage());

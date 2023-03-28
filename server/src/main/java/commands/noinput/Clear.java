@@ -20,12 +20,8 @@ public class Clear extends AbstractNoInputCommand {
 
     @Override
     public OutputData exec(Editor editor, InputData inputData) {
-//        editor.getCollection().clear();
-//        System.out.println(editor.getCollection());
         editor.clear();
         editor.save();
-//        System.out.println(inputData.toString());
-//        System.out.println(editor.getCollection());
         return new OutputData("Success", "Successfully cleared the collection.");
     }
 }

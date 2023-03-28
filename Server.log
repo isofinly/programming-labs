@@ -48,3 +48,244 @@ Waiting for user input of PORT
 2023-03-28 15:03:42.348 [pool-2-thread-3] INFO  thread.WriteHandler - Sent answer 191 bytes
 2023-03-28 15:03:49.892 [Thread-0] WARN  interfaces.UI - Got a valid command: exit
 2023-03-28 15:03:59.738 [Thread-0] WARN  interfaces.UI - Got a valid command: help
+2023-03-28 15:13:21.861 [main] INFO  logic.ServerRunner - ServerRunner is starting... 
+Waiting for user input of PORT
+2023-03-28 15:13:28.340 [main] ERROR logic.ServerRunner - Type of PORT was Scanner Intended Integer
+2023-03-28 15:13:28.342 [main] INFO  logic.ServerRunner - Server port was set to 2023
+2023-03-28 15:13:28.342 [main] INFO  logic.ServerRunner - ServerRunner just started initialization.
+2023-03-28 15:13:28.542 [main] INFO  logic.ServerRunner - Everything went fine.
+2023-03-28 15:13:30.667 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - Validating command: connect for /127.0.0.1:64432
+2023-03-28 15:13:30.668 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: connect for /127.0.0.1:64432
+2023-03-28 15:13:30.669 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: connect for /127.0.0.1:64432
+2023-03-28 15:13:30.670 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - connect: That took 4 milliseconds
+2023-03-28 15:13:30.708 [pool-2-thread-1] INFO  thread.WriteHandler - Sending answer to /127.0.0.1:64432
+2023-03-28 15:13:30.709 [pool-2-thread-1] INFO  thread.WriteHandler - Sent answer 150 bytes
+2023-03-28 15:13:34.855 [Thread-0] WARN  interfaces.AbstractUI - Got a valid command: save
+2023-03-28 15:13:34.902 [Thread-0] INFO  interfaces.AbstractUI - Saved collection by user command
+2023-03-28 15:14:03.782 [Thread-0] WARN  interfaces.AbstractUI - Got a valid command: clear
+2023-03-28 15:15:08.716 [main] INFO  logic.ServerRunner - ServerRunner is starting... 
+Waiting for user input of PORT
+2023-03-28 15:15:21.352 [main] INFO  logic.ServerRunner - ServerRunner is starting... 
+Waiting for user input of PORT
+2023-03-28 15:15:26.987 [main] ERROR logic.ServerRunner - Type of PORT was Scanner Intended Integer
+2023-03-28 15:15:26.988 [main] INFO  logic.ServerRunner - Server port was set to 2023
+2023-03-28 15:15:26.988 [main] INFO  logic.ServerRunner - ServerRunner just started initialization.
+2023-03-28 15:15:27.168 [main] INFO  logic.ServerRunner - Everything went fine.
+2023-03-28 15:15:29.760 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - Validating command: connect for /127.0.0.1:57858
+2023-03-28 15:15:29.760 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: connect for /127.0.0.1:57858
+2023-03-28 15:15:29.761 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: connect for /127.0.0.1:57858
+2023-03-28 15:15:29.761 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - connect: That took 1 milliseconds
+2023-03-28 15:15:29.805 [pool-2-thread-1] INFO  thread.WriteHandler - Sending answer to /127.0.0.1:57858
+2023-03-28 15:15:29.805 [pool-2-thread-1] INFO  thread.WriteHandler - Sent answer 150 bytes
+2023-03-28 15:15:36.179 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - Validating command: help for /127.0.0.1:57858
+2023-03-28 15:15:36.180 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: help for /127.0.0.1:57858
+2023-03-28 15:15:36.181 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: help for /127.0.0.1:57858
+2023-03-28 15:15:36.181 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - help: That took 2 milliseconds
+2023-03-28 15:15:36.230 [pool-2-thread-2] INFO  thread.WriteHandler - Sending answer to /127.0.0.1:57858
+2023-03-28 15:15:36.230 [pool-2-thread-2] INFO  thread.WriteHandler - Sent answer 1334 bytes
+2023-03-28 15:16:06.688 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - Validating command: show for /127.0.0.1:57858
+2023-03-28 15:16:06.690 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: show for /127.0.0.1:57858
+2023-03-28 15:16:06.695 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: show for /127.0.0.1:57858
+2023-03-28 15:16:06.695 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - show: That took 7 milliseconds
+2023-03-28 15:16:06.739 [pool-2-thread-3] INFO  thread.WriteHandler - Sending answer to /127.0.0.1:57858
+2023-03-28 15:16:06.739 [pool-2-thread-3] INFO  thread.WriteHandler - Sent answer 797 bytes
+2023-03-28 15:16:17.361 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - Validating command: remove_any_by_discipline for /127.0.0.1:57858
+2023-03-28 15:16:17.361 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: remove_any_by_discipline for /127.0.0.1:57858
+2023-03-28 15:16:17.361 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: remove_any_by_discipline for /127.0.0.1:57858
+2023-03-28 15:16:17.361 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - remove_any_by_discipline: That took 0 milliseconds
+2023-03-28 15:16:17.410 [pool-2-thread-4] INFO  thread.WriteHandler - Sending answer to /127.0.0.1:57858
+2023-03-28 15:16:17.411 [pool-2-thread-4] INFO  thread.WriteHandler - Sent answer 137 bytes
+2023-03-28 15:16:20.040 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - Validating command: show for /127.0.0.1:57858
+2023-03-28 15:16:20.041 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: show for /127.0.0.1:57858
+2023-03-28 15:16:20.042 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: show for /127.0.0.1:57858
+2023-03-28 15:16:20.042 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - show: That took 2 milliseconds
+2023-03-28 15:16:20.092 [pool-2-thread-5] INFO  thread.WriteHandler - Sending answer to /127.0.0.1:57858
+2023-03-28 15:16:20.092 [pool-2-thread-5] INFO  thread.WriteHandler - Sent answer 797 bytes
+2023-03-28 15:16:29.072 [Thread-0] WARN  interfaces.AbstractUI - Got a valid command: save
+2023-03-28 15:16:29.118 [Thread-0] INFO  interfaces.AbstractUI - Saved collection by user command
+2023-03-28 15:16:32.092 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - Validating command: show for /127.0.0.1:57858
+2023-03-28 15:16:32.097 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: show for /127.0.0.1:57858
+2023-03-28 15:16:32.101 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: show for /127.0.0.1:57858
+2023-03-28 15:16:32.101 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - show: That took 12 milliseconds
+2023-03-28 15:16:32.138 [pool-2-thread-6] INFO  thread.WriteHandler - Sending answer to /127.0.0.1:57858
+2023-03-28 15:16:32.139 [pool-2-thread-6] INFO  thread.WriteHandler - Sent answer 797 bytes
+2023-03-28 15:18:16.732 [main] INFO  logic.ServerRunner - ServerRunner is starting... 
+Waiting for user input of PORT
+2023-03-28 15:18:23.201 [main] ERROR logic.ServerRunner - Type of PORT was Scanner Intended Integer
+2023-03-28 15:18:23.202 [main] INFO  logic.ServerRunner - Server port was set to 2023
+2023-03-28 15:18:23.202 [main] INFO  logic.ServerRunner - ServerRunner just started initialization.
+2023-03-28 15:18:23.371 [main] INFO  logic.ServerRunner - Everything went fine.
+2023-03-28 15:18:25.256 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - Validating command: connect for /127.0.0.1:63905
+2023-03-28 15:18:25.256 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: connect for /127.0.0.1:63905
+2023-03-28 15:18:25.257 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: connect for /127.0.0.1:63905
+2023-03-28 15:18:25.257 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - connect: That took 2 milliseconds
+2023-03-28 15:18:25.301 [pool-2-thread-1] INFO  thread.WriteHandler - Sending answer to /127.0.0.1:63905
+2023-03-28 15:18:25.302 [pool-2-thread-1] INFO  thread.WriteHandler - Sent answer 150 bytes
+2023-03-28 15:18:27.703 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - Validating command: info for /127.0.0.1:63905
+2023-03-28 15:18:27.703 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: info for /127.0.0.1:63905
+2023-03-28 15:18:27.711 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: info for /127.0.0.1:63905
+2023-03-28 15:18:27.711 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - info: That took 9 milliseconds
+2023-03-28 15:18:27.753 [pool-2-thread-2] INFO  thread.WriteHandler - Sending answer to /127.0.0.1:63905
+2023-03-28 15:18:27.754 [pool-2-thread-2] INFO  thread.WriteHandler - Sent answer 191 bytes
+2023-03-28 15:18:40.332 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - Validating command: execute_script for /127.0.0.1:63905
+2023-03-28 15:18:40.333 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: execute_script for /127.0.0.1:63905
+2023-03-28 15:18:40.339 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Recognized execute_script.
+2023-03-28 15:18:40.341 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Getting input data.
+2023-03-28 15:18:40.341 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - No input data was provided.
+2023-03-28 15:18:40.345 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: clear with InputData: InputData{flagOfCLI=false, commandName='null', commandArg='null', labName='null', coordinateX=0.0, coordinateY=0.0, minimalPoint=null, difficulty='null', disciplineName='null', selfStudyHours=null}
+2023-03-28 15:18:40.360 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: clear
+2023-03-28 15:18:40.362 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result status: Success
+2023-03-28 15:18:40.363 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result:
+Successfully cleared the collection.
+2023-03-28 15:18:40.364 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Getting input data.
+2023-03-28 15:18:40.364 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got command arg.
+2023-03-28 15:18:40.364 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got labwork name.
+2023-03-28 15:18:40.364 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got coordinate X.
+2023-03-28 15:18:40.364 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got coordinate Y.
+2023-03-28 15:18:40.364 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got minimal point.
+2023-03-28 15:18:40.364 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got difficulty.
+2023-03-28 15:18:40.364 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got discipline name.
+2023-03-28 15:18:40.364 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got discipline hours.
+2023-03-28 15:18:40.367 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: insert with InputData: InputData{flagOfCLI=false, commandName='null', commandArg='99', labName='name', coordinateX=70.0, coordinateY=100.0, minimalPoint=100, difficulty='IMPOSSIBLE', disciplineName='disc', selfStudyHours=11}
+2023-03-28 15:18:40.379 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: insert
+2023-03-28 15:18:40.379 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result status: Success
+2023-03-28 15:18:40.379 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result:
+Inserted.
+2023-03-28 15:18:40.379 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Getting input data.
+2023-03-28 15:18:40.379 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got command arg.
+2023-03-28 15:18:40.379 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got labwork name.
+2023-03-28 15:18:40.380 [ForkJoinPool-1-worker-1] WARN  commands.onearg.Poop - More than exception for X.
+2023-03-28 15:18:40.380 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got coordinate Y.
+2023-03-28 15:18:40.380 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got minimal point.
+2023-03-28 15:18:40.380 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got difficulty.
+2023-03-28 15:18:40.380 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got discipline name.
+2023-03-28 15:18:40.380 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got discipline hours.
+2023-03-28 15:18:40.384 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: insert with InputData: InputData{flagOfCLI=false, commandName='null', commandArg='98', labName='name2', coordinateX=0.0, coordinateY=11.0, minimalPoint=13, difficulty='IMPOSSIBLE', disciplineName='disc', selfStudyHours=13}
+2023-03-28 15:18:40.386 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: insert
+2023-03-28 15:18:40.387 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result status: Success
+2023-03-28 15:18:40.387 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result:
+Inserted.
+2023-03-28 15:18:40.387 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Getting input data.
+2023-03-28 15:18:40.387 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got command arg.
+2023-03-28 15:18:40.387 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got labwork name.
+2023-03-28 15:18:40.387 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got coordinate X.
+2023-03-28 15:18:40.387 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got coordinate Y.
+2023-03-28 15:18:40.387 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got minimal point.
+2023-03-28 15:18:40.387 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got difficulty.
+2023-03-28 15:18:40.387 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got discipline name.
+2023-03-28 15:18:40.387 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got discipline hours.
+2023-03-28 15:18:40.390 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: insert with InputData: InputData{flagOfCLI=false, commandName='null', commandArg='97', labName='name3', coordinateX=7.0, coordinateY=10.0, minimalPoint=10, difficulty='IMPOSSIBLE', disciplineName='dis', selfStudyHours=1}
+2023-03-28 15:18:40.393 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: insert
+2023-03-28 15:18:40.393 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result status: Success
+2023-03-28 15:18:40.393 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result:
+Inserted.
+2023-03-28 15:18:40.393 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Getting input data.
+2023-03-28 15:18:40.394 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got command arg.
+2023-03-28 15:18:40.394 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got labwork name.
+2023-03-28 15:18:40.394 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got coordinate X.
+2023-03-28 15:18:40.394 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got coordinate Y.
+2023-03-28 15:18:40.394 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got minimal point.
+2023-03-28 15:18:40.394 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got difficulty.
+2023-03-28 15:18:40.394 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got discipline name.
+2023-03-28 15:18:40.394 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Got discipline hours.
+2023-03-28 15:18:40.397 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: insert with InputData: InputData{flagOfCLI=false, commandName='null', commandArg='96', labName='name32', coordinateX=1.0, coordinateY=15.0, minimalPoint=12, difficulty='IMPOSSIBLE', disciplineName='d', selfStudyHours=51}
+2023-03-28 15:18:40.400 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: insert
+2023-03-28 15:18:40.401 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result status: Success
+2023-03-28 15:18:40.401 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result:
+Inserted.
+2023-03-28 15:18:40.401 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Getting input data.
+2023-03-28 15:18:40.401 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - No input data was provided.
+2023-03-28 15:18:40.405 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: show with InputData: InputData{flagOfCLI=false, commandName='null', commandArg='null', labName='null', coordinateX=0.0, coordinateY=0.0, minimalPoint=null, difficulty='null', disciplineName='null', selfStudyHours=null}
+2023-03-28 15:18:40.408 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: show
+2023-03-28 15:18:40.409 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result status: Success
+2023-03-28 15:18:40.409 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result:
+
+  key       id     name   author               coords           creation_date    min_point    difficulty                     discipline
+
+   99      104     name     null    {x=70.0, y=100.0}              2023-03-28          100    IMPOSSIBLE {name='disc', selfStudyHours=11}
+
+   96       18   name32     null      {x=1.0, y=15.0}              2023-03-28           12    IMPOSSIBLE  {name='d', selfStudyHours=51}
+
+   97       15    name3     null      {x=7.0, y=10.0}              2023-03-28           10    IMPOSSIBLE {name='dis', selfStudyHours=1}
+
+   98       18    name2     null      {x=0.0, y=11.0}              2023-03-28           13    IMPOSSIBLE {name='disc', selfStudyHours=13}
+
+2023-03-28 15:18:40.409 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Getting input data.
+2023-03-28 15:18:40.409 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - No input data was provided.
+2023-03-28 15:18:40.417 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: average_of_minimal_point with InputData: InputData{flagOfCLI=false, commandName='null', commandArg='null', labName='null', coordinateX=0.0, coordinateY=0.0, minimalPoint=null, difficulty='null', disciplineName='null', selfStudyHours=null}
+2023-03-28 15:18:40.423 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: average_of_minimal_point
+2023-03-28 15:18:40.423 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result status: Success
+2023-03-28 15:18:40.423 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result:
+33
+2023-03-28 15:18:40.423 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Getting input data.
+2023-03-28 15:18:40.424 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - No input data was provided.
+2023-03-28 15:18:40.428 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: info with InputData: InputData{flagOfCLI=false, commandName='null', commandArg='null', labName='null', coordinateX=0.0, coordinateY=0.0, minimalPoint=null, difficulty='null', disciplineName='null', selfStudyHours=null}
+2023-03-28 15:18:40.429 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: info
+2023-03-28 15:18:40.429 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result status: Success
+2023-03-28 15:18:40.429 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result:
+Collection info:
+Type: java.util.HashMap
+Date: Tue Mar 28 15:18:40 MSK 2023
+Size: 4
+2023-03-28 15:18:40.429 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Getting input data.
+2023-03-28 15:18:40.429 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - No input data was provided.
+2023-03-28 15:18:40.432 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: print_field_descending_difficulty with InputData: InputData{flagOfCLI=false, commandName='null', commandArg='null', labName='null', coordinateX=0.0, coordinateY=0.0, minimalPoint=null, difficulty='null', disciplineName='null', selfStudyHours=null}
+2023-03-28 15:18:40.434 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: print_field_descending_difficulty
+2023-03-28 15:18:40.434 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result status: Success
+2023-03-28 15:18:40.434 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result:
+IMPOSSIBLE IMPOSSIBLE IMPOSSIBLE IMPOSSIBLE 
+2023-03-28 15:18:40.434 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Getting input data.
+2023-03-28 15:18:40.434 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - No input data was provided.
+2023-03-28 15:18:40.437 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: show with InputData: InputData{flagOfCLI=false, commandName='null', commandArg='null', labName='null', coordinateX=0.0, coordinateY=0.0, minimalPoint=null, difficulty='null', disciplineName='null', selfStudyHours=null}
+2023-03-28 15:18:40.437 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: show
+2023-03-28 15:18:40.438 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result status: Success
+2023-03-28 15:18:40.438 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result:
+
+  key       id     name   author               coords           creation_date    min_point    difficulty                     discipline
+
+   99      104     name     null    {x=70.0, y=100.0}              2023-03-28          100    IMPOSSIBLE {name='disc', selfStudyHours=11}
+
+   96       18   name32     null      {x=1.0, y=15.0}              2023-03-28           12    IMPOSSIBLE  {name='d', selfStudyHours=51}
+
+   97       15    name3     null      {x=7.0, y=10.0}              2023-03-28           10    IMPOSSIBLE {name='dis', selfStudyHours=1}
+
+   98       18    name2     null      {x=0.0, y=11.0}              2023-03-28           13    IMPOSSIBLE {name='disc', selfStudyHours=13}
+
+2023-03-28 15:18:40.438 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Getting input data.
+2023-03-28 15:18:40.438 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - No input data was provided.
+2023-03-28 15:18:40.440 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: show with InputData: InputData{flagOfCLI=false, commandName='null', commandArg='null', labName='null', coordinateX=0.0, coordinateY=0.0, minimalPoint=null, difficulty='null', disciplineName='null', selfStudyHours=null}
+2023-03-28 15:18:40.441 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: show
+2023-03-28 15:18:40.441 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result status: Success
+2023-03-28 15:18:40.441 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result:
+
+  key       id     name   author               coords           creation_date    min_point    difficulty                     discipline
+
+   99      104     name     null    {x=70.0, y=100.0}              2023-03-28          100    IMPOSSIBLE {name='disc', selfStudyHours=11}
+
+   96       18   name32     null      {x=1.0, y=15.0}              2023-03-28           12    IMPOSSIBLE  {name='d', selfStudyHours=51}
+
+   97       15    name3     null      {x=7.0, y=10.0}              2023-03-28           10    IMPOSSIBLE {name='dis', selfStudyHours=1}
+
+   98       18    name2     null      {x=0.0, y=11.0}              2023-03-28           13    IMPOSSIBLE {name='disc', selfStudyHours=13}
+
+2023-03-28 15:18:40.441 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - Getting input data.
+2023-03-28 15:18:40.441 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - No input data was provided.
+2023-03-28 15:18:40.444 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result status: Undefined
+2023-03-28 15:18:40.444 [ForkJoinPool-1-worker-1] INFO  commands.onearg.Poop - This is result:
+[clear, insert, insert, insert, insert, show, average_of_minimal_point, info, print_field_descending_difficulty, show, show]
+2023-03-28 15:18:40.444 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: execute_script for /127.0.0.1:63905
+2023-03-28 15:18:40.444 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - execute_script: That took 113 milliseconds
+2023-03-28 15:18:40.484 [pool-2-thread-3] INFO  thread.WriteHandler - Sending answer to /127.0.0.1:63905
+2023-03-28 15:18:40.485 [pool-2-thread-3] INFO  thread.WriteHandler - Sent answer 2550 bytes
+2023-03-28 15:19:20.521 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - Validating command: print_field_descending_difficulty for /127.0.0.1:63905
+2023-03-28 15:19:20.522 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: print_field_descending_difficulty for /127.0.0.1:63905
+2023-03-28 15:19:20.522 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: print_field_descending_difficulty for /127.0.0.1:63905
+2023-03-28 15:19:20.522 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - print_field_descending_difficulty: That took 1 milliseconds
+2023-03-28 15:19:20.572 [pool-2-thread-4] INFO  thread.WriteHandler - Sending answer to /127.0.0.1:63905
+2023-03-28 15:19:20.573 [pool-2-thread-4] INFO  thread.WriteHandler - Sent answer 152 bytes
+2023-03-28 15:19:26.156 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - Validating command: print_field_descending_difficulty for /127.0.0.1:63905
+2023-03-28 15:19:26.157 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executing command: print_field_descending_difficulty for /127.0.0.1:63905
+2023-03-28 15:19:26.158 [ForkJoinPool-1-worker-1] WARN  thread.CMDManager - Executed command: print_field_descending_difficulty for /127.0.0.1:63905
+2023-03-28 15:19:26.158 [ForkJoinPool-1-worker-1] INFO  thread.CMDManager - print_field_descending_difficulty: That took 4 milliseconds
+2023-03-28 15:19:26.205 [pool-2-thread-5] INFO  thread.WriteHandler - Sending answer to /127.0.0.1:63905
+2023-03-28 15:19:26.205 [pool-2-thread-5] INFO  thread.WriteHandler - Sent answer 138 bytes

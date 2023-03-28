@@ -24,6 +24,7 @@ public class RemoveLower extends AbstractElementCommand {
             FabricLabWorks fabricLabWorks = new FabricLabWorks();
             LabWork labwork = fabricLabWorks.makeLabworkFromInputData(inputData);
             editor.removeAllLowerByLabwork(labwork);
+            editor.save();
         } catch (Exception e) {
             e.printStackTrace();
             return new OutputData("Failure", "Some problems with input data.");

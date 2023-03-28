@@ -24,7 +24,7 @@
     },
     "creationDate" : [ 2023, 3, 28 ],
     "minimalPoint" : 12,
-    "difficulty" : "IMPOSSIBLE",
+    "difficulty" : "EASY",
     "discipline" : {
       "name" : "d",
       "selfStudyHours" : 51
@@ -40,7 +40,7 @@
     },
     "creationDate" : [ 2023, 3, 28 ],
     "minimalPoint" : 10,
-    "difficulty" : "IMPOSSIBLE",
+    "difficulty" : "TERRIBLE",
     "discipline" : {
       "name" : "dis",
       "selfStudyHours" : 1
@@ -56,7 +56,7 @@
     },
     "creationDate" : [ 2023, 3, 28 ],
     "minimalPoint" : 13,
-    "difficulty" : "IMPOSSIBLE",
+    "difficulty" : "EASY",
     "discipline" : {
       "name" : "disc",
       "selfStudyHours" : 13
