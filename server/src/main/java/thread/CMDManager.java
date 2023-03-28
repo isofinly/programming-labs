@@ -44,14 +44,6 @@ public class CMDManager implements Runnable{
         if (inputData.getCommandArg() != null)
             commandHistory.add(justCommand + " " + inputData.getCommandArg());
         else commandHistory.add(justCommand);
-//        if (!justCommand.equals("login") && inputData.getAuth() == null && inputData.getPass() == null)
-//            if (!justCommand.equals("connect") && !justCommand.equals("register"))
-//                return new OutputData("Please login", "Use login or register before " + inputData.getCommandName());
-//        try {
-//            if (!justCommand.equals("login") && !justCommand.equals("connect") && !justCommand.equals("register") && !editor.userExists(inputData.getAuth(), inputData.getPass())) return new OutputData("Error", "Invalid login/pass");
-//        } catch (SQLException exception) {
-//            return new OutputData("Error", "SQL Exception");
-//        }
         logger.warn(String.format("Executing command: %s for %s", justCommand, clientData.getClientAddress()));
         if (justCommand.equals("history")) {
             logger.warn("Recognized history.");
@@ -64,7 +56,6 @@ public class CMDManager implements Runnable{
                 logger.warn("Executed command: " + justCommand + " for " + clientData.getClientAddress());
             } catch (NullPointerException e) {
                 logger.error("Command was not found.");
-                //if (command.getName().equals("login")) e.printStackTrace();
                 result = new OutputData("Error", "Command was not found. Try again.");
             }
         }
@@ -102,18 +93,10 @@ public class CMDManager implements Runnable{
             saved.setConnected(clientData.isConnected());
             saved.setCommandHistory(clientData.getCommandHistoryArray());
             saved.setDatagramChannel(clientData.getDatagramChannel());
-//            if (isLogin(inputData)) {
             saved.setOutputData(execute(inputData));
-//            } else saved.setOutputData(getCommandByString("login").exec(editor, inputData));
             AllThreadsDataQueues.toWriteQueue.add(saved);
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
     }
-
-//    public boolean isLogin(InputData inputData) {
-//        if (inputData.getCommandName().equals("connect") || inputData.getCommandName().equals("login") && !justCommand.equals("register"))
-//        OutputData outputData = getCommandByString("login").exec(editor, inputData);
-//        return outputData.getStatusMessage().equals("Login");
-//    }
 }

@@ -1,66 +1,18 @@
 {
-  "99" : {
-    "id" : 104,
-    "name" : "name",
+  "1" : {
+    "id" : 239,
+    "name" : "112121",
     "coordinates" : {
-      "x" : 70.0,
-      "y" : 100.0
+      "x" : 21.0,
+      "y" : 12.0
     },
     "creationDate" : [ 2023, 3, 28 ],
-    "minimalPoint" : 100,
-    "difficulty" : "IMPOSSIBLE",
-    "discipline" : {
-      "name" : "disc",
-      "selfStudyHours" : 11
-    },
-    "author" : null
-  },
-  "96" : {
-    "id" : 18,
-    "name" : "name32",
-    "coordinates" : {
-      "x" : 1.0,
-      "y" : 15.0
-    },
-    "creationDate" : [ 2023, 3, 28 ],
-    "minimalPoint" : 12,
+    "minimalPoint" : 233,
     "difficulty" : "EASY",
     "discipline" : {
-      "name" : "d",
-      "selfStudyHours" : 51
+      "name" : "213344",
+      "selfStudyHours" : 31712567162
     },
-    "author" : null
-  },
-  "97" : {
-    "id" : 15,
-    "name" : "name3",
-    "coordinates" : {
-      "x" : 7.0,
-      "y" : 10.0
-    },
-    "creationDate" : [ 2023, 3, 28 ],
-    "minimalPoint" : 10,
-    "difficulty" : "TERRIBLE",
-    "discipline" : {
-      "name" : "dis",
-      "selfStudyHours" : 1
-    },
-    "author" : null
-  },
-  "98" : {
-    "id" : 18,
-    "name" : "name2",
-    "coordinates" : {
-      "x" : 0.0,
-      "y" : 11.0
-    },
-    "creationDate" : [ 2023, 3, 28 ],
-    "minimalPoint" : 13,
-    "difficulty" : "EASY",
-    "discipline" : {
-      "name" : "disc",
-      "selfStudyHours" : 13
-    },
-    "author" : null
+    "author" : "default"
   }
 }

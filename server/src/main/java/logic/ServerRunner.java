@@ -21,7 +21,6 @@ public class ServerRunner {
     private static Integer PORT;
     private static boolean running;
     private static DatagramSocket socket;
-    private static CMDManager answerHandler;
     private static final Logger logger = (Logger) LoggerFactory.getLogger(ServerRunner.class);
     private static Selector selector;
 
@@ -60,14 +59,6 @@ public class ServerRunner {
                     logger.error("Server didn't start..." + Arrays.toString(e.getStackTrace()));
                 }
         }
-    }
-
-    public static DatagramSocket getSocket() {
-        return socket;
-    }
-
-    public static CMDManager getAnswerHandler() {
-        return answerHandler;
     }
 
     public static boolean isRunning() {
