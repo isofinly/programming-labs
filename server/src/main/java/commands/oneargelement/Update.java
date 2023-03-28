@@ -1,13 +1,11 @@
 package commands.oneargelement;
 
-import commands.oneargelement.AbstractOneArgElement;
 import logic.Editor;
 import logic.InputData;
 import logic.OutputData;
 import objects.FabricLabWorks;
 import objects.LabWork;
 
-import java.sql.SQLException;
 import java.util.NoSuchElementException;
 
 public class Update extends AbstractOneArgElement {

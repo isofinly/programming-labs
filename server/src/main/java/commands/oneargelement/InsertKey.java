@@ -1,13 +1,11 @@
 package commands.oneargelement;
 
-import commands.oneargelement.AbstractOneArgElement;
 import logic.Editor;
 import logic.InputData;
 import logic.OutputData;
 import objects.FabricLabWorks;
 import objects.LabWork;
 
-import java.sql.SQLException;
 import java.util.NoSuchElementException;
 
 public class InsertKey extends AbstractOneArgElement {
@@ -26,6 +24,9 @@ public class InsertKey extends AbstractOneArgElement {
         try {
             FabricLabWorks fabricLabWorks = new FabricLabWorks();
             LabWork labwork = fabricLabWorks.makeLabworkFromInputData(inputData);
+            if (inputData.getCommandArg().equals(null)) {
+                System.out.println("something went wrong");
+            }
             editor.insert(inputData.getCommandArg(), labwork);
             editor.save();
 //            System.out.println(inputData.toString());

@@ -6,16 +6,16 @@ import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import objects.*;
+import objects.DifficultyComparator;
+import objects.Discipline;
+import objects.LabWork;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.NoSuchElementException;
@@ -23,23 +23,25 @@ import java.util.NoSuchElementException;
 public class Editor {
     private static final Logger logger = (Logger) LoggerFactory.getLogger(ServerRunner.class);
 
-    public String filename = System.getenv().getOrDefault("LABFILEPATH", "collection.json");
-    static HashMap<String, LabWork> collection;
+    static HashMap <String, LabWork> collection;
+    static String filename = System.getenv().getOrDefault("LABFILEPATH", "collection.json");
 
     public Editor() {
-            readCollectionFromFile(filename);
+        readCollectionFromFile();
         }
 
-    private void readCollectionFromFile(String filename) {
+    private void readCollectionFromFile() {
         try {
+            logger.info("Opening " + filename);
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.registerModule(new JavaTimeModule());
-            File file = Paths.get(filename).toFile().getAbsoluteFile();
+            File file = new File(filename.trim());
             file.setReadable(true);
-            TypeReference<HashMap<String, LabWork>> typeRef = new TypeReference<HashMap<String, LabWork>>() {};
-            collection = objectMapper.readValue(file, typeRef);
+            TypeReference <HashMap <String, LabWork>> typeRef = new TypeReference <HashMap <String, LabWork>>() {
+            };
+            collection = objectMapper.readValue(file.getAbsoluteFile(), typeRef);
         } catch (FileNotFoundException e) {
-            System.out.println("Invalid filename.");
+            logger.error("Could not open the file " + e);
             System.exit(0);
         } catch (Exception ex) {
             ex.printStackTrace();

@@ -1,11 +1,8 @@
 package commands.onearg;
 
-import commands.onearg.AbstractOneArgCommand;
 import logic.Editor;
 import logic.InputData;
 import logic.OutputData;
-
-import java.util.Arrays;
 
 public class ExecuteScript extends AbstractOneArgCommand {
     @Override

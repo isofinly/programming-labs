@@ -1,12 +1,8 @@
 package commands.noinput;
 
-import commands.noinput.AbstractNoInputCommand;
-import henchmen.PropertiesGetter;
 import logic.Editor;
 import logic.InputData;
 import logic.OutputData;
-
-import java.io.IOException;
 
 public class Save extends AbstractNoInputCommand {
     @Override

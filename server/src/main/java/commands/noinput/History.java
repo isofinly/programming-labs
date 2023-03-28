@@ -1,6 +1,5 @@
 package commands.noinput;
 
-import commands.noinput.AbstractNoInputCommand;
 import logic.Editor;
 import logic.InputData;
 import logic.OutputData;

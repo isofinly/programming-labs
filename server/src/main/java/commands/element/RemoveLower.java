@@ -1,6 +1,5 @@
 package commands.element;
 
-import commands.element.AbstractElementCommand;
 import logic.Editor;
 import logic.InputData;
 import logic.OutputData;

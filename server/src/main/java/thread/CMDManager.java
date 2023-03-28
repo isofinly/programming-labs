@@ -1,18 +1,17 @@
 package thread;
 
+import ch.qos.logback.classic.Logger;
+import commands.Command;
 import commands.noinput.Save;
+import henchmen.CommandHistory;
+import henchmen.FabricForCommands;
 import logic.Editor;
 import logic.InputData;
 import logic.OutputData;
 import org.slf4j.LoggerFactory;
-import ch.qos.logback.classic.Logger;
-import commands.Command;
-import henchmen.CommandHistory;
-import henchmen.FabricForCommands;
-
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
 
 public class CMDManager implements Runnable{
     private CommandHistory commandHistory = new CommandHistory();

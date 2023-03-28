@@ -1,11 +1,8 @@
 package commands.noinput;
 
-import commands.noinput.AbstractNoInputCommand;
 import logic.Editor;
 import logic.InputData;
 import logic.OutputData;
-
-import java.sql.SQLException;
 
 public class Clear extends AbstractNoInputCommand {
     @Override

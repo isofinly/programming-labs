@@ -2,7 +2,6 @@ package interfaces;
 
 import henchmen.Validator;
 import logic.DefaultCommandManager;
-import thread.CMDManager;
 
 import java.io.IOException;
 import java.util.ArrayList;

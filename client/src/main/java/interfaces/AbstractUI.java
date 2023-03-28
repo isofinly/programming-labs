@@ -1,7 +1,6 @@
 package interfaces;
 
 import ch.qos.logback.classic.Logger;
-import org.slf4j.LoggerFactory;
 import henchmen.Validator;
 import input_exceptions.CancelException;
 import input_exceptions.ExecuteCommandException;
@@ -11,11 +10,11 @@ import logic.InputData;
 import logic.OutputData;
 import logic.RequestHandler;
 import logic.ResponseHandler;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -87,15 +86,7 @@ public abstract class AbstractUI implements UI{
                 logger.debug(String.format("Got a command: %s",input));
                 String pureCommand = input.split(" ")[0];
                 if (pureCommand.equals("exit")) System.exit(0);
-                else if (pureCommand.equals("logout")) {
-                    if (auth == null || pass == null) display("Error", "Nothing to logout BRUH...");
-                    else {
-                        pass = null;
-                        auth = null;
-                        logger.info("logout");
-                        display("Success", "Logout");
-                    }
-                } else {
+                else {
                     if (isValidCommand(pureCommand)) {
                         InputData inputData = getInputData(input, pureCommand);
                         logger.debug(String.format("Got an InputData: %s", inputData));
@@ -138,7 +129,6 @@ public abstract class AbstractUI implements UI{
     private InputData getInputData(String input, String pureCommand) throws CancelException {
         logger.warn("Getting input data.");
         InputData inputData = new InputData();
-        inputData.setPass(pass);
         inputData.setAuth(auth);
         inputData.setCommandName(pureCommand);
         boolean[] flags = validator.getInputDataFlagsForCommand(pureCommand);
@@ -282,6 +272,7 @@ public abstract class AbstractUI implements UI{
 
     private void askForInputCheckForCommand(boolean[] flags, InputData inputData, String input, Scanner scanner) throws ExecuteCommandException {
         if (needsArg(flags)) {
+//            if (inputData.getCommandArg() == null) throw new ExecuteCommandException("");
             setArgToInputDataExec(inputData, input);
         }
         if (needsName(flags)) {

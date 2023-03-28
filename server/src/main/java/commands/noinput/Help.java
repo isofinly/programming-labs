@@ -1,7 +1,6 @@
 package commands.noinput;
 
 import commands.Command;
-import commands.noinput.AbstractNoInputCommand;
 import henchmen.FabricForCommands;
 import logic.Editor;
 import logic.InputData;

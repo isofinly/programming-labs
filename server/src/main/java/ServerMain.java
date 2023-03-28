@@ -1,4 +1,3 @@
-import logic.Editor;
 import logic.ServerRunner;
 
 public class ServerMain {

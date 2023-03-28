@@ -1,12 +1,11 @@
 package interfaces;
 
-import logic.DefaultCommandManager;
 import ch.qos.logback.classic.Logger;
-import logic.Editor;
-import org.slf4j.LoggerFactory;
 import henchmen.Validator;
-import thread.CMDManager;
+import logic.DefaultCommandManager;
+import logic.Editor;
 import logic.OutputData;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;

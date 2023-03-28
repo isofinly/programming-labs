@@ -1,9 +1,7 @@
 package thread;
 
-import logic.InputData;
-import logic.OutputData;
-import logic.ServerRunner;
 import ch.qos.logback.classic.Logger;
+import logic.OutputData;
 import org.slf4j.LoggerFactory;
 
 import java.io.ByteArrayOutputStream;
@@ -11,7 +9,6 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
-import java.nio.channels.SelectionKey;
 
 public class WriteHandler implements Runnable{
     private static final Logger logger = (Logger) LoggerFactory.getLogger(WriteHandler.class);

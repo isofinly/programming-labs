@@ -1,11 +1,8 @@
 package henchmen;
 
-import commands.Command;
-
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.stream.Collectors;
 
 public class CommandHistory {
     private Queue<String> commandsStringQueue = new LinkedList<>();

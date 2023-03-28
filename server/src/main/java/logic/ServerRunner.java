@@ -1,8 +1,8 @@
 package logic;
+
+import ch.qos.logback.classic.Logger;
 import interfaces.CLI;
 import org.slf4j.LoggerFactory;
-import ch.qos.logback.classic.Logger;
-import thread.CMDManager;
 import thread.ClientData;
 
 import java.io.IOException;

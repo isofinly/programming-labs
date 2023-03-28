@@ -1,17 +1,17 @@
 package commands.onearg;
 
-import logic.DefaultCommandManager;
-import org.slf4j.LoggerFactory;
+import ch.qos.logback.classic.Logger;
 import henchmen.Validator;
 import input_exceptions.CancelException;
 import input_exceptions.ExecuteCommandException;
 import input_exceptions.LessThanException;
 import input_exceptions.MoreThanException;
-import thread.CMDManager;
+import logic.DefaultCommandManager;
 import logic.Editor;
 import logic.InputData;
 import logic.OutputData;
-import ch.qos.logback.classic.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

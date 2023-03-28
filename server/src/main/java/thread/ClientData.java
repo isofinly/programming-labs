@@ -10,7 +10,6 @@ import java.io.ObjectInputStream;
 import java.net.SocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
-import java.util.Arrays;
 
 public class ClientData {
     private SocketAddress clientAddress;

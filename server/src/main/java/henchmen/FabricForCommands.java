@@ -1,6 +1,7 @@
 package henchmen;
 
-import commands.*;
+import commands.Command;
+import commands.CommandType;
 import commands.discipline.RemoveAnyByDiscipline;
 import commands.element.RemoveLower;
 import commands.noinput.*;

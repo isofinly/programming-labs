@@ -1,6 +1,5 @@
 package commands.onearg;
 
-import commands.onearg.AbstractOneArgCommand;
 import logic.Editor;
 import logic.InputData;
 import logic.OutputData;

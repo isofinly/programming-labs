@@ -1,6 +1,5 @@
 package commands.discipline;
 
-import commands.discipline.AbstractDisciplineCommand;
 import logic.Editor;
 import logic.InputData;
 import logic.OutputData;
