@@ -29,8 +29,12 @@ public class WriteHandler implements Runnable{
                 ObjectOutputStream os = new ObjectOutputStream(outputStream);
                 os.writeObject(answer);
                 byte[] replyBytes = outputStream.toByteArray();
-                ByteBuffer buff = ByteBuffer.wrap(replyBytes);
-                channel.send(buff, clientData.getClientAddress());
+                int chunkSize = 1024; // or any other appropriate chunk size
+                for (int i = 0; i < replyBytes.length; i += chunkSize) {
+                    int endIndex = Math.min(i + chunkSize, replyBytes.length);
+                    ByteBuffer buff = ByteBuffer.wrap(replyBytes, i, endIndex - i);
+                    channel.send(buff, clientData.getClientAddress());
+                }
                 logger.info("Sending answer to " + clientData.getClientAddress());
                 logger.info("Sent answer " + replyBytes.length + " bytes");
             } catch (IOException e) {
@@ -38,4 +42,5 @@ public class WriteHandler implements Runnable{
             }
         }
     }
+
 }
