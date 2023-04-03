@@ -17,8 +17,8 @@ public class ExecuteScript extends AbstractOneArgCommand {
 
     @Override
     public OutputData exec(Editor editor, InputData inputData) {
-        Poop poop = new Poop();
-        poop.run(editor, inputData);
-        return new OutputData("ExecuteScript result:", poop.cachedResults.toString());
+        ExecHandler execHandler = new ExecHandler();
+        execHandler.run(editor, inputData);
+        return new OutputData("ExecuteScript result:", execHandler.cachedResults.toString());
     }
 }

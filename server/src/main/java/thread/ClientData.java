@@ -13,7 +13,7 @@ import java.nio.channels.DatagramChannel;
 
 public class ClientData {
     private SocketAddress clientAddress;
-    private byte[] incomingData = new byte[65515];
+    private byte[] incomingData = new byte[8196*8196];
     private CommandHistory commandHistory = null;
     private DatagramChannel datagramChannel;
     private ByteBuffer buffer = ByteBuffer.wrap(incomingData);

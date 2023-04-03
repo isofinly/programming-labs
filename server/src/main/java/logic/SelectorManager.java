@@ -21,14 +21,10 @@ public class SelectorManager{
     private static final Logger logger = (Logger) LoggerFactory.getLogger(SelectorManager.class);
 
     public static void run() {
-        ExecutorService readPool = Executors.newCachedThreadPool();
         ForkJoinPool executePool = new ForkJoinPool();
         ExecutorService writePool = Executors.newFixedThreadPool(10);
         while(ServerRunner.isRunning()){
             try {
-//                if (selector.select(3000) == 0) {
-//                    continue;
-//                }
                 selector.select(50);
                 Set<SelectionKey> keys = selector.selectedKeys();
 

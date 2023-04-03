@@ -17,11 +17,11 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Poop {
+public class ExecHandler {
     Validator validator = new Validator();
     ArrayList<String> cachedFilenames;
     DefaultCommandManager cmdManager;
-    Logger logger = (Logger) LoggerFactory.getLogger(Poop.class);
+    Logger logger = (Logger) LoggerFactory.getLogger(ExecHandler.class);
     Editor editor;
     String author;
     String pass;
@@ -68,7 +68,7 @@ public class Poop {
      */
     private void executeScriptLoop(String filename) {
         try {
-            File file = new File(filename);
+            File file = new File(filename.trim());
             Scanner myReader = new Scanner(file);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
@@ -76,7 +76,7 @@ public class Poop {
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            cachedResults.add("File not found!");
+            cachedResults.add("File not found! " + e);
         }
     }
 
@@ -108,7 +108,6 @@ public class Poop {
                     askForInputCheckForCommand(flags, inputData, input, scanner);
                     if (inputData.equals(new InputData())) logger.info("No input data was provided.");
                     inputData.setAuth(author);
-                    inputData.setPass(pass);
                     OutputData result;
                     cmdManager = new DefaultCommandManager();
                     if (pureCommand.equals("history")) result = new OutputData("Undefined", history.toString());
