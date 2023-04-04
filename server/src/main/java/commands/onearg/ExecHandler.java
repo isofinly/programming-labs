@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -39,90 +40,112 @@ public class ExecHandler {
         executeScript(inputData.getCommandArg());
     }
 
-    private boolean isValidCommand(String command) {
-        return validator.validate(command);
-    }
-
-    /**
-     * Provides a base for executing a script.
-     *
-     * @param input is command with arg (filename).
-     */
-    private void executeScript(String input) {
-        logger.info("Recognized execute_script.");
-        try {
-            String filename = input;
-            if (!cachedFilenames.contains(filename)) {
-                cachedFilenames.add(filename);
-                executeScriptLoop(filename);
-            } else logger.warn("Error", "Prevented StackOverflow! Filename: " + filename);
-        } catch (ArrayIndexOutOfBoundsException e) {
-            e.printStackTrace();
+        private boolean isValidCommand(String command) {
+            return validator.validate(command);
         }
-    }
 
-    /**
-     * Reads the commands and does something. (Like run).
-     *
-     * @param filename is a name of a file where commands should be listed.
-     */
-    private void executeScriptLoop(String filename) {
-        try {
-            File file = new File(filename.trim());
-            Scanner myReader = new Scanner(file);
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                processCommandFromExecuteScriptLoop(data, myReader);
-            }
-            myReader.close();
-        } catch (FileNotFoundException e) {
-            cachedResults.add("File not found! " + e);
-        }
-    }
-
-    /**
-     * Checks if input contains execute_script
-     *
-     * @param input is command with arg line.
-     * @return true or false.
-     */
-    private boolean isExecuteScript(String input) {
-        return validator.isExecuteScript(input);
-    }
-
-    /**
-     * Continues execute_script loop if a command from the file is valid.
-     *
-     * @param input is a command with arg.
-     */
-    private void processCommandFromExecuteScriptLoop(String input, Scanner scanner) {
-        if (isValidCommand(input)) {
-            if (isExecuteScript(input)) {
-                executeScript(input);
+        /**
+         * Provides a base for executing a script.
+         *
+         * @param input is command with arg (filename).
+         */
+        private void executeScript(String input) {
+            logger.info("Recognized execute_script.");
+            String filename;
+            if (input.contains("execute_script")) {
+                filename = input.split(" ")[1];
             } else {
-                String pureCommand = input.split(" ")[0];
-                logger.info("Getting input data.");
-                InputData inputData = new InputData(false);
-                boolean[] flags = validator.getInputDataFlagsForCommand(pureCommand);
-                try {
-                    askForInputCheckForCommand(flags, inputData, input, scanner);
-                    if (inputData.equals(new InputData())) logger.info("No input data was provided.");
-                    inputData.setAuth(author);
-                    OutputData result;
-                    cmdManager = new DefaultCommandManager();
-                    if (pureCommand.equals("history")) result = new OutputData("Undefined", history.toString());
-                    else result = cmdManager.execute(editor, pureCommand, inputData);
-                    cachedResults.add(result.getResultMessage() + "\n");
-                    history.add(pureCommand);
-                    logger.info("This is result status: " + result.getStatusMessage());
-                    logger.info("This is result:\n" + result.getResultMessage());
-                } catch (ExecuteCommandException e) {
-                    logger.warn("Found command. Not arg.");
-                    processCommandFromExecuteScriptLoop(e.getCommand(), scanner);
+                filename = input;
+            }
+            // Get the canonical path of the current script to prevent self-recursion
+            String currentScriptCanonicalPath;
+            try {
+                currentScriptCanonicalPath = new File(filename).getCanonicalPath();
+            } catch (IOException e) {
+                cachedResults.add("Error: Failed to get the canonical path of the script: " + filename);
+                return;
+            }
+            // Check for both absolute and relative file paths
+            if (!cachedFilenames.contains(currentScriptCanonicalPath) && !cachedFilenames.contains(filename)) {
+                cachedFilenames.add(currentScriptCanonicalPath);
+                executeScriptLoop(filename);
+            } else {
+                logger.warn("Error", "Prevented StackOverflow! Filename: " + filename);
+            }
+        }
+
+
+
+    /**
+         * Reads the commands and does something. (Like run).
+         *
+         * @param filename is a name of a file where commands should be listed.
+         */
+        private void executeScriptLoop(String filename) {
+            try {
+                File file = new File(filename);
+                Scanner myReader = new Scanner(file);
+                while (myReader.hasNextLine()) {
+                    String data = myReader.nextLine();
+                    processCommandFromExecuteScriptLoop(data, myReader);
+                }
+                myReader.close();
+            } catch (FileNotFoundException e) {
+                cachedResults.add("File not found!" + e);
+            }
+        }
+
+        /**
+         * Checks if input contains execute_script
+         *
+         * @param input is command with arg line.
+         * @return true or false.
+         */
+        private boolean isExecuteScript(String input) {
+            return validator.isExecuteScript(input);
+        }
+
+        /**
+         * Continues execute_script loop if a command from the file is valid.
+         *
+         * @param input is a command with arg.
+         */
+        private void processCommandFromExecuteScriptLoop(String input, Scanner scanner) {
+            if (isValidCommand(input)) {
+                if (isExecuteScript(input)) {
+                    executeScript(input);
+                } else {
+                    String pureCommand = input.split(" ")[0];
+                    logger.info("Getting input data.");
+                    InputData inputData = new InputData(false);
+                    boolean[] flags = validator.getInputDataFlagsForCommand(pureCommand);
+                    try {
+                        askForInputCheckForCommand(flags, inputData, input, scanner);
+                        if (inputData.equals(new InputData())) logger.info("No input data was provided.");
+                        inputData.setAuth(author);
+                        inputData.setPass(pass);
+                        if (input.contains("login")) {
+                            inputData.setCommandArg(input.split("login ")[1]);
+                        }
+                        OutputData result;
+                        cmdManager = new DefaultCommandManager();
+                        if (pureCommand.equals("history")) result = new OutputData("Undefined", history.toString());
+                        else result = cmdManager.execute(editor, pureCommand, inputData);
+                        cachedResults.add(result.getResultMessage() + "\n");
+                        history.add(pureCommand);
+                        if (result.getStatusMessage().equals("Login")) {
+                            author = result.getResultMessage().split(" ")[0];
+                            pass = result.getResultMessage().split(" ")[1];
+                        }
+                        logger.info("This is result status: " + result.getStatusMessage());
+                        logger.info("This is result:\n" + result.getResultMessage());
+                    } catch (ExecuteCommandException e) {
+                        logger.warn("Found command. Not arg.");
+                        processCommandFromExecuteScriptLoop(e.getCommand(), scanner);
+                    }
                 }
             }
         }
-    }
 
     private void askForInputCheckForCommand(boolean[] flags, InputData inputData, String input, Scanner scanner) throws ExecuteCommandException {
         if (needsArg(flags)) {
