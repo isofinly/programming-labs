@@ -1,0 +1,127 @@
+2023-04-26 08:24:48,182 INFO interfaces.UI [main] Got a valid command: register
+2023-04-26 08:24:48,191 WARN interfaces.UI [main] Getting input data.
+2023-04-26 08:24:48,191 WARN interfaces.UI [main] No arg for command was found.
+2023-04-26 08:24:48,191 WARN interfaces.UI [main] Got command arg.
+2023-04-26 08:24:48,191 WARN interfaces.UI [main] No input data was provided.
+2023-04-26 08:24:48,191 INFO interfaces.UI [main] Got an InputData: logic.InputData@94446f01
+2023-04-26 08:24:48,191 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 08:25:01,968 INFO interfaces.UI [main] Got a valid command: login mem kek
+2023-04-26 08:25:01,970 WARN interfaces.UI [main] Getting input data.
+2023-04-26 08:25:01,970 INFO interfaces.UI [main] FOUND login or register
+2023-04-26 08:25:01,970 WARN interfaces.UI [main] Got command arg.
+2023-04-26 08:25:01,971 INFO interfaces.UI [main] Got an InputData: logic.InputData@c16e6ebb
+2023-04-26 08:25:01,971 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 08:40:43,337 INFO interfaces.UI [main] Got a valid command: login mem kek
+2023-04-26 08:40:43,340 WARN interfaces.UI [main] Getting input data.
+2023-04-26 08:40:43,340 INFO interfaces.UI [main] FOUND login or register
+2023-04-26 08:40:43,340 WARN interfaces.UI [main] Got command arg.
+2023-04-26 08:40:43,340 INFO interfaces.UI [main] Got an InputData: logic.InputData@c16e6ebb
+2023-04-26 08:40:43,340 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 08:40:59,719 INFO interfaces.UI [main] Got a valid command: show
+2023-04-26 08:40:59,724 WARN interfaces.UI [main] Getting input data.
+2023-04-26 08:40:59,724 WARN interfaces.UI [main] No input data was provided.
+2023-04-26 08:40:59,725 INFO interfaces.UI [main] Got an InputData: logic.InputData@94446f01
+2023-04-26 08:40:59,725 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 08:41:09,921 INFO interfaces.UI [main] Got a valid command: login mem kek
+2023-04-26 08:41:09,923 WARN interfaces.UI [main] Getting input data.
+2023-04-26 08:41:09,923 INFO interfaces.UI [main] FOUND login or register
+2023-04-26 08:41:09,923 WARN interfaces.UI [main] Got command arg.
+2023-04-26 08:41:09,923 INFO interfaces.UI [main] Got an InputData: logic.InputData@c16e6ebb
+2023-04-26 08:41:09,923 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 08:41:12,482 INFO interfaces.UI [main] Got a valid command: show
+2023-04-26 08:41:12,483 WARN interfaces.UI [main] Getting input data.
+2023-04-26 08:41:12,483 WARN interfaces.UI [main] No input data was provided.
+2023-04-26 08:41:12,483 INFO interfaces.UI [main] Got an InputData: logic.InputData@94446f01
+2023-04-26 08:41:12,483 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 08:43:30,530 INFO interfaces.UI [main] Got a valid command: login mem kek
+2023-04-26 08:43:30,532 WARN interfaces.UI [main] Getting input data.
+2023-04-26 08:43:30,532 INFO interfaces.UI [main] FOUND login or register
+2023-04-26 08:43:30,532 WARN interfaces.UI [main] Got command arg.
+2023-04-26 08:43:30,533 INFO interfaces.UI [main] Got an InputData: logic.InputData@c16e6ebb
+2023-04-26 08:43:30,533 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 08:43:36,901 INFO interfaces.UI [main] Got a valid command: show
+2023-04-26 08:43:36,902 WARN interfaces.UI [main] Getting input data.
+2023-04-26 08:43:36,902 WARN interfaces.UI [main] No input data was provided.
+2023-04-26 08:43:36,902 INFO interfaces.UI [main] Got an InputData: logic.InputData@94446f01
+2023-04-26 08:43:36,902 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 08:44:16,406 INFO interfaces.UI [main] Got a valid command: login mem kek
+2023-04-26 08:44:16,408 WARN interfaces.UI [main] Getting input data.
+2023-04-26 08:44:16,408 INFO interfaces.UI [main] FOUND login or register
+2023-04-26 08:44:16,408 WARN interfaces.UI [main] Got command arg.
+2023-04-26 08:44:16,408 INFO interfaces.UI [main] Got an InputData: logic.InputData@c16e6ebb
+2023-04-26 08:44:16,408 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 08:44:18,421 INFO interfaces.UI [main] Got a valid command: show
+2023-04-26 08:44:18,422 WARN interfaces.UI [main] Getting input data.
+2023-04-26 08:44:18,422 WARN interfaces.UI [main] No input data was provided.
+2023-04-26 08:44:18,422 INFO interfaces.UI [main] Got an InputData: logic.InputData@94446f01
+2023-04-26 08:44:18,422 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 08:44:22,958 INFO interfaces.UI [main] Got a valid command: info
+2023-04-26 08:44:22,959 WARN interfaces.UI [main] Getting input data.
+2023-04-26 08:44:22,959 WARN interfaces.UI [main] No input data was provided.
+2023-04-26 08:44:22,959 INFO interfaces.UI [main] Got an InputData: logic.InputData@94446f01
+2023-04-26 08:44:22,959 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 08:48:19,086 INFO interfaces.UI [main] Got a valid command: show
+2023-04-26 08:48:19,093 WARN interfaces.UI [main] Getting input data.
+2023-04-26 08:48:19,094 WARN interfaces.UI [main] No input data was provided.
+2023-04-26 08:48:19,094 INFO interfaces.UI [main] Got an InputData: logic.InputData@94446f01
+2023-04-26 08:48:19,094 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 08:48:21,091 INFO interfaces.UI [main] Got a valid command: show
+2023-04-26 08:48:21,091 WARN interfaces.UI [main] Getting input data.
+2023-04-26 08:48:21,091 WARN interfaces.UI [main] No input data was provided.
+2023-04-26 08:48:21,091 INFO interfaces.UI [main] Got an InputData: logic.InputData@94446f01
+2023-04-26 08:48:21,091 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 08:48:24,702 INFO interfaces.UI [main] Got a valid command: show
+2023-04-26 08:48:24,703 WARN interfaces.UI [main] Getting input data.
+2023-04-26 08:48:24,703 WARN interfaces.UI [main] No input data was provided.
+2023-04-26 08:48:24,703 INFO interfaces.UI [main] Got an InputData: logic.InputData@94446f01
+2023-04-26 08:48:24,703 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 08:48:26,194 INFO interfaces.UI [main] Got a valid command: show
+2023-04-26 08:48:26,195 WARN interfaces.UI [main] Getting input data.
+2023-04-26 08:48:26,195 WARN interfaces.UI [main] No input data was provided.
+2023-04-26 08:48:26,195 INFO interfaces.UI [main] Got an InputData: logic.InputData@94446f01
+2023-04-26 08:48:26,195 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 08:48:27,908 INFO interfaces.UI [main] Got a valid command: show
+2023-04-26 08:48:27,908 WARN interfaces.UI [main] Getting input data.
+2023-04-26 08:48:27,908 WARN interfaces.UI [main] No input data was provided.
+2023-04-26 08:48:27,908 INFO interfaces.UI [main] Got an InputData: logic.InputData@94446f01
+2023-04-26 08:48:27,908 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 10:12:06,994 INFO interfaces.UI [main] Got a valid command: login mem kek
+2023-04-26 10:12:06,996 WARN interfaces.UI [main] Getting input data.
+2023-04-26 10:12:06,997 INFO interfaces.UI [main] FOUND login or register
+2023-04-26 10:12:06,997 WARN interfaces.UI [main] Got command arg.
+2023-04-26 10:12:06,997 INFO interfaces.UI [main] Got an InputData: logic.InputData@c16e6ebb
+2023-04-26 10:12:06,997 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 10:20:15,531 INFO interfaces.UI [main] Got a valid command: login mem kek
+2023-04-26 10:20:15,534 WARN interfaces.UI [main] Getting input data.
+2023-04-26 10:20:15,535 INFO interfaces.UI [main] FOUND login or register
+2023-04-26 10:20:15,535 WARN interfaces.UI [main] Got command arg.
+2023-04-26 10:20:15,535 INFO interfaces.UI [main] Got an InputData: logic.InputData@c16e6ebb
+2023-04-26 10:20:15,535 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 10:23:44,014 INFO interfaces.UI [main] Got a valid command: login mem kek
+2023-04-26 10:23:44,017 WARN interfaces.UI [main] Getting input data.
+2023-04-26 10:23:44,017 INFO interfaces.UI [main] FOUND login or register
+2023-04-26 10:23:44,017 WARN interfaces.UI [main] Got command arg.
+2023-04-26 10:23:44,017 INFO interfaces.UI [main] Got an InputData: logic.InputData@c16e6ebb
+2023-04-26 10:23:44,017 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 10:24:15,139 INFO interfaces.UI [main] Got a valid command: login mem kek
+2023-04-26 10:24:15,145 WARN interfaces.UI [main] Getting input data.
+2023-04-26 10:24:15,145 INFO interfaces.UI [main] FOUND login or register
+2023-04-26 10:24:15,145 WARN interfaces.UI [main] Got command arg.
+2023-04-26 10:24:15,145 INFO interfaces.UI [main] Got an InputData: logic.InputData@c16e6ebb
+2023-04-26 10:24:15,145 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 10:25:38,508 INFO interfaces.UI [main] Got a valid command: login mem kek
+2023-04-26 10:25:38,512 WARN interfaces.UI [main] Getting input data.
+2023-04-26 10:25:38,513 INFO interfaces.UI [main] FOUND login or register
+2023-04-26 10:25:38,513 WARN interfaces.UI [main] Got command arg.
+2023-04-26 10:25:38,513 INFO interfaces.UI [main] Got an InputData: logic.InputData@c16e6ebb
+2023-04-26 10:25:38,513 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 10:26:19,544 INFO interfaces.UI [main] Got a valid command: info
+2023-04-26 10:26:19,545 WARN interfaces.UI [main] Getting input data.
+2023-04-26 10:26:19,545 WARN interfaces.UI [main] No input data was provided.
+2023-04-26 10:26:19,545 INFO interfaces.UI [main] Got an InputData: logic.InputData@94446f01
+2023-04-26 10:26:19,545 INFO logic.RequestHandler [main] Sending input to server...
+2023-04-26 10:26:21,405 INFO interfaces.UI [main] Got a valid command: show
+2023-04-26 10:26:21,405 WARN interfaces.UI [main] Getting input data.
+2023-04-26 10:26:21,405 WARN interfaces.UI [main] No input data was provided.
+2023-04-26 10:26:21,405 INFO interfaces.UI [main] Got an InputData: logic.InputData@94446f01
+2023-04-26 10:26:21,405 INFO logic.RequestHandler [main] Sending input to server...

@@ -1,0 +1,179 @@
+2023-04-26 08:24:42,728 INFO logic.ServerRunner [main] ServerRunner just started initialization.
+2023-04-26 08:24:43,025 INFO logic.ServerRunner [main] Everything went fine.
+2023-04-26 08:24:48,291 WARN thread.CMDManager [Thread-1] Validating command: register for /127.0.0.1:62967
+2023-04-26 08:24:48,293 WARN thread.CMDManager [Thread-1] Executing command: register for /127.0.0.1:62967
+2023-04-26 08:24:48,293 ERROR thread.CMDManager [Thread-1] Command was not found.
+2023-04-26 08:24:48,295 INFO thread.CMDManager [Thread-1] register: That took 4 milliseconds
+2023-04-26 08:24:48,329 INFO thread.WriteHandler [pool-2-thread-1] Sending answer to /127.0.0.1:62967
+2023-04-26 08:24:48,329 INFO thread.WriteHandler [pool-2-thread-1] Sent answer 139 bytes
+2023-04-26 08:25:02,075 WARN thread.CMDManager [Thread-2] Validating command: login for /127.0.0.1:62967
+2023-04-26 08:25:02,075 WARN thread.CMDManager [Thread-2] Executing command: login for /127.0.0.1:62967
+2023-04-26 08:25:02,094 WARN thread.CMDManager [Thread-2] Executed command: login for /127.0.0.1:62967
+2023-04-26 08:25:02,094 INFO thread.CMDManager [Thread-2] login: That took 19 milliseconds
+2023-04-26 08:25:02,124 INFO thread.WriteHandler [pool-2-thread-2] Sending answer to /127.0.0.1:62967
+2023-04-26 08:25:02,125 INFO thread.WriteHandler [pool-2-thread-2] Sent answer 113 bytes
+2023-04-26 08:40:28,411 INFO logic.ServerRunner [main] ServerRunner just started initialization.
+2023-04-26 08:40:28,619 INFO logic.ServerRunner [main] Everything went fine.
+2023-04-26 08:40:35,547 WARN thread.CMDManager [Thread-1] Validating command: connect for /127.0.0.1:57660
+2023-04-26 08:40:35,548 WARN thread.CMDManager [Thread-1] Executing command: connect for /127.0.0.1:57660
+2023-04-26 08:40:35,549 WARN thread.CMDManager [Thread-1] Executed command: connect for /127.0.0.1:57660
+2023-04-26 08:40:35,549 INFO thread.CMDManager [Thread-1] connect: That took 2 milliseconds
+2023-04-26 08:40:35,586 INFO thread.WriteHandler [pool-1-thread-1] Sending answer to /127.0.0.1:57660
+2023-04-26 08:40:35,586 INFO thread.WriteHandler [pool-1-thread-1] Sent answer 150 bytes
+2023-04-26 08:40:43,405 WARN thread.CMDManager [Thread-2] Validating command: login for /127.0.0.1:57660
+2023-04-26 08:40:43,406 WARN thread.CMDManager [Thread-2] Executing command: login for /127.0.0.1:57660
+2023-04-26 08:40:43,418 WARN thread.CMDManager [Thread-2] Executed command: login for /127.0.0.1:57660
+2023-04-26 08:40:43,418 INFO thread.CMDManager [Thread-2] login: That took 13 milliseconds
+2023-04-26 08:40:43,456 INFO thread.WriteHandler [pool-1-thread-2] Sending answer to /127.0.0.1:57660
+2023-04-26 08:40:43,456 INFO thread.WriteHandler [pool-1-thread-2] Sent answer 113 bytes
+2023-04-26 08:40:59,795 WARN thread.CMDManager [Thread-3] Validating command: show for /127.0.0.1:57660
+2023-04-26 08:40:59,846 INFO thread.WriteHandler [pool-1-thread-3] Sending answer to /127.0.0.1:57660
+2023-04-26 08:40:59,847 INFO thread.WriteHandler [pool-1-thread-3] Sent answer 146 bytes
+2023-04-26 08:41:09,989 WARN thread.CMDManager [Thread-4] Validating command: login for /127.0.0.1:57660
+2023-04-26 08:41:09,990 WARN thread.CMDManager [Thread-4] Executing command: login for /127.0.0.1:57660
+2023-04-26 08:41:09,993 WARN thread.CMDManager [Thread-4] Executed command: login for /127.0.0.1:57660
+2023-04-26 08:41:09,993 INFO thread.CMDManager [Thread-4] login: That took 4 milliseconds
+2023-04-26 08:41:10,041 INFO thread.WriteHandler [pool-1-thread-4] Sending answer to /127.0.0.1:57660
+2023-04-26 08:41:10,041 INFO thread.WriteHandler [pool-1-thread-4] Sent answer 113 bytes
+2023-04-26 08:41:12,550 WARN thread.CMDManager [Thread-5] Validating command: show for /127.0.0.1:57660
+2023-04-26 08:41:12,601 INFO thread.WriteHandler [pool-1-thread-5] Sending answer to /127.0.0.1:57660
+2023-04-26 08:41:12,601 INFO thread.WriteHandler [pool-1-thread-5] Sent answer 146 bytes
+2023-04-26 08:43:24,431 INFO logic.ServerRunner [main] ServerRunner just started initialization.
+2023-04-26 08:43:24,658 INFO logic.ServerRunner [main] Everything went fine.
+2023-04-26 08:43:30,640 WARN thread.CMDManager [Thread-1] Validating command: login for /127.0.0.1:51568
+2023-04-26 08:43:30,641 WARN thread.CMDManager [Thread-1] Executing command: login for /127.0.0.1:51568
+2023-04-26 08:43:30,672 WARN thread.CMDManager [Thread-1] Executed command: login for /127.0.0.1:51568
+2023-04-26 08:43:30,672 INFO thread.CMDManager [Thread-1] login: That took 33 milliseconds
+2023-04-26 08:43:30,676 INFO thread.WriteHandler [pool-1-thread-1] Sending answer to /127.0.0.1:51568
+2023-04-26 08:43:30,676 INFO thread.WriteHandler [pool-1-thread-1] Sent answer 113 bytes
+2023-04-26 08:43:36,954 WARN thread.CMDManager [Thread-2] Validating command: show for /127.0.0.1:51568
+2023-04-26 08:43:37,004 INFO thread.WriteHandler [pool-1-thread-2] Sending answer to /127.0.0.1:51568
+2023-04-26 08:43:37,004 INFO thread.WriteHandler [pool-1-thread-2] Sent answer 146 bytes
+2023-04-26 08:44:07,810 INFO logic.ServerRunner [main] ServerRunner just started initialization.
+2023-04-26 08:44:08,214 INFO logic.ServerRunner [main] Everything went fine.
+2023-04-26 08:44:11,362 WARN thread.CMDManager [Thread-1] Validating command: connect for /127.0.0.1:58157
+2023-04-26 08:44:11,363 WARN thread.CMDManager [Thread-1] Executing command: connect for /127.0.0.1:58157
+2023-04-26 08:44:11,363 WARN thread.CMDManager [Thread-1] Executed command: connect for /127.0.0.1:58157
+2023-04-26 08:44:11,363 INFO thread.CMDManager [Thread-1] connect: That took 1 milliseconds
+2023-04-26 08:44:11,379 INFO thread.WriteHandler [pool-1-thread-1] Sending answer to /127.0.0.1:58157
+2023-04-26 08:44:11,379 INFO thread.WriteHandler [pool-1-thread-1] Sent answer 150 bytes
+2023-04-26 08:44:16,471 WARN thread.CMDManager [Thread-2] Validating command: login for /127.0.0.1:58157
+2023-04-26 08:44:16,472 WARN thread.CMDManager [Thread-2] Executing command: login for /127.0.0.1:58157
+2023-04-26 08:44:16,482 WARN thread.CMDManager [Thread-2] Executed command: login for /127.0.0.1:58157
+2023-04-26 08:44:16,482 INFO thread.CMDManager [Thread-2] login: That took 11 milliseconds
+2023-04-26 08:44:16,522 INFO thread.WriteHandler [pool-1-thread-2] Sending answer to /127.0.0.1:58157
+2023-04-26 08:44:16,522 INFO thread.WriteHandler [pool-1-thread-2] Sent answer 113 bytes
+2023-04-26 08:44:18,488 WARN thread.CMDManager [Thread-3] Validating command: show for /127.0.0.1:58157
+2023-04-26 08:44:18,491 WARN thread.CMDManager [Thread-3] Executing command: show for /127.0.0.1:58157
+2023-04-26 08:44:18,646 WARN thread.CMDManager [Thread-3] Executed command: show for /127.0.0.1:58157
+2023-04-26 08:44:18,646 INFO thread.CMDManager [Thread-3] show: That took 158 milliseconds
+2023-04-26 08:44:18,837 INFO thread.WriteHandler [pool-1-thread-3] Sending answer to /127.0.0.1:58157
+2023-04-26 08:44:18,838 INFO thread.WriteHandler [pool-1-thread-3] Sent answer 1172096 bytes
+2023-04-26 08:44:23,028 WARN thread.CMDManager [Thread-4] Validating command: info for /127.0.0.1:58157
+2023-04-26 08:44:23,032 WARN thread.CMDManager [Thread-4] Executing command: info for /127.0.0.1:58157
+2023-04-26 08:44:23,032 WARN thread.CMDManager [Thread-4] Executed command: info for /127.0.0.1:58157
+2023-04-26 08:44:23,032 INFO thread.CMDManager [Thread-4] info: That took 4 milliseconds
+2023-04-26 08:44:23,079 INFO thread.WriteHandler [pool-1-thread-4] Sending answer to /127.0.0.1:58157
+2023-04-26 08:44:23,079 INFO thread.WriteHandler [pool-1-thread-4] Sent answer 194 bytes
+2023-04-26 08:48:19,145 WARN thread.CMDManager [Thread-5] Validating command: show for /127.0.0.1:58157
+2023-04-26 08:48:19,152 WARN thread.CMDManager [Thread-5] Executing command: show for /127.0.0.1:58157
+2023-04-26 08:48:19,206 WARN thread.CMDManager [Thread-5] Executed command: show for /127.0.0.1:58157
+2023-04-26 08:48:19,206 INFO thread.CMDManager [Thread-5] show: That took 62 milliseconds
+2023-04-26 08:48:19,286 INFO thread.WriteHandler [pool-1-thread-5] Sending answer to /127.0.0.1:58157
+2023-04-26 08:48:19,286 INFO thread.WriteHandler [pool-1-thread-5] Sent answer 1172096 bytes
+2023-04-26 08:48:21,131 WARN thread.CMDManager [Thread-6] Validating command: show for /127.0.0.1:58157
+2023-04-26 08:48:21,134 WARN thread.CMDManager [Thread-6] Executing command: show for /127.0.0.1:58157
+2023-04-26 08:48:21,182 WARN thread.CMDManager [Thread-6] Executed command: show for /127.0.0.1:58157
+2023-04-26 08:48:21,182 INFO thread.CMDManager [Thread-6] show: That took 51 milliseconds
+2023-04-26 08:48:21,248 INFO thread.WriteHandler [pool-1-thread-6] Sending answer to /127.0.0.1:58157
+2023-04-26 08:48:21,248 INFO thread.WriteHandler [pool-1-thread-6] Sent answer 1172096 bytes
+2023-04-26 08:48:24,771 WARN thread.CMDManager [Thread-7] Validating command: show for /127.0.0.1:58157
+2023-04-26 08:48:24,774 WARN thread.CMDManager [Thread-7] Executing command: show for /127.0.0.1:58157
+2023-04-26 08:48:24,808 WARN thread.CMDManager [Thread-7] Executed command: show for /127.0.0.1:58157
+2023-04-26 08:48:24,808 INFO thread.CMDManager [Thread-7] show: That took 37 milliseconds
+2023-04-26 08:48:24,838 INFO thread.WriteHandler [pool-1-thread-7] Sending answer to /127.0.0.1:58157
+2023-04-26 08:48:24,838 INFO thread.WriteHandler [pool-1-thread-7] Sent answer 1172096 bytes
+2023-04-26 08:48:26,246 WARN thread.CMDManager [Thread-8] Validating command: show for /127.0.0.1:58157
+2023-04-26 08:48:26,247 WARN thread.CMDManager [Thread-8] Executing command: show for /127.0.0.1:58157
+2023-04-26 08:48:26,273 WARN thread.CMDManager [Thread-8] Executed command: show for /127.0.0.1:58157
+2023-04-26 08:48:26,273 INFO thread.CMDManager [Thread-8] show: That took 28 milliseconds
+2023-04-26 08:48:26,340 INFO thread.WriteHandler [pool-1-thread-8] Sending answer to /127.0.0.1:58157
+2023-04-26 08:48:26,340 INFO thread.WriteHandler [pool-1-thread-8] Sent answer 1172096 bytes
+2023-04-26 08:48:27,947 WARN thread.CMDManager [Thread-9] Validating command: show for /127.0.0.1:58157
+2023-04-26 08:48:27,948 WARN thread.CMDManager [Thread-9] Executing command: show for /127.0.0.1:58157
+2023-04-26 08:48:27,973 WARN thread.CMDManager [Thread-9] Executed command: show for /127.0.0.1:58157
+2023-04-26 08:48:27,973 INFO thread.CMDManager [Thread-9] show: That took 27 milliseconds
+2023-04-26 08:48:28,011 INFO thread.WriteHandler [pool-1-thread-9] Sending answer to /127.0.0.1:58157
+2023-04-26 08:48:28,011 INFO thread.WriteHandler [pool-1-thread-9] Sent answer 1172096 bytes
+2023-04-26 10:12:01,719 INFO logic.ServerRunner [main] ServerRunner just started initialization.
+2023-04-26 10:12:02,144 INFO logic.ServerRunner [main] Everything went fine.
+2023-04-26 10:12:07,073 WARN thread.CMDManager [Thread-1] Validating command: login for /127.0.0.1:61439
+2023-04-26 10:12:07,074 WARN thread.CMDManager [Thread-1] Executing command: login for /127.0.0.1:61439
+2023-04-26 10:12:07,086 WARN thread.CMDManager [Thread-1] Executed command: login for /127.0.0.1:61439
+2023-04-26 10:12:07,086 INFO thread.CMDManager [Thread-1] login: That took 13 milliseconds
+2023-04-26 10:13:57,626 WARN thread.CMDManager [Thread-2] Validating command: connect for /127.0.0.1:63251
+2023-04-26 10:13:57,631 WARN thread.CMDManager [Thread-2] Executing command: connect for /127.0.0.1:63251
+2023-04-26 10:13:57,631 WARN thread.CMDManager [Thread-2] Executed command: connect for /127.0.0.1:63251
+2023-04-26 10:13:57,632 INFO thread.CMDManager [Thread-2] connect: That took 6 milliseconds
+2023-04-26 10:14:09,135 WARN thread.CMDManager [Thread-3] Validating command: connect for /127.0.0.1:55926
+2023-04-26 10:14:09,137 WARN thread.CMDManager [Thread-3] Executing command: connect for /127.0.0.1:55926
+2023-04-26 10:14:09,137 WARN thread.CMDManager [Thread-3] Executed command: connect for /127.0.0.1:55926
+2023-04-26 10:14:09,137 INFO thread.CMDManager [Thread-3] connect: That took 3 milliseconds
+2023-04-26 10:14:11,225 WARN thread.CMDManager [Thread-4] Validating command: connect for /127.0.0.1:50881
+2023-04-26 10:14:11,225 WARN thread.CMDManager [Thread-4] Executing command: connect for /127.0.0.1:50881
+2023-04-26 10:14:11,226 WARN thread.CMDManager [Thread-4] Executed command: connect for /127.0.0.1:50881
+2023-04-26 10:14:11,226 INFO thread.CMDManager [Thread-4] connect: That took 2 milliseconds
+2023-04-26 10:20:05,740 WARN thread.CMDManager [Thread-5] Validating command: connect for /127.0.0.1:58107
+2023-04-26 10:20:05,742 WARN thread.CMDManager [Thread-5] Executing command: connect for /127.0.0.1:58107
+2023-04-26 10:20:05,743 WARN thread.CMDManager [Thread-5] Executed command: connect for /127.0.0.1:58107
+2023-04-26 10:20:05,743 INFO thread.CMDManager [Thread-5] connect: That took 4 milliseconds
+2023-04-26 10:20:05,848 WARN thread.CMDManager [Thread-6] Validating command: connect for /127.0.0.1:58107
+2023-04-26 10:20:05,848 WARN thread.CMDManager [Thread-6] Executing command: connect for /127.0.0.1:58107
+2023-04-26 10:20:05,848 WARN thread.CMDManager [Thread-6] Executed command: connect for /127.0.0.1:58107
+2023-04-26 10:20:05,848 INFO thread.CMDManager [Thread-6] connect: That took 0 milliseconds
+2023-04-26 10:20:11,289 WARN thread.CMDManager [Thread-7] Validating command: connect for /127.0.0.1:62549
+2023-04-26 10:20:11,289 WARN thread.CMDManager [Thread-7] Executing command: connect for /127.0.0.1:62549
+2023-04-26 10:20:11,289 WARN thread.CMDManager [Thread-7] Executed command: connect for /127.0.0.1:62549
+2023-04-26 10:20:11,289 INFO thread.CMDManager [Thread-7] connect: That took 0 milliseconds
+2023-04-26 10:20:11,337 WARN thread.CMDManager [Thread-8] Validating command: connect for /127.0.0.1:62549
+2023-04-26 10:20:11,338 WARN thread.CMDManager [Thread-8] Executing command: connect for /127.0.0.1:62549
+2023-04-26 10:20:11,338 WARN thread.CMDManager [Thread-8] Executed command: connect for /127.0.0.1:62549
+2023-04-26 10:20:11,338 INFO thread.CMDManager [Thread-8] connect: That took 1 milliseconds
+2023-04-26 10:20:15,612 WARN thread.CMDManager [Thread-9] Validating command: login for /127.0.0.1:62549
+2023-04-26 10:20:15,613 WARN thread.CMDManager [Thread-9] Executing command: login for /127.0.0.1:62549
+2023-04-26 10:20:15,623 WARN thread.CMDManager [Thread-9] Executed command: login for /127.0.0.1:62549
+2023-04-26 10:20:15,624 INFO thread.CMDManager [Thread-9] login: That took 12 milliseconds
+2023-04-26 10:20:32,089 WARN thread.CMDManager [Thread-10] Validating command: connect for /127.0.0.1:55168
+2023-04-26 10:20:32,090 WARN thread.CMDManager [Thread-10] Executing command: connect for /127.0.0.1:55168
+2023-04-26 10:20:32,090 WARN thread.CMDManager [Thread-10] Executed command: connect for /127.0.0.1:55168
+2023-04-26 10:20:32,090 INFO thread.CMDManager [Thread-10] connect: That took 1 milliseconds
+2023-04-26 10:23:27,209 INFO logic.ServerRunner [main] ServerRunner just started initialization.
+2023-04-26 10:23:27,385 INFO logic.ServerRunner [main] Everything went fine.
+2023-04-26 10:23:44,100 WARN thread.CMDManager [Thread-1] Validating command: login for /127.0.0.1:54629
+2023-04-26 10:23:44,101 WARN thread.CMDManager [Thread-1] Executing command: login for /127.0.0.1:54629
+2023-04-26 10:23:44,116 WARN thread.CMDManager [Thread-1] Executed command: login for /127.0.0.1:54629
+2023-04-26 10:23:44,117 INFO thread.CMDManager [Thread-1] login: That took 18 milliseconds
+2023-04-26 10:24:15,205 WARN thread.CMDManager [Thread-2] Validating command: login for /127.0.0.1:60370
+2023-04-26 10:24:15,206 WARN thread.CMDManager [Thread-2] Executing command: login for /127.0.0.1:60370
+2023-04-26 10:24:15,209 WARN thread.CMDManager [Thread-2] Executed command: login for /127.0.0.1:60370
+2023-04-26 10:24:15,209 INFO thread.CMDManager [Thread-2] login: That took 4 milliseconds
+2023-04-26 10:25:26,198 INFO logic.ServerRunner [main] ServerRunner just started initialization.
+2023-04-26 10:25:26,443 INFO logic.ServerRunner [main] Everything went fine.
+2023-04-26 10:25:38,660 WARN thread.CMDManager [Thread-1] Validating command: login for /127.0.0.1:58044
+2023-04-26 10:25:38,665 WARN thread.CMDManager [Thread-1] Executing command: login for /127.0.0.1:58044
+2023-04-26 10:25:38,682 WARN thread.CMDManager [Thread-1] Executed command: login for /127.0.0.1:58044
+2023-04-26 10:25:38,682 INFO thread.CMDManager [Thread-1] login: That took 23 milliseconds
+2023-04-26 10:25:38,692 INFO thread.WriteHandler [pool-1-thread-1] Sending answer to /127.0.0.1:58044
+2023-04-26 10:25:38,692 INFO thread.WriteHandler [pool-1-thread-1] Sent answer 113 bytes
+2023-04-26 10:26:19,622 WARN thread.CMDManager [Thread-2] Validating command: info for /127.0.0.1:58044
+2023-04-26 10:26:19,628 WARN thread.CMDManager [Thread-2] Executing command: info for /127.0.0.1:58044
+2023-04-26 10:26:19,629 WARN thread.CMDManager [Thread-2] Executed command: info for /127.0.0.1:58044
+2023-04-26 10:26:19,629 INFO thread.CMDManager [Thread-2] info: That took 8 milliseconds
+2023-04-26 10:26:19,671 INFO thread.WriteHandler [pool-1-thread-2] Sending answer to /127.0.0.1:58044
+2023-04-26 10:26:19,672 INFO thread.WriteHandler [pool-1-thread-2] Sent answer 194 bytes
+2023-04-26 10:26:21,440 WARN thread.CMDManager [Thread-3] Validating command: show for /127.0.0.1:58044
+2023-04-26 10:26:21,442 WARN thread.CMDManager [Thread-3] Executing command: show for /127.0.0.1:58044
+2023-04-26 10:26:21,560 WARN thread.CMDManager [Thread-3] Executed command: show for /127.0.0.1:58044
+2023-04-26 10:26:21,560 INFO thread.CMDManager [Thread-3] show: That took 120 milliseconds
+2023-04-26 10:26:21,646 INFO thread.WriteHandler [pool-1-thread-3] Sending answer to /127.0.0.1:58044
+2023-04-26 10:26:21,647 INFO thread.WriteHandler [pool-1-thread-3] Sent answer 1172096 bytes
