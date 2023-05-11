@@ -1,0 +1,71 @@
+routesTable:Таблічны прагляд
+routesGraph:Графічны прагляд
+languageMenuName:Мовы
+commandsMenuName:Каманды
+addCommand:Дадаць
+addCommandTitle:Дадаць маршрут
+infoCommand:Інфармацыя
+infoResponse:Тып калекцыі: {0}\nКолькасць элементаў: {1}
+uniqueDistancesCommand:Выдрукаваць унікальныя адлегласці
+clearCommand:Ачысціць
+removeAllByDistanceCommand:Выдаліць усе па адлегласці
+distancePrompt:Увядзіце адлегласць
+sumOfDistancesCommand:Сума адлегласцей
+sumOfDistancesResponse:Сума адлегласцей: {0}
+executeScriptCommand:Выканаць скрыпт
+scriptChooserTitle:Выбраць скрыпт для выканання
+scriptResultTitle:Вынік выканання скрыпту
+commandResultLabel:Вынік каманды
+commandSuccessLabel:Паспяхова выкананая каманда
+addressLabel:Адрас
+addressPrompt:Увядзіце ваш адрас
+portLabel:Порт
+portPrompt:Увядзіце ваш порт
+connectButton:Падключыцца
+invalidAddress:Вы ўвялі некарэктны адрас
+loginHeader:Кіраўнік маршрутаў
+loginSubHeader:Калі ласка, увайдзіце або зарэгіструйцеся
+loginLabel:Уваход
+loginPrompt:Увядзіце ваш лагін
+passwordLabel:Пароль
+passwordPrompt:Увядзіце ваш пароль
+usernameTaken:Гэты лагін ўжо заняты
+incorrectCredentials:Няправільны лагін або пароль
+loginButton:Уваход
+logoutButton:Выйсці
+registerButton:Рэгістрацыя
+disconnectButton:Адключыцца
+updateButton:Абнавіць
+deleteButton:Выдаліць
+loggedInAsLabel:Увайшлі як: {0}
+selectedLabel:Выбрана: {0}
+filterLabel:Фільтр
+noFilterLabel:Фільтр не прымяняецца
+noneLabel:Нічога
+idLabel:ІД
+nameLabel:Імя
+distanceLabel:Адлегласць
+creationDateLabel:Дата стварэння
+startingLocationNameLabel:Назва пачатковай лакацыі
+startingLocationXLabel:Пачатковая лакацыя X
+startingLocationYLabel:Пачатковая лакацыя Y
+startingLocationZLabel:Пачатковая лакацыя Z
+endingLocationNameLabel
+endingLocationNameLabel:Назва заканчэння
+endingLocationXLabel:Каардыната X заканчэння
+endingLocationYLabel:Каардыната Y заканчэння
+endingLocationZLabel:Каардыната Z заканчэння
+ownerLabel:Валадальнік
+operandLabel:Аператар
+invalidOperandLabel:Некарэктная значэнне аператара
+searchPromptLabel:Пошук...
+invalidValue:Некарэктнае значэнне
+idNotNull:ID маршрутаў не можа быць пустым
+idGreaterThan0:ID маршрутаў павінен быць больш за 0
+routeNameNotEmpty:Назва маршруту не можа быць пустой
+distanceGreaterThan1:Дыстанцыя маршруту павінна быць больш за 1
+locationNameNotNull:Назва месцы не можа быць пустой
+coordinatesYNotNull:Каардыната Y не можа быць пустой
+invalidResponse:Некарэктны адказ
+error:Памылка
+networkError:Адбылася памылка пры спробе злучэння з серверам

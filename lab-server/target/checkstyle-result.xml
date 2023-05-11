@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.37">
+<file name="/Users/isofinly/VSC-Projects/itmo_lab_5_8/lab-server/src/main/java/com/iso/server/collectionmanagers/xmlcollectionutil/XMLRouteWriter.java">
+</file>
+<file name="/Users/isofinly/VSC-Projects/itmo_lab_5_8/lab-server/src/main/java/com/iso/server/collectionmanagers/xmlcollectionutil/XMLCollectionWriter.java">
+</file>
+<file name="/Users/isofinly/VSC-Projects/itmo_lab_5_8/lab-server/src/main/java/com/iso/server/collectionmanagers/xmlcollectionutil/XMLCollectionParser.java">
+</file>
+<file name="/Users/isofinly/VSC-Projects/itmo_lab_5_8/lab-server/src/main/java/com/iso/server/collectionmanagers/xmlcollectionutil/XMLRouteParser.java">
+</file>
+<file name="/Users/isofinly/VSC-Projects/itmo_lab_5_8/lab-server/src/main/java/com/iso/server/collectionmanagers/SaveableCollectionManager.java">
+</file>
+<file name="/Users/isofinly/VSC-Projects/itmo_lab_5_8/lab-server/src/main/java/com/iso/server/collectionmanagers/FileCollectionManager.java">
+</file>
+<file name="/Users/isofinly/VSC-Projects/itmo_lab_5_8/lab-server/src/main/java/com/iso/server/collectionmanagers/SqlCollectionManager.java">
+</file>
+<file name="/Users/isofinly/VSC-Projects/itmo_lab_5_8/lab-server/src/main/java/com/iso/server/ServerInstance.java">
+</file>
+<file name="/Users/isofinly/VSC-Projects/itmo_lab_5_8/lab-server/src/main/java/com/iso/server/ObjectSocketWrapper.java">
+</file>
+<file name="/Users/isofinly/VSC-Projects/itmo_lab_5_8/lab-server/src/main/java/com/iso/server/Server.java">
+</file>
+<file name="/Users/isofinly/VSC-Projects/itmo_lab_5_8/lab-server/src/main/java/com/iso/server/usermanagers/BasicUserManager.java">
+</file>
+<file name="/Users/isofinly/VSC-Projects/itmo_lab_5_8/lab-server/src/main/java/com/iso/server/usermanagers/SqlUserManager.java">
+</file>
+</checkstyle>
