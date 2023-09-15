@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnection {
-    private static String login = "s368823";
-    private static String password = "9qUCodTwjXcfGpx8";
+    private static String login = "";
+    private static String password = "";
     private static String URL = "jdbc:postgresql://pg:5432/studs";
 //    private static String login = "postgres";
 //    private static String password = "pgpwd";
